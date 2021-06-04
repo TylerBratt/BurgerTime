@@ -2,7 +2,12 @@ Rails.application.routes.draw do
   
   namespace :api do
     resources :users
+    get '/extburgers' => "external_burgers#get_external_burgers"
   end
+
+
+  #resources external_burgers
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
