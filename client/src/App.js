@@ -1,6 +1,6 @@
-import logo from './logo.svg';
 import './App.css';
 import React from 'react';
+import useApplicationData from './hooks/useApplicationData'
 const App = () => {
   const {
     state,
