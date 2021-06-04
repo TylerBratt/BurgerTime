@@ -5,7 +5,7 @@ import useApplicationData from './hooks/useApplicationData'
 import Home from './components/Home'
 import Login from './components/Login'
 import Register from './components/Register'
-import Navbar from './components/Navbar'
+import BurgerNavbar from './components/Navbar'
 import Burger from './components/Burger'
 import AddBurger from './components/AddBurger'
 import Burgers from './components/Burgers'
@@ -22,7 +22,7 @@ function App() {
 
   ));
   return (<div className="App" >
-    <Navbar />
+    <BurgerNavbar />
     {currentView === "Home" && <Home />}
     {currentView === "Login" && <Login />}
     {currentView === "Register" && <Register />}

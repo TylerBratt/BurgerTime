@@ -1,0 +1,20 @@
+.logo {
+  font-size: 28px;
+  padding-left: 15px;
+}
+
+#rightNav {
+  display: flex;
+  position: absolute;
+  right: 15px;
+}
+
+a.navbar {
+  color: white;
+  text-decoration: none;
+  padding-right: 15px;
+}
+
+nav.navbar.navbar-expand.navbar-dark.bg-dark {
+  background-color: #343a40;
+}
