@@ -1,43 +1,39 @@
 import './App.css';
-import React from 'react';
+import React, { useState } from 'react'
+// import axios from 'axios'
 import useApplicationData from './hooks/useApplicationData'
-const App = () => {
-  const {
-    state,
-    dispatch
-  } = useApplicationData();
+import Home from './components/Home'
+import Login from './components/Login'
+import Register from './components/Register'
+import Navbar from './components/Navbar'
+import Burger from './components/Burger'
+import AddBurger from './components/AddBurger'
+import Burgers from './components/Burgers'
+import Restaurant from './components/Restaurant'
+import Restaurants from './components/Restaurants'
+import Favourites from './components/Favourites'
+
+
+function App() {
+  const [currentView, setCurrentView] = useState('')
+  const { state, dispatch } = useApplicationData();
   
   const userList = state.users.map((user) => (<li key={user.id} > {user.name} </li>
-  //const userList = state.users.map((user) => (<li key={user.id} > {user.first_name} {user.last_name} {user.email} </li>
+
   ));
   return (<div className="App" >
-    <h1> Users </h1>
-
-    <ul> {userList} </ul>
-  </div >
+    <Navbar />
+    {currentView === "Home" && <Home />}
+    {currentView === "Login" && <Login />}
+    {currentView === "Register" && <Register />}
+    {currentView === "Burger" && <Burger />}
+    {currentView === "AddBurger" && <AddBurger />}
+    {currentView === "Burgers" && <Burgers />}
+    {currentView === "Restaurant" && <Restaurant />}
+    {currentView === "Restaurants" && <Restaurants />}
+    {currentView === "Favourites" && <Favourites />}
+    </div> 
   );
 };
-
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
 
 export default App;
