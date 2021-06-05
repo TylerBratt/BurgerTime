@@ -1,5 +1,5 @@
 import './App.css';
-import React, { Component } from 'react'
+import React, { useState, Component } from 'react'
 import {
   BrowserRouter as Router,
   Switch,
@@ -7,6 +7,7 @@ import {
   // Link,
 } from "react-router-dom";
 import axios from 'axios'
+import useApplicationData from './hooks/useApplicationData'
 // import useApplicationData from './hooks/useApplicationData'
 import Home from './components/Home'
 import Login from './components/Login'
@@ -53,12 +54,21 @@ handleLogout = () => {
     user: {}
     })
   }
+
+    // const { state, dispatch } = useApplicationData();
+    // const [currentView, setCurrentView] = useState('')
+    // const userList = state.users.map((user) => (<li key={user.id} > {user.first_name} {user.last_name} {user.email} </li>));
+    // const extburgerList = state.extburgers.map((extburger) =>(<li key={extburger.id}> {extburger.name} {extburger.restaurant}</li>));
+  
   render() {
+  
     return (
       <div>
         <Router>
           <Switch>
-            <BurgerNavbar />
+            {/* <BurgerNavbar /> */}
+            {/* <ul> {userList} </ul>
+            <ul> {extburgerList} </ul> */}
             <Route exact path='/' component={Home}/>
             <Route exact path='/login' component={Login}/>
             <Route exact path='/register' component={Register}/>

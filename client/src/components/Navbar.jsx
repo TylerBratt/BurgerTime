@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import Navbar from 'react-bootstrap/Navbar'
 import './Navbar.css'
 
@@ -18,8 +19,9 @@ export default function BurgerNavbar(props) {
       <div className='logo'>BurgerTime</div> 
     </Navbar.Brand>
     <div id="rightNav">
-      <a href="Login"className='navbar'>Login</a>
-      <a href="Register"className='navbar'>Register</a>
+    <Link to='/login'>Log In</Link>
+      <br></br>
+    <Link to='/register'>Sign Up</Link>
     </div>
   </Navbar>
     </div>
