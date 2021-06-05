@@ -1,11 +1,32 @@
+
 .table {
-  width: 800px;
-}
-Button {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
+  width: 80vw;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.table a {
+  text-decoration: none;
+}
+
+.panel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 200px;
-  width: 350px;
-  margin: 130px;
-  background-color: darkgoldenrod;
+  width: 400px;
+  margin: 15px;
+  border: 1px solid black;
+  text-decoration: none;
+  font-size: 32px;
+  color: black;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px lightgrey;
+}
+
+.panel:hover {
+  background-color:lightgray;
 }

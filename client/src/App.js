@@ -15,10 +15,11 @@ import Register from './components/Register'
 import BurgerNavbar from './components/Navbar'
 // import Burger from './components/Burger'
 // import AddBurger from './components/AddBurger'
-// import Burgers from './components/Burgers'
+import Burgers from './components/Burgers'
 // import Restaurant from './components/Restaurant'
-// import Restaurants from './components/Restaurants'
+import Restaurants from './components/Restaurants'
 // import Favourites from './components/Favourites'
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -72,6 +73,8 @@ handleLogout = () => {
             <Route exact path='/' component={Home}/>
             <Route exact path='/login' component={Login}/>
             <Route exact path='/register' component={Register}/>
+            <Route exact path='/burgers' component={Burgers}/>
+            <Route exact path='/restaurants' component={Restaurants}/>
           </Switch>
         </Router>
       </div>

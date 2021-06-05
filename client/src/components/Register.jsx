@@ -1,5 +1,6 @@
 import React, { Component }from 'react'
 import axios from 'axios'
+import BurgerNavbar from './Navbar';
 
 class Register extends Component {
   constructor(props) {
@@ -30,7 +31,7 @@ class Register extends Component {
       password: password,
       password_confirmation: password_confirmation
     }
-axios.post('http://localhost:3001/users', {user}, {withCredentials: true})
+axios.post('http://localhost:3001/api/users', {user}, {withCredentials: true})
     .then(response => {
       if (response.data.status === 'created') {
         this.props.handleLogin(response.data)
@@ -61,6 +62,7 @@ handleErrors = () => {
     const {first_name, last_name, email, password, password_confirmation} = this.state
     return (
       <div>
+        <BurgerNavbar />
         <h1>Register</h1>
         <form onSubmit={this.handleSubmit}>
           <input 
