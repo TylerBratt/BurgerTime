@@ -1,5 +1,11 @@
 import './App.css';
 import React, { useState } from 'react'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 // import axios from 'axios'
 import useApplicationData from './hooks/useApplicationData'
 import Home from './components/Home'
@@ -36,7 +42,11 @@ function App() {
     {currentView === "Restaurant" && <Restaurant />}
     {currentView === "Restaurants" && <Restaurants />}
     {currentView === "Favourites" && <Favourites />}
-    </div> 
+
+      {/* <h1>users
+        <ul>{userList}</ul>
+      </h1> */}
+  </div> 
   );
 };
 
