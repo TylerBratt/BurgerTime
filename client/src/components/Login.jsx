@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import { Component } from 'react'
 import {Link} from 'react-router-dom'
+import BurgerNavbar from './Navbar';
 
 class Login extends Component {
   constructor(props) {
@@ -15,7 +16,7 @@ class Login extends Component {
 
   handleChange = (event) => {
     const {name, value} = event.target
-    this.setStae({
+    this.setState({
       [name]:value
     })
   };
@@ -27,7 +28,7 @@ class Login extends Component {
       password: password
     }
     
-axios.post('http://localhost:3001/login', {user}, {withCredentials: true})
+axios.post('http://localhost:3001/api/login', {user}, {withCredentials: true})
     .then(response => {
       if (response.data.logged_in) {
         this.props.handleLogin(response.data)
@@ -56,8 +57,10 @@ handleErrors = () => {
   };
   render(){
     const {email, password} = this.state
+    
     return(
       <div>
+        <BurgerNavbar />
         <h1>Log In</h1>
         <form onSubmit={this.handleSubmit}>
           
@@ -69,7 +72,7 @@ handleErrors = () => {
             onChange={this.handleChange}
           />
           <input
-            placeholder='fpassword'
+            placeholder='password'
             type="password"
             name='password'
             value={password}

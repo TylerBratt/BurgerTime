@@ -9,12 +9,12 @@
   right: 15px;
 }
 
-a.navbar {
+#rightNav a{
   color: white;
   text-decoration: none;
   padding-right: 15px;
 }
 
 nav.navbar.navbar-expand.navbar-dark.bg-dark {
-  background-color: #343a40;
+  background-color: #354034;
 }

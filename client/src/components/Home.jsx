@@ -1,6 +1,5 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import Button from 'react-bootstrap/Button'
 import './Home.css'
 import BurgerNavbar from './Navbar'
 
@@ -9,13 +8,12 @@ export default function Home(props) {
   return(
   <div>
     <BurgerNavbar />
-    <section class='table'>
-      <Button variant="light">Burgers</Button>
-      <Button variant="light">Restaurant</Button>
-      <Button variant="light">Search</Button>
-      <Button variant="light">About Us</Button>
-
-    </section>
+    <div className='table'>
+      <Link to='/Burgers'><div className='panel'><p>Burgers</p></div></Link>
+      <Link to='/Restaurants'><div className='panel'>Restaurants</div></Link>
+      <Link to='/Search'><div className='panel'>Search</div></Link>
+      <Link to='/About'><div className='panel'>About Us</div></Link>
+    </div>
   </div>
   )
 };

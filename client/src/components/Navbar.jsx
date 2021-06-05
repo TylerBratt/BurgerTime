@@ -8,7 +8,7 @@ export default function BurgerNavbar(props) {
   return (
     <div>
   <Navbar bg="dark" variant="dark">
-    <Navbar.Brand href="/Home">
+    <Navbar.Brand href="/">
       {/* <img
         alt=""
         src="/logo.svg"
