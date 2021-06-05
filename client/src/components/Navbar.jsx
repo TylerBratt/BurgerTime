@@ -7,7 +7,7 @@ export default function BurgerNavbar(props) {
   return (
     <div>
   <Navbar bg="dark" variant="dark">
-    <Navbar.Brand href="/">
+    <Navbar.Brand href="/Home">
       {/* <img
         alt=""
         src="/logo.svg"
@@ -15,11 +15,11 @@ export default function BurgerNavbar(props) {
         height="30"
         className="d-inline-block align-top"
       />{' '} */}
-      <div class='logo'>BurgerTime</div> 
+      <div className='logo'>BurgerTime</div> 
     </Navbar.Brand>
     <div id="rightNav">
-      <a href="Login"class='navbar'>Login</a>
-      <a href="Register"class='navbar'>Register</a>
+      <a href="Login"className='navbar'>Login</a>
+      <a href="Register"className='navbar'>Register</a>
     </div>
   </Navbar>
     </div>

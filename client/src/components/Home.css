@@ -1,0 +1,11 @@
+.table {
+  width: 800px;
+}
+Button {
+  display: flex;
+  flex-wrap: wrap;
+  height: 200px;
+  width: 350px;
+  margin: 130px;
+  background-color: darkgoldenrod;
+}

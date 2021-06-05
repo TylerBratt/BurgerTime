@@ -1,5 +1,11 @@
 import './App.css';
 import React, { useState } from 'react'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 // import axios from 'axios'
 import useApplicationData from './hooks/useApplicationData'
 import Home from './components/Home'
@@ -23,8 +29,10 @@ function App() {
 
   return (
   <div className="App" >
-    <BurgerNavbar />
-    {currentView === "Home" && <Home />}
+
+      <BurgerNavbar />
+
+    {currentView === "/Home" && <Home />}
     {currentView === "Login" && <Login />}
     {currentView === "Register" && <Register />}
     {currentView === "Burger" && <Burger />}
@@ -33,9 +41,10 @@ function App() {
     {currentView === "Restaurant" && <Restaurant />}
     {currentView === "Restaurants" && <Restaurants />}
     {currentView === "Favourites" && <Favourites />}
-      <h1>users
+
+      {/* <h1>users
         <ul>{userList}</ul>
-      </h1>
+      </h1> */}
   </div> 
   );
 };
