@@ -17,13 +17,17 @@ import Favourites from './components/Favourites'
 function App() {
   const [currentView, setCurrentView] = useState('')
   const { state, dispatch } = useApplicationData();
-  
-  const userList = state.users.map((user) => (<li key={user.id} > {user.name} </li>
 
-  ));
+  const userList = state.users.map((user) => (<li key={user.id} > {user.first_name} {user.last_name} {user.email} </li>));
+  const extburgerList = state.extburgers.map((extburger) =>(<li key={extburger.id}> {extburger.name} {extburger.restaurant}</li>));
+
+
+  
   return (<div className="App" >
     <BurgerNavbar />
     {currentView === "Home" && <Home />}
+    <ul> {userList} </ul>
+    <ul> {extburgerList} </ul>
     {currentView === "Login" && <Login />}
     {currentView === "Register" && <Register />}
     {currentView === "Burger" && <Burger />}
