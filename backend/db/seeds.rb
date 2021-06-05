@@ -12,5 +12,5 @@ puts "Re-creating Fake Users ..."
 User.destroy_all
 
 3.times do
-  User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: Faker::Internet.password, address: Faker::Address.full_address)
+  User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password_digest: Faker::Internet.password, address: Faker::Address.full_address)
 end

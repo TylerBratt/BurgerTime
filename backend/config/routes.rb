@@ -1,7 +1,16 @@
 Rails.application.routes.draw do
   
+  
   namespace :api do
-    resources :users
+    root 'home#index'
+
+    post '/login',    to:'sessions#create'
+    post '/logout',   to:'sessions#destroy'
+    get '/logged_in',  to: 'sessions#is_logged_in?'
+    
+    resources :users, only: [:create, :show, :index] do
+      resources :items, only: [:create, :show, :index, :destroy]
+    end
     get '/extburgers' => "external_burgers#get_external_burgers"
   end
 
