@@ -18,10 +18,11 @@ function App() {
   const [currentView, setCurrentView] = useState('')
   const { state, dispatch } = useApplicationData();
   
-  const userList = state.users.map((user) => (<li key={user.id} > {user.name} </li>
-
+  const userList = state.users.map((user) => (<li key={user.id} > {user.first_name} {user.last_name}{user.email}</li>
   ));
-  return (<div className="App" >
+
+  return (
+  <div className="App" >
     <BurgerNavbar />
     {currentView === "Home" && <Home />}
     {currentView === "Login" && <Login />}
@@ -32,7 +33,10 @@ function App() {
     {currentView === "Restaurant" && <Restaurant />}
     {currentView === "Restaurants" && <Restaurants />}
     {currentView === "Favourites" && <Favourites />}
-    </div> 
+      <h1>users
+        <ul>{userList}</ul>
+      </h1>
+  </div> 
   );
 };
 

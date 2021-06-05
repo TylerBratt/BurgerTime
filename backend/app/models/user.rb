@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 
   has_many :restaurants
-   
+  
   validates :email, :uniqueness => { :case_sensitive => false }
   validates :email, presence: true
   validates :first_name, presence: true
