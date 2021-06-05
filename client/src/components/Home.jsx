@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 import './Home.css'
 
@@ -6,7 +7,9 @@ import './Home.css'
 export default function Home(props) {
   return(
   <div>
-  <h1>Home Page</h1>
+    <Link to='/login'>Log In</Link>
+      <br></br>
+    <Link to='/signup'>Sign Up</Link>
     <section class='table'>
       <Button variant="light">Burgers</Button>
       <Button variant="light">Restaurant</Button>
@@ -16,5 +19,4 @@ export default function Home(props) {
     </section>
   </div>
   )
-  
 };
