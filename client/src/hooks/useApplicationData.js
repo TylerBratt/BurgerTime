@@ -20,7 +20,7 @@ const useApplicationData = () => {
       axios.get(usersUrl),
       axios.get(extburgersUrl),
     ]).then((all) => {
-              console.log("XXX", all);
+              // console.log("XXX", all);
               dispatch({
                   type: SET_APPLICATION_DATA,
                   users: all[0].data,
