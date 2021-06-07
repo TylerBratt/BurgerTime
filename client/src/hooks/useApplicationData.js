@@ -15,12 +15,12 @@ const useApplicationData = () => {
   });
   useEffect(() => {
     const usersUrl = '/api/users';
-    const extburgersUrl = 'api/extburgers';
+    const extburgersUrl = '/api/extburgers';
     Promise.all([
       axios.get(usersUrl),
       axios.get(extburgersUrl),
     ]).then((all) => {
-              console.log("XXX", all);
+              // console.log("XXX", all);
               dispatch({
                   type: SET_APPLICATION_DATA,
                   users: all[0].data,
