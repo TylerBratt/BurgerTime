@@ -13,7 +13,7 @@ import Home from './components/Home'
 import Login from './components/Login'
 import Register from './components/Register'
 import BurgerNavbar from './components/Navbar'
-// import Burger from './components/Burger'
+import Burger from './components/Burger'
 // import AddBurger from './components/AddBurger'
 import Burgers from './components/Burgers'
 // import Restaurant from './components/Restaurant'
@@ -75,6 +75,7 @@ handleLogout = () => {
             <Route exact path='/register' component={Register}/>
             <Route exact path='/burgers' component={Burgers}/>
             <Route exact path='/restaurants' component={Restaurants}/>
+            <Route exact path='/restaurants/burger/:id' component={Burger}/>
           </Switch>
         </Router>
       </div>

@@ -15,7 +15,7 @@ const useApplicationData = () => {
   });
   useEffect(() => {
     const usersUrl = '/api/users';
-    const extburgersUrl = 'api/extburgers';
+    const extburgersUrl = '/api/extburgers';
     Promise.all([
       axios.get(usersUrl),
       axios.get(extburgersUrl),

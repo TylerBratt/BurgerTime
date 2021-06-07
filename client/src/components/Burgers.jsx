@@ -10,7 +10,7 @@ export default function Burgers(props) {
   console.log("CCC", state.users)
   //const userList = state.users.map((user) => (<li key={user.id} > {user.first_name} {user.last_name} {user.email}</li>));
 
-  const extburgerList = state.extburgers.map((extburger) =>(<li key={extburger.id}> <img src={extburger.image} height="100" width="100"></img><a href='/restaurants/burgers/:<%=`${extburger.id}`%>'>{extburger.name}</a><a>{extburger.restaurant}</a></li>));
+  const extburgerList = state.extburgers.map((extburger) =>(<li key={extburger.id}> <img src={extburger.image} height="100" width="100"></img><a href={`/restaurants/burger/${extburger.id}`}>{extburger.name}</a><a>{extburger.restaurant}</a></li>));
   // const extburgerName = state.extburgers.map((extburger) => (<li key={extburger.id}> <a href='/restaurants/burgers/:<%=`${extburger.id}`%>'>{extburger.name}</a></li>));
   // const extburgerImg = state.extburgers.map((extburger) => (<li key={extburger.id}> <img src={extburger.image} height="100" width="100"></img></li>));
   // const extburgerRestaurant = state.extburgers.map((extburger) => (<li key={extburger.id}> <a>{extburger.restaurant}</a></li>));
