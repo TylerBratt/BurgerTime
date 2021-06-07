@@ -1,14 +1,29 @@
+require 'jwt'
 class Api::UsersController < ApplicationController
   def index
+    payload = { data: 'test' }
+
+# IMPORTANT: set nil as password parameter
+token = JWT.encode payload, nil, 'none'
+
+# eyJhbGciOiJub25lIn0.eyJkYXRhIjoidGVzdCJ9.
+puts token
+
+decoded_token = JWT.decode token, nil, false
+
     @users = User.all
       if @users
         render json: {
+          token: token,
+          decoded_token: decoded_token,
           users: @users
+
         }
       else
         render json: {
           status: 500,
-          errors: ['no user found']
+          errors: ['no user found'],
+          token: token
         }
       end
   end
@@ -28,10 +43,11 @@ class Api::UsersController < ApplicationController
   end
   def create
     @user = User.new(user_params)
+    puts user_params
       if @user.save
-        login!
+        # login!
         render json: {
-          status: :created,
+          status: 'created',
           user: @user
         }
       else
@@ -45,6 +61,6 @@ class Api::UsersController < ApplicationController
     private
 
     def user_params
-      params.require(:user).permit(:email, :password, :password_confirmation)
+      params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :address)
     end
 end

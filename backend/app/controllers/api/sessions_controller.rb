@@ -1,11 +1,16 @@
+require 'jwt'
 class Api::SessionsController < ApplicationController
 
   def create
     @user = User.find_by(email: session_params[:email])
     if @user && @user.authenticate(session_params[:password])
-      login!
+      # login!
+      payload = { email: session_params[:email] }
+      # IMPORTANT: set nil as password parameter
+      token = JWT.encode payload, nil, 'none'
       render json: {
         logged_in: true,
+        token: token,
         user: @user
       }
     else 

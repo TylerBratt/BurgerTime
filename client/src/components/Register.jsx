@@ -28,11 +28,13 @@ class Register extends Component {
       first_name: first_name,
       last_name: last_name,
       email: email,
+      address: '123 Random Street',
       password: password,
       password_confirmation: password_confirmation
     }
-axios.post('http://localhost:3001/api/users', {user}, {withCredentials: true})
+axios.post('http://localhost:3001/api/users', {user})
     .then(response => {
+      console.log('response in regiser:', response)
       if (response.data.status === 'created') {
         this.props.handleLogin(response.data)
         this.redirect()

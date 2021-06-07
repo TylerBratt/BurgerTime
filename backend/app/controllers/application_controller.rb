@@ -1,8 +1,8 @@
 class ApplicationController < ActionController::Base
-  skip_before_action :verify_authenticity_token
+  # skip_before_action :verify_authenticity_token, only: [:webhook]
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
-  protect_from_forgery with: :exception
+  # protect_from_forgery with: :null_session
 
   helper_method :login!, :logged_in?, :current_user, :authorized_user?, :logout!, :set_user
 
