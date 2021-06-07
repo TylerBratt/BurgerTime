@@ -19,12 +19,11 @@ export default function BurgerNavbar(props) {
       <div className='logo'>BurgerTime</div> 
     </Navbar.Brand>
     <div id="rightNav">
-    <Link to='/login'>Log In</Link>
-      <br></br>
-    <Link to='/register'>Sign Up</Link>
+        <Link to='/login'>Log In</Link>
+          <br></br>
+        <Link to='/register'>Sign Up</Link>
     </div>
   </Navbar>
     </div>
-  
   )
 }

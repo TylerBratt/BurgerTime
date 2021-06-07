@@ -12,13 +12,15 @@ import useApplicationData from './hooks/useApplicationData'
 import Home from './components/Home'
 import Login from './components/Login'
 import Register from './components/Register'
-import BurgerNavbar from './components/Navbar'
+import Burgers from './components/Burgers'
+import Restaurants from './components/Restaurants'
+import Favourites from './components/Favourites'
+import Search from './components/Search'
+import About from './components/About'
+// import BurgerNavbar from './components/Navbar'
 // import Burger from './components/Burger'
 // import AddBurger from './components/AddBurger'
-import Burgers from './components/Burgers'
 // import Restaurant from './components/Restaurant'
-import Restaurants from './components/Restaurants'
-// import Favourites from './components/Favourites'
 
 class App extends Component {
   constructor(props) {
@@ -75,6 +77,9 @@ handleLogout = () => {
             <Route exact path='/register' component={Register}/>
             <Route exact path='/burgers' component={Burgers}/>
             <Route exact path='/restaurants' component={Restaurants}/>
+            <Route exact path='/favourites' component={Favourites}/>
+            <Route exact path='/search' component={Search}/>
+            <Route exact path='/about' component={About}/>
           </Switch>
         </Router>
       </div>
