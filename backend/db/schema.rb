@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210604191822) do
+ActiveRecord::Schema.define(version: 20210608130705) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,13 @@ ActiveRecord::Schema.define(version: 20210604191822) do
     t.integer  "restaurant_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.string   "user_id"
+    t.string   "burger_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "restaurants", force: :cascade do |t|
@@ -37,6 +44,13 @@ ActiveRecord::Schema.define(version: 20210604191822) do
     t.string   "email"
     t.string   "password_digest"
     t.string   "address"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer   "user_id"
+    t.integer   "burger_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
