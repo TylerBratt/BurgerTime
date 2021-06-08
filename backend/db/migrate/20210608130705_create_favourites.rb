@@ -1,6 +1,6 @@
-class CreateFavorites < ActiveRecord::Migration
+class CreateFavourites < ActiveRecord::Migration
   def change
-    create_table :favorites do |t|
+    create_table :favourites do |t|
       t.string :user_id
       t.string :burger_id
 

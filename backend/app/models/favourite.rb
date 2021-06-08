@@ -1,4 +1,4 @@
-class Favorite < ActiveRecord::Base
+class Favourite < ActiveRecord::Base
   has_many :users
   has_many :burgers
 

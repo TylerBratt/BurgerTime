@@ -1348,8 +1348,8 @@ module ActiveRecord
       # [:source]
       #   Specifies the source association name used by <tt>has_one :through</tt> queries.
       #   Only use it if the name cannot be inferred from the association.
-      #   <tt>has_one :favorite, through: :favorites</tt> will look for a
-      #   <tt>:favorite</tt> on Favorite, unless a <tt>:source</tt> is given.
+      #   <tt>has_one :favourite, through: :favourites</tt> will look for a
+      #   <tt>:favourite</tt> on Favourite, unless a <tt>:source</tt> is given.
       # [:source_type]
       #   Specifies type of the source association used by <tt>has_one :through</tt> queries where the source
       #   association is a polymorphic +belongs_to+.
@@ -1444,8 +1444,8 @@ module ActiveRecord
       #   Specify the foreign key used for the association. By default this is guessed to be the name
       #   of the association with an "_id" suffix. So a class that defines a <tt>belongs_to :person</tt>
       #   association will use "person_id" as the default <tt>:foreign_key</tt>. Similarly,
-      #   <tt>belongs_to :favorite_person, class_name: "Person"</tt> will use a foreign key
-      #   of "favorite_person_id".
+      #   <tt>belongs_to :favourite_person, class_name: "Person"</tt> will use a foreign key
+      #   of "favourite_person_id".
       # [:foreign_type]
       #   Specify the column used to store the associated object's type, if this is a polymorphic
       #   association. By default this is guessed to be the name of the association with a "_type"
