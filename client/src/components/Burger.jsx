@@ -44,7 +44,7 @@ export default function Burger(props) {
   } = { ...testburger }
   const burgerid = id;
   const userid = 4;
-  console.log("FOR FAVORITES", userid, id)
+  // console.log("FOR FAVORITES", userid, id)
   const burgerName = (<a>{name}</a>)
   const burgerRestaurant = (<a>{restaurant}</a>)
   const burgerIngredients = (<li key={id}> <a>{ingredients}</a></li>);
@@ -66,6 +66,7 @@ export default function Burger(props) {
       <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v10.0" nonce="NZACY53u"></script>
       <BurgerNavbar />
       <h1>{burgerName}</h1>
+      <table></table>
       <th>
         {burgerImage}
       </th>

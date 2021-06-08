@@ -9,39 +9,45 @@ export default function Restaurant() {
 
   const { state, dispatch } = useApplicationData();
   const { id } = useParams();
+  // console.log(typeof id)
 
-  const burgerObj = {}
-  for(const burger of state.extburgers) {
-    const key = burger.restaurant
-    burgerObj[key] = burger;
+  const restaurantObj = {}
+  for(const oneRest of state.extburgers) {
+    const key = oneRest.restaurant
+    restaurantObj[key] = oneRest;
   }
 
-  const burgers = Object.values(burgerObj)
-  console.log(burgers)
-  // const testRest = burgers.forEach(burger => burger.restaurantID === id)
-  
-  // console.log("testRest", testRest)
-  // if (!testRest) {
-  //   return null
-    //Return GIF "LOADING"
-  const singleRestaurant = burgers.map((restaurant) => restaurant.restaurantID === id) 
-    console.log(singleRestaurant)
+  const singleRest = Object.values(restaurantObj)
 
+  const allBurgersFromRestaurant = state.extburgers.filter(burger => burger.restaurantID == id) 
 
-  // const burgerName = (<a>{name}</a>)
-  // const burgerRestaurant = (<a>{restaurant}</a>)
-  // const burgerIngredients = (<li key={id}> <a>{ingredients}</a></li>);
-  // const burgerDescription = (<a>{description}</a>);
-  // const burgerRestaurantWeb = (<a href={`${web}`}>{web}</a>);
-  // const burgerImage = (<img src={image} height="250" width="250"></img>);
-  // console.log(isVegetarian)
-  // const burgerAddress = addresses.map((a) => (<address key={a.addressID} > {a.number} {a.line1}, {a.line2}, {a.postalCode}</address>));
+  const burgerList = allBurgersFromRestaurant.map(burger => (<li key={burger.id}><a href={`/restaurants/burger/${burger.id}`}>{burger.name}</a></li>))
 
+  const oneRestaurant = singleRest.find((restaurant) => restaurant.restaurantID == id)
+  if (!oneRestaurant) {
+    return null
+    // Return GIF "LOADING"
+  }
+  const {
+    addresses,
+    brand,
+    description,
+    restaurant,
+    web
+  } = {...oneRestaurant}
+
+const logo = (<img src={brand} height="250" width="250"></img>)
+const link = (<a href={web}>{web}</a>)
+const address = addresses.map((a) => (<address key={a.addressID} > {a.number} {a.line1}, {a.line2}, {a.postalCode}</address>))
   return (
     <div>
       <BurgerNavbar />
-      <p>hi{singleRestaurant}</p>
-      <p></p>
+      <p>{logo}</p>
+      <h1>{restaurant}</h1>
+      <p> {link}{description}</p>
+    <span>{address}</span>
+    <p>{}</p>
+    {burgerList}
     </div>
   )
-}
+  }
