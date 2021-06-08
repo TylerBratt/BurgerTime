@@ -6,10 +6,23 @@ import {
 } from "react-router-dom";
 
 
-export default function Burger() {
-
+export default function Burger(props) {
   const { state, dispatch } = useApplicationData();
   const { id } = useParams();
+  console.log("HHHHHHH", state)
+
+  // const getCurrentUser = async function () {
+  //   const currentUser = await Parse.User.currentAsync();
+  //   if (currentUser !== null) {
+  //     Alert.alert(
+  //       'Success!',
+  //       `${currentUser.get('username')} is the current user!`,
+  //     );
+  //   }
+  //   return currentUser;
+  // };
+
+
 
   console.log("This is Burgers", state.extburgers)
   const testburger = state.extburgers.find(d => d.id == id)
@@ -17,7 +30,6 @@ export default function Burger() {
     return null
     //Return GIF "LOADING"
   }
-  console.log("This is Test", testburger)
 
   const {
     name,
@@ -27,17 +39,19 @@ export default function Burger() {
     ingredients,
     isVegetarian,
     description,
-    addresses
+    addresses,
+    brand
   } = { ...testburger }
-
-  console.log(name, restaurant, web, addresses)
+  const burgerid = id;
+  const userid = 4;
+  console.log("FOR FAVORITES", userid, id)
   const burgerName = (<a>{name}</a>)
   const burgerRestaurant = (<a>{restaurant}</a>)
   const burgerIngredients = (<li key={id}> <a>{ingredients}</a></li>);
   const burgerDescription = (<a>{description}</a>);
   const burgerRestaurantWeb = (<a href={`${web}`}>{web}</a>);
+  const burgerRestaurantBrand = (<a href={`${web}`}><img src={brand} width="100"></img></a>);
   const burgerImage = (<img src={image} height="250" width="250"></img>);
-  console.log(isVegetarian)
   const burgerAddress = addresses.map((a) => (<address key={a.addressID} > {a.number} {a.line1}, {a.line2}, {a.postalCode}</address>));
 
   let burgerType
@@ -68,9 +82,10 @@ export default function Burger() {
           </thead>
           <tbody>
             <th>
+              {burgerRestaurantBrand}
               {burgerRestaurant}
-              {burgerAddress}
               {burgerRestaurantWeb}
+              {burgerAddress}
             </th>
           </tbody>
           <div>
