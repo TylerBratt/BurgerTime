@@ -21,7 +21,7 @@ const burgerObj = {}
   const extRestaurantList = burgers.map(
     (burger) => (
     <li key={burger.id}>
-      <a href={`http://localhost:3000/Restaurants/${burger.id}`}>{burger.restaurant}</a>
+      <a href={`http://localhost:3000/restaurants/restaurant/${burger.restaurantID}`}>{burger.restaurant}</a>
       <ul>
         {burger.addresses.map((address) => (
           <li key={`${burger.id}-${address.addressID}`}>

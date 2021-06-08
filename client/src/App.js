@@ -12,10 +12,10 @@ import useApplicationData from './hooks/useApplicationData'
 import Home from './components/Home'
 import Login from './components/Login'
 import Register from './components/Register'
-import BurgerNavbar from './components/Navbar'
 import Burger from './components/Burger'
 import Burgers from './components/Burgers'
 import Restaurants from './components/Restaurants'
+import Restaurant from './components/Restaurant'
 import Favourites from './components/Favourites'
 import Search from './components/Search'
 import About from './components/About'
@@ -80,6 +80,7 @@ handleLogout = () => {
             <Route exact path='/burgers' component={Burgers}/>
             <Route exact path='/restaurants' component={Restaurants}/>
             <Route exact path='/restaurants/burger/:id' component={Burger}/>
+            <Route exact path='/restaurants/restaurant/:id' component={Restaurant}/>
             <Route exact path='/favourites' component={Favourites}/>
             <Route exact path='/search' component={Search}/>
             <Route exact path='/about' component={About}/>
