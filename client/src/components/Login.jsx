@@ -13,6 +13,14 @@ class Login extends Component {
       errors: ''
     };
   }
+  // const userObject = {
+  //   user_id: 10,
+  //   name: "Austin",
+  //   token: 'd89has98dajkndhj3n'
+  // };
+  // localStorage.setItem('userObject', JSON.stringify(random));
+  // localStorage.setItem('user_id', 10);
+  // const user_id = localStorage.getItem('user_id');
 
   handleChange = (event) => {
     const {name, value} = event.target
@@ -30,6 +38,15 @@ class Login extends Component {
     
 axios.post('http://localhost:3001/api/login', {user}, {withCredentials: true})
     .then(response => {
+      const user = {
+        id: response.data.user.id,
+        full_name: response.data.user.first_name + ' ' + response.data.user.last_name,
+        email: response.data.user.email,
+        token: response.data.token
+      }
+
+      localStorage.setItem('userObject', JSON.stringify(user));
+
       console.log('response from login:', response)
       if (response.data.logged_in) {
         this.props.handleLogin(response.data)
