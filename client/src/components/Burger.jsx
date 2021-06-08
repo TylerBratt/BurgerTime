@@ -1,15 +1,36 @@
 import React, { useState } from "react";
 import BurgerNavbar from './Navbar'
+import axios from 'axios'
 import useApplicationData from '../hooks/useApplicationData'
 import {
   useParams,
 } from "react-router-dom";
+//import FavouritesButton from'./FavouritesButton'
 
 
 export default function Burger(props) {
   const { state, dispatch } = useApplicationData();
   const { id } = useParams();
-  console.log("HHHHHHH", state)
+  
+
+  const burger_id = id;
+  const user_id = 4;
+
+  const handleSubmit = (event) => {
+    console.log("FIRES")
+    event.preventDefault()
+    //const {user_id, burger_id} = state
+    let favourite = {
+      user_id: user_id,
+      burger_id: id
+    }
+    console.log("FIRES_OBJ", favourite)
+    axios.post('http://localhost:3001/api/favourites', {favourite})
+    .then(response => {
+      console.log("yes")
+     })
+    .catch(error => console.log('api errors:', error))
+  };
 
   // const getCurrentUser = async function () {
   //   const currentUser = await Parse.User.currentAsync();
@@ -22,9 +43,6 @@ export default function Burger(props) {
   //   return currentUser;
   // };
 
-
-
-  console.log("This is Burgers", state.extburgers)
   const testburger = state.extburgers.find(d => d.id == id)
   if (!testburger) {
     return null
@@ -42,9 +60,11 @@ export default function Burger(props) {
     addresses,
     brand
   } = { ...testburger }
-  const burgerid = id;
-  const userid = 4;
-  console.log("FOR FAVORITES", userid, id)
+
+  // const burger_id = id;
+  // const user_id = 4;
+
+  console.log("FOR FAVOURITES", user_id, burger_id)
   const burgerName = (<a>{name}</a>)
   const burgerRestaurant = (<a>{restaurant}</a>)
   const burgerIngredients = (<li key={id}> <a>{ingredients}</a></li>);
@@ -95,7 +115,7 @@ export default function Burger(props) {
             <button type="dis-like-button" class="btn btn-danger btn-sm">Nasty!!</button>
           </div>
           <div>
-            <button type="favorites-button" class="btn btn-primary btn-sm">Add to Favorites!!</button>
+            <button onClick={handleSubmit} type="favourites-button" class="btn btn-primary btn-sm">Add to Favourites!!</button>
           </div>
         </table>
       </div>
