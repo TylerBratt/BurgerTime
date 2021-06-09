@@ -44,8 +44,8 @@ axios.post('http://localhost:3001/api/login', {user}, {withCredentials: true})
         email: response.data.user.email,
         token: response.data.token
       }
-
       localStorage.setItem('userObject', JSON.stringify(user));
+
 
       console.log('response from login:', response)
       if (response.data.logged_in) {
