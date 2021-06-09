@@ -7,6 +7,7 @@ import {
   // Link,
 } from "react-router-dom";
 import axios from 'axios'
+import SocialFollow from "./SocialFollow"
 import useApplicationData from './hooks/useApplicationData'
 // import useApplicationData from './hooks/useApplicationData'
 import Home from './components/Home'
@@ -88,6 +89,7 @@ handleLogout = () => {
 
           </Switch>
         </Router>
+        <SocialFollow />
       </div>
     );
   }
