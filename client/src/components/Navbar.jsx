@@ -1,10 +1,17 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import Navbar from 'react-bootstrap/Navbar'
+import axios from 'axios'
 import './Navbar.css'
 
 
 export default function BurgerNavbar(props) {
+  const userLogout = () => {
+    axios.post('/api/logout');
+    localStorage.clear();
+    window.location.href = '/login';
+  }
+
   let user = localStorage.getItem('userObject');
   user = JSON.parse(user);
 
@@ -47,7 +54,7 @@ export default function BurgerNavbar(props) {
         </Navbar.Brand>
         <div id="rightNav">
           <a>Hungry for some 🍔 's {user.full_name}?</a>
-        <Link to ='/logout'>Logout</Link>
+        <a onClick={userLogout}>Logout</a>
         </div>
 
 

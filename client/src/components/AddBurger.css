@@ -1,0 +1,10 @@
+#addBurgerForm {
+  display: flex;
+  flex-direction:column;
+  width: 33%;
+  margin: 15px;
+}
+
+.addBurgerField {
+  margin: 7px 0;
+}

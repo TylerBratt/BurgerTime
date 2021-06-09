@@ -23,7 +23,6 @@ const useApplicationData = () => {
       axios.get(extburgersUrl),
       axios.get(favouritesUrL)
     ]).then((all) => {
-              console.log("XXX", all);
               dispatch({
                   type: SET_APPLICATION_DATA,
                   users: all[0].data,

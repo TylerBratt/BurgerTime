@@ -36,7 +36,7 @@ class Login extends Component {
       password: password
     }
     
-axios.post('http://localhost:3001/api/login', {user}, {withCredentials: true})
+axios.post('/api/login', {user}, {withCredentials: true})
     .then(response => {
       const user = {
         id: response.data.user.id,
@@ -45,9 +45,9 @@ axios.post('http://localhost:3001/api/login', {user}, {withCredentials: true})
         token: response.data.token
       }
       localStorage.setItem('userObject', JSON.stringify(user));
+      window.location.href = '/';
 
-
-      console.log('response from login:', response)
+      // console.log('response from login:', response)
       if (response.data.logged_in) {
         this.props.handleLogin(response.data)
         this.redirect()

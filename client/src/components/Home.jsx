@@ -8,7 +8,6 @@ export default function Home(props) {
   return(
   <div>
     <BurgerNavbar />
-    <LoginControl />
     <div className='table'>
       <Link to='/Burgers'><div className='panel'><p>Burgers 🍔</p></div></Link>
       <Link to='/Restaurants'><div className='panel'>Restaurants 🗺️</div></Link>
