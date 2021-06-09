@@ -1,12 +1,11 @@
 import React from "react";
-import Burger from './Burger'
-import useApplicationData from '../hooks/useApplicationData'
+import SingleBurg from "./SingleBurg";
 
 export default function Results(props) {
-  const { state, dispatch } = useApplicationData();
-  
-
-  return state.extburgers.map(burger => {
-    return <Burger key={burger.Id} {...burger} />;
+  const { results } = props;
+// console.log(results)
+  return results.map(burger => {
+    // console.log(burger)
+    return <SingleBurg key={burger.id} {...burger} />;
   });
 }

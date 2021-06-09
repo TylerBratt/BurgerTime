@@ -1,21 +1,23 @@
-import React, { useState, useEffect, useCallback } from 'react'
-import useDebounce from "../hooks/useDebounce"
+import React, { useState, useEffect, useCallback  } from 'react'
+import useDebounce from "../hooks/useDebounce";
 import useApplicationData from '../hooks/useApplicationData'
 
 export default function Searchbar(props) {
   const [value, setValue] = useState("");
   const term = useDebounce(value, 400);
   const { state, dispatch } = useApplicationData();
-  
   const onSearch = useCallback(props.onSearch, [term]);
+
 
   useEffect(() => {
     onSearch(term);
   }, [term, onSearch]);
-
+  // console.log(term);
+  
   const vegFilter = state.extburgers.filter(list => list.isVegetarian === true)
+  
   const ingredientFilter = state.extburgers.sort(list => list.ingredients)
-console.log(ingredientFilter)
+
 
   return (
   <div>
@@ -34,6 +36,7 @@ console.log(ingredientFilter)
         id='input_field' 
         name="search"
         value={value}
+        spellCheck="false"
         onChange={event => setValue(event.target.value)}
         />
       <input 

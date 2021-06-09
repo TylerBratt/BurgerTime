@@ -15,10 +15,14 @@ export default function Burger(props) {
   const { state, dispatch } = useApplicationData();
   const { id } = useParams();
 
-  let user = localStorage.getItem('userObject');
+  let user = 1
+  let user_id = 1
+  
+
+  // let user = localStorage.getItem('userObject');
   user = JSON.parse(user);
   const burger_id = id;
-  const user_id = user.id;
+  // const user_id = user.id;
   if (user.id) {
     console.log("logged IN")
   }
@@ -27,17 +31,6 @@ export default function Burger(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-
-    let favourite = {
-      user_id: user_id,
-      burger_id: id
-    }
-    console.log("FIRES_OBJ", favourite)
-    axios.post('http://localhost:3001/api/favourites', {favourite})
-    .then(response => {
-      console.log("yes")
-    })
-    .catch(error => console.log('api errors:', error))
     if (userfavs) {
       console.log("Favourite EXISTS")
     } else {
@@ -74,10 +67,6 @@ export default function Burger(props) {
     addresses,
     brand
   } = { ...testburger }
-
-  console.log("FOR FAVOURITES", user_id, burger_id)
-  const burgerid = id;
-  const userid = 4;
   // console.log("FOR FAVORITES", userid, id)
 
   const burgerName = (<a>{name}</a>)
