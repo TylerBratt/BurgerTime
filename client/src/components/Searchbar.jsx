@@ -6,6 +6,7 @@ export default function Searchbar(props) {
   const [value, setValue] = useState("");
   const term = useDebounce(value, 400);
   const { state, dispatch } = useApplicationData();
+  const [dropSelect, setDropSelect] = useState('All')
   const onSearch = useCallback(props.onSearch, [term]);
 
 
@@ -21,12 +22,18 @@ export default function Searchbar(props) {
 
   return (
   <div>
-    <select id='selUser'>
-      <option value='0'>Search by</option> 
-      <option value='1'>Restaurant</option> 
-      <option value='2'>Ingredient</option> 
-      <option value='3'>Vegetarian</option> 
-      <option value='4'>Location</option> 
+    <select id='selUser'  
+            value={dropSelect} 
+            onChange={(evt) => {
+            props.onDropDownChange(evt.target.value)
+            setDropSelect(evt.target.value)
+            }}>
+
+      <option value='All'>Search by</option> 
+      <option value='Restaurant'>Restaurant</option> 
+      <option value='Ingredients'>Ingredient</option> 
+      <option value='Vegetarian'>Vegetarian</option> 
+      <option value='Location'>Location</option> 
     </select>
     
     <form onSubmit={event => event.preventDefault()}>
