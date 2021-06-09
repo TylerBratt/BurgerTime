@@ -1,47 +1,50 @@
-import React, { useState } from "react";
+import React, { useState, setState, useReducer } from "react";
 import BurgerNavbar from './Navbar'
 import axios from 'axios'
 import useApplicationData from '../hooks/useApplicationData'
 import {
   useParams,
 } from "react-router-dom";
+import {
+  SET_APPLICATION_DATA, UPDATE_FAVOURITE_DATA
+} from '../reducer/data_reducer';
 //import FavouritesButton from'./FavouritesButton'
 
 
 export default function Burger(props) {
   const { state, dispatch } = useApplicationData();
   const { id } = useParams();
-  
 
+  let user = localStorage.getItem('userObject');
+  user = JSON.parse(user);
   const burger_id = id;
-  const user_id = 4;
+  const user_id = user.id;
+  if (user.id) {
+    console.log("logged IN")
+  }
+
+  const userfavs = state.favourites.find(d => d.user_id == user_id && d.burger_id == id)
 
   const handleSubmit = (event) => {
-    console.log("FIRES")
     event.preventDefault()
-    //const {user_id, burger_id} = state
-    let favourite = {
-      user_id: user_id,
-      burger_id: id
-    }
-    console.log("FIRES_OBJ", favourite)
-    axios.post('http://localhost:3001/api/favourites', {favourite})
-    .then(response => {
-      console.log("yes")
-     })
-    .catch(error => console.log('api errors:', error))
-  };
+    if (userfavs) {
+      console.log("Favourite EXISTS")
+    } else {
+      let favourite = {
+        user_id: user_id,
+        burger_id: id
+      }
+      axios.post('http://localhost:3001/api/favourites', { favourite })
+        .then(response => {
+          dispatch({
+            type: UPDATE_FAVOURITE_DATA,
+            favourites: response.data.favourite
+          })
+        })
+        .catch(error => console.log('api errors:', error))
 
-  // const getCurrentUser = async function () {
-  //   const currentUser = await Parse.User.currentAsync();
-  //   if (currentUser !== null) {
-  //     Alert.alert(
-  //       'Success!',
-  //       `${currentUser.get('username')} is the current user!`,
-  //     );
-  //   }
-  //   return currentUser;
-  // };
+    }
+  };
 
   const testburger = state.extburgers.find(d => d.id == id)
   if (!testburger) {
@@ -61,10 +64,6 @@ export default function Burger(props) {
     brand
   } = { ...testburger }
 
-  // const burger_id = id;
-  // const user_id = 4;
-
-  console.log("FOR FAVOURITES", user_id, burger_id)
   const burgerName = (<a>{name}</a>)
   const burgerRestaurant = (<a>{restaurant}</a>)
   const burgerIngredients = (<li key={id}> <a>{ingredients}</a></li>);

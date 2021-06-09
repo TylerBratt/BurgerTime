@@ -34,6 +34,15 @@ class Register extends Component {
     }
 axios.post('http://localhost:3001/api/users', {user})
     .then(response => {
+      const user = {
+        id: response.data.user.id,
+        full_name: response.data.user.first_name + ' ' + response.data.user.last_name,
+        email: response.data.user.email,
+        token: response.data.token
+      }
+
+      localStorage.setItem('userObject', JSON.stringify(user));
+
       console.log('response in regiser:', response)
       if (response.data.status === 'created') {
         this.props.handleLogin(response.data)

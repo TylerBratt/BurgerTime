@@ -1,5 +1,7 @@
 //export const SET_USERS = 'SET_USERS';
 export const SET_APPLICATION_DATA = 'SET_APPLICATION_DATA'
+export const UPDATE_FAVOURITE_DATA = 'UPDATE_FAVOURITE_DATA'
+
 
 const dataReducer = (state, action) => {
     switch (action.type) {
@@ -8,7 +10,14 @@ const dataReducer = (state, action) => {
                 ...state,
                 users: action.users,
                 extburgers: action.extburgers,
-                    loading: false,
+                favourites: action.favourites,
+                loading: false,
+            };
+        case UPDATE_FAVOURITE_DATA:
+            return {
+                ...state,
+                favourites: [...state.favourites, action.favourites],
+                loading: false,
             };
         default:
             return state;
