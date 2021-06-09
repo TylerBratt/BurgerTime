@@ -102,7 +102,7 @@ export default function Burgers(props) {
             <th>What it's called</th>
             <th>Where to find this bad boy!!</th>
           </tr>
-        </thead>
+          </thead>
         <tbody>
           <th>
           {extRestaurantList}

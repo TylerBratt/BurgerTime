@@ -8,47 +8,51 @@ import {
 import {
   SET_APPLICATION_DATA, UPDATE_FAVOURITE_DATA
 } from '../reducer/data_reducer';
-//import FavouritesButton from'./FavouritesButton'
-
 
 export default function Burger(props) {
   const { state, dispatch } = useApplicationData();
   const { id } = useParams();
 
-  let user = 1
-  let user_id = 1
-  
-
-  // let user = localStorage.getItem('userObject');
-  user = JSON.parse(user);
-  const burger_id = id;
-  // const user_id = user.id;
-  if (user.id) {
-    console.log("logged IN")
-  }
-
-  const userfavs = state.favourites.find(d => d.user_id == user_id && d.burger_id == id)
-
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    if (userfavs) {
-      console.log("Favourite EXISTS")
-    } else {
-      let favourite = {
-        user_id: user_id,
-        burger_id: id
-      }
-      axios.post('http://localhost:3001/api/favourites', { favourite })
-        .then(response => {
-          dispatch({
-            type: UPDATE_FAVOURITE_DATA,
-            favourites: response.data.favourite
-          })
-        })
-        .catch(error => console.log('api errors:', error))
-
+  let favouritesButton
+  let user = localStorage.getItem('userObject');
+  if (!user) {
+    console.log("i'm null")
+  } else {
+    user = JSON.parse(user);
+    const burger_id = id;
+    const user_id = user.id;
+    if (user.id) {
+      console.log("logged IN")
     }
-  };
+    
+    const userfavs = state.favourites.find(d => d.user_id == user_id && d.burger_id == id)
+
+    const handleSubmit = (event) => {
+      console.log("I FIRED")
+      event.preventDefault()
+      if (userfavs) {
+        console.log("Favourite EXISTS")
+      } else {
+        let favourite = {
+          user_id: user_id,
+          burger_id: id
+        }
+        axios.post('http://localhost:3001/api/favourites', { favourite })
+          .then(response => {
+            dispatch({
+              type: UPDATE_FAVOURITE_DATA,
+              favourites: response.data.favourite
+            })
+          })
+          .catch(error => console.log('api errors:', error))
+
+      }
+    };
+
+    if(user){
+      favouritesButton = <button onClick={handleSubmit} type="favourites-button" class="btn btn-primary btn-sm">Add to Favourites!!</button>
+    } else favouritesButton = <div></div>
+  }
 
   const testburger = state.extburgers.find(d => d.id == id)
   if (!testburger) {
@@ -67,8 +71,7 @@ export default function Burger(props) {
     addresses,
     brand
   } = { ...testburger }
-  // console.log("FOR FAVORITES", userid, id)
-
+  
   const burgerName = (<a>{name}</a>)
   const burgerRestaurant = (<a>{restaurant}</a>)
   const burgerIngredients = (<li key={id}> <a>{ingredients}</a></li>);
@@ -84,7 +87,6 @@ export default function Burger(props) {
   } else burgerType = (<a>Herbivore Approved!!!</a>)
 
   return (
-
     <div>
       <div id="fb-root"></div>
       <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v10.0" nonce="NZACY53u"></script>
@@ -120,13 +122,10 @@ export default function Burger(props) {
             <button type="dis-like-button" class="btn btn-danger btn-sm">Nasty!!</button>
           </div>
           <div>
-            <button onClick={handleSubmit} type="favourites-button" class="btn btn-primary btn-sm">Add to Favourites!!</button>
-          </div>
+           {favouritesButton}
+            </div>
         </table>
       </div>
-      <a href="https://www.facebook.com/sharer/sharer.php?u=">Share on Facebook</a>
-      <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-      <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
     </div>
   )
 };

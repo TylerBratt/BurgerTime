@@ -5,6 +5,10 @@ import './Navbar.css'
 
 
 export default function BurgerNavbar(props) {
+  let user = localStorage.getItem('userObject');
+  user = JSON.parse(user);
+
+  if (!user) {
   return (
     <div>
   <Navbar bg="dark" variant="dark">
@@ -26,4 +30,29 @@ export default function BurgerNavbar(props) {
   </Navbar>
     </div>
   )
+    }
+    else {
+      return (
+        <div>
+      <Navbar bg="dark" variant="dark">
+        <Navbar.Brand href="/">
+          {/* <img
+            alt=""
+            src="/logo.svg"
+            width="30"
+            height="30"
+            className="d-inline-block align-top"
+          />{' '} */}
+          <div className='logo'>BurgerTime</div> 
+        </Navbar.Brand>
+        <div id="rightNav">
+          <a>Hungry for some 🍔 's {user.full_name}?</a>
+        <Link to ='/logout'>Logout</Link>
+        </div>
+
+
+        </Navbar>
+        </div>
+      )
+    }
 }

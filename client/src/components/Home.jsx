@@ -9,10 +9,10 @@ export default function Home(props) {
   <div>
     <BurgerNavbar />
     <div className='table'>
-      <Link to='/Burgers'><div className='panel'><p>Burgers</p></div></Link>
-      <Link to='/Restaurants'><div className='panel'>Restaurants</div></Link>
-      <Link to='/AddBurger'><div className='panel'>Add a Burger</div></Link>
-      <Link to='/About'><div className='panel'>About Us</div></Link>
+      <Link to='/Burgers'><div className='panel'><p>Burgers 🍔</p></div></Link>
+      <Link to='/Restaurants'><div className='panel'>Restaurants 🗺️</div></Link>
+      <Link to='/Search'><div className='panel'>Search 🔍</div></Link>
+      <Link to='/About'><div className='panel'>About Us 🇨🇦</div></Link>
     </div>
   </div>
   )
