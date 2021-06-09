@@ -32,7 +32,7 @@ class Register extends Component {
       password: password,
       password_confirmation: password_confirmation
     }
-axios.post('http://localhost:3001/api/users', {user})
+axios.post('/api/users', {user})
     .then(response => {
       const user = {
         id: response.data.user.id,
@@ -42,6 +42,7 @@ axios.post('http://localhost:3001/api/users', {user})
       }
 
       localStorage.setItem('userObject', JSON.stringify(user));
+      window.location.href = '/';
 
       console.log('response in regiser:', response)
       if (response.data.status === 'created') {

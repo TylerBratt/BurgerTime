@@ -37,15 +37,15 @@ export default function Burger(props) {
           user_id: user_id,
           burger_id: id
         }
-        axios.post('http://localhost:3001/api/favourites', { favourite })
+        axios.post('/api/favourites', { favourite })
           .then(response => {
             dispatch({
               type: UPDATE_FAVOURITE_DATA,
               favourites: response.data.favourite
             })
+          window.location.href = '/favourites';
           })
           .catch(error => console.log('api errors:', error))
-
       }
     };
 
