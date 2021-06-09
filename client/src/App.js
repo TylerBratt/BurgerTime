@@ -7,6 +7,7 @@ import {
   // Link,
 } from "react-router-dom";
 import axios from 'axios'
+import SocialFollow from "./SocialFollow"
 import useApplicationData from './hooks/useApplicationData'
 // import useApplicationData from './hooks/useApplicationData'
 import Home from './components/Home'
@@ -86,6 +87,7 @@ handleLogout = () => {
             <Route exact path='/about' component={About}/>
           </Switch>
         </Router>
+        <SocialFollow />
       </div>
     );
   }
