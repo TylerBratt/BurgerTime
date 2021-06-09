@@ -19,7 +19,7 @@ export default function Burger(props) {
   const handleSubmit = (event) => {
     console.log("FIRES")
     event.preventDefault()
-    //const {user_id, burger_id} = state
+
     let favourite = {
       user_id: user_id,
       burger_id: id
@@ -28,7 +28,7 @@ export default function Burger(props) {
     axios.post('http://localhost:3001/api/favourites', {favourite})
     .then(response => {
       console.log("yes")
-     })
+    })
     .catch(error => console.log('api errors:', error))
   };
 
@@ -60,12 +60,6 @@ export default function Burger(props) {
     addresses,
     brand
   } = { ...testburger }
-  const burgerid = id;
-  const userid = 4;
-  // console.log("FOR FAVORITES", userid, id)
-
-  // const burger_id = id;
-  // const user_id = 4;
 
   console.log("FOR FAVOURITES", user_id, burger_id)
   const burgerName = (<a>{name}</a>)

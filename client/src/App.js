@@ -17,11 +17,11 @@ import Burgers from './components/Burgers'
 import Restaurants from './components/Restaurants'
 import Restaurant from './components/Restaurant'
 import Favourites from './components/Favourites'
-import Search from './components/Search'
+import Searchbar from './components/Searchbar'
 import About from './components/About'
+import AddBurger from './components/AddBurger'
 // import BurgerNavbar from './components/Navbar'
 // import Burger from './components/Burger'
-// import AddBurger from './components/AddBurger'
 // import Restaurant from './components/Restaurant'
 
 class App extends Component {
@@ -82,8 +82,10 @@ handleLogout = () => {
             <Route exact path='/restaurants/burger/:id' component={Burger}/>
             <Route exact path='/restaurants/restaurant/:id' component={Restaurant}/>
             <Route exact path='/favourites' component={Favourites}/>
-            <Route exact path='/search' component={Search}/>
+            <Route exact path='/search' component={Searchbar}/>
             <Route exact path='/about' component={About}/>
+            <Route exact path='/addBurger' component={AddBurger}/>
+
           </Switch>
         </Router>
       </div>
