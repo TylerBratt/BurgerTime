@@ -21,7 +21,7 @@ class Api::CommentsController < ApplicationController
       end
     end
 
-  def favourite_params
-    params.require(:comment).permit(:user_id, :burger_id, :comment)
+  def comment_params
+    params.require(:comment).permit(:full_name, :burger_id, :comment)
   end
 end
