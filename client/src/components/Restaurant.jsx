@@ -4,6 +4,8 @@ import useApplicationData from '../hooks/useApplicationData'
 import {
   useParams,
 } from "react-router-dom";
+import { MapContainer } from 'react-leaflet'
+
 
 export default function Restaurant() {
 
@@ -48,6 +50,7 @@ const address = addresses.map((a) => (<address key={a.addressID} > {a.number} {a
     <span>{address}</span>
     <p>{}</p>
     {burgerList}
+    
     </div>
   )
   }

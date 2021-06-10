@@ -46,11 +46,6 @@ export default function Searchbar(props) {
         spellCheck="false"
         onChange={event => setValue(event.target.value)}
         />
-      <input 
-        type='button' 
-        value='Search'
-        id='search_btn' 
-        name="search_btn"/>
     </form>
     
     <br/>

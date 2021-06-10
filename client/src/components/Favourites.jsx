@@ -15,8 +15,8 @@ export default function Favourites(props) {
   let userBurgersList = []
   for (let i = 0; i < userBurgersId.length; i++) {
     // let a ={}
-    //const a = state.extburgers.find(res => res.id === userBurgersId[i])
-    userBurgersList.push(state.extburgers.find(res => res.id === userBurgersId[i]))
+    // const a = state.extburgers.find(res => res.id === userBurgersId[i])
+    userBurgersList.push(state.extburgers.find(res => res.id == userBurgersId[i]))
   } 
   const userFavourites = userBurgersList.map((burger) =>(<li key={burger.id}> <img src={burger.image} height="100" width="100"></img><a href={`/restaurants/burger/${burger.id}`}>{burger.name}</a><a>{burger.restaurant}</a></li>));
 
