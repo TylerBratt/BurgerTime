@@ -11,6 +11,7 @@ const dataReducer = (state, action) => {
                 users: action.users,
                 extburgers: action.extburgers,
                 favourites: action.favourites,
+                comments: action.comments,
                 loading: false,
             };
         case UPDATE_FAVOURITE_DATA:

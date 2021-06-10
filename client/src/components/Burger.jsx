@@ -15,19 +15,21 @@ export default function Burger(props) {
 
   let favouritesButton
   let user = localStorage.getItem('userObject');
+  const burger_id = id;
+  const user_id = user.id;
   if (!user) {
     console.log("i'm null")
   } else {
     user = JSON.parse(user);
-    const burger_id = id;
-    const user_id = user.id;
+    //const burger_id = id;
+    //const user_id = user.id;
     if (user.id) {
       console.log("logged IN")
     }
     
     const userfavs = state.favourites.find(d => d.user_id == user_id && d.burger_id == id)
 
-    const handleSubmit = (event) => {
+    const handleClick = (event) => {
       console.log("I FIRED")
       event.preventDefault()
       if (userfavs) {
@@ -50,9 +52,25 @@ export default function Burger(props) {
     };
 
     if(user){
-      favouritesButton = <button onClick={handleSubmit} type="favourites-button" class="btn btn-primary btn-sm">Add to Favourites!!</button>
+      favouritesButton = <button onClick={handleClick} type="favourites-button" class="btn btn-primary btn-sm">Add to Favourites!!</button>
     } else favouritesButton = <div></div>
   }
+
+  const commentsForBurger = state.comments.filter(comment => comment.burger_id == burger_id)
+  const userIdsForComment = commentsForBurger.map(user => user.user_id)
+  
+  let userIdsInfoForComment = []
+  for (let i = 0; i < userIdsForComment.length; i++){
+    userIdsInfoForComment.push(state.users.users.find(res => res.id === userIdsForComment[i]))
+  }
+    
+  const burgerComments = [...userIdsInfoForComment,...commentsForBurger.map(({user_id,...rest}) => ({id:user_id,...rest}))].reduce((ac,a) => {
+    let k = a.id;
+    ac[k] = {...ac[k],...a} || a;
+    return ac;
+  },[])
+
+  const commentsForPage = burgerComments.map((comment) =>(<li key={comment.id}> <a strong>{comment.first_name} {comment.last_name}:   {comment.comment}</a></li>));
 
   const testburger = state.extburgers.find(d => d.id == id)
   if (!testburger) {
@@ -115,6 +133,9 @@ export default function Burger(props) {
               {burgerAddress}
             </th>
           </tbody>
+          <h4>
+            {commentsForPage}
+          </h4>
           <div>
             <button type="like-button" class="btn btn-success btn-sm">Great!!</button>
           </div>
