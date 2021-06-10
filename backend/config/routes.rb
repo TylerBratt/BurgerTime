@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     get '/logged_in',  to: 'sessions#is_logged_in?'
 
     resources :favourites, only: [:create, :show, :index]
+    resources :comments, only: [:create, :show, :index]
     
     resources :users, only: [:create, :show, :index] do
       resources :items, only: [:create, :show, :index, :destroy]
