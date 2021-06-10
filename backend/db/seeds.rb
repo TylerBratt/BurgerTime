@@ -19,3 +19,7 @@ end
 puts "Adding Fake Favourites"
 
 favourites = Favourite.create([{user_id: 2, burger_id: 10}, {user_id: 2, burger_id: 55}, {user_id: 1, burger_id: 102}])
+
+puts "Adding Fake Comments"
+
+favourites = Comment.create([{user_id: 2, burger_id: 125, comment: "I paid how much???  For This??"}, {user_id: 1, burger_id: 125, comment: "Not a lot of bang for the money"}, {user_id: 1, burger_id: 126, comment: "Best burger ever"}])
