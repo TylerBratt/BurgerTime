@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import BurgerNavbar from './Navbar'
+import SimpleMap from './SimpleMap'
 import useApplicationData from '../hooks/useApplicationData'
 import {
   useParams,
 } from "react-router-dom";
-import { MapContainer } from 'react-leaflet'
+
 
 
 export default function Restaurant() {
 
   const { state, dispatch } = useApplicationData();
-  const { id } = useParams();
-  // console.log(typeof id)
+  const { id, lat, long } = useParams();
+  // console.log( id)
 
   const restaurantObj = {}
   for(const oneRest of state.extburgers) {
@@ -41,6 +42,19 @@ export default function Restaurant() {
 const logo = (<img src={brand} height="250" width="250"></img>)
 const link = (<a href={web}>{web}</a>)
 const address = addresses.map((a) => (<address key={a.addressID} > {a.number} {a.line1}, {a.line2}, {a.postalCode}</address>))
+
+const convertToNumber = str => {
+  // console.log(str.charAt(0))
+  if(str.charAt(0) == '-') {
+    let news = str.substring(1)
+    // console.log(`news: type of ${typeof (0 - Number(news))}`)
+    return 0 - Number(news) 
+  } else {
+    return Number(str)
+  }
+}
+
+
   return (
     <div>
       <BurgerNavbar />
@@ -50,7 +64,9 @@ const address = addresses.map((a) => (<address key={a.addressID} > {a.number} {a
     <span>{address}</span>
     <p>{}</p>
     {burgerList}
-    
+    <SimpleMap center={[ convertToNumber(lat), convertToNumber(long) ]}/>
     </div>
+
   )
   }
+  

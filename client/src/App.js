@@ -69,7 +69,9 @@ handleLogout = () => {
   render() {
   
     return (
+      
       <div>
+
         <Router>
           <Switch>
             {/* <BurgerNavbar /> */}
@@ -81,7 +83,7 @@ handleLogout = () => {
             <Route exact path='/burgers' component={Burgers}/>
             <Route exact path='/restaurants' component={Restaurants}/>
             <Route exact path='/restaurants/burger/:id' component={Burger}/>
-            <Route exact path='/restaurants/restaurant/:id' component={Restaurant}/>
+            <Route exact path='/restaurants/restaurant/:id/:lat/:long' component={Restaurant}/>
             <Route exact path='/favourites' component={Favourites}/>
             <Route exact path='/search' component={Searchbar}/>
             <Route exact path='/about' component={About}/>

@@ -25,7 +25,7 @@ export default function Restaurants(props) {
   const extRestaurantList = burgers.map(
     (burger) => (
     <li key={burger.id}>
-      <a href={`http://localhost:3000/restaurants/restaurant/${burger.restaurantID}`}>{burger.restaurant}</a>
+      <a href={`http://localhost:3000/restaurants/restaurant/${burger.restaurantID}/${burger.addresses[0].lat}/${burger.addresses[0].long}`}>{burger.restaurant}</a>
       <ul>
         {burger.addresses.map((address) => (
           <li key={`${burger.id}-${address.addressID}`}>
