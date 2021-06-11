@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
     resources :favourites, only: [:create, :show, :index]
     resources :comments, only: [:create, :show, :index]
+    resources :burgerlikes, only: [:create, :show, :index]
+    
     
     resources :users, only: [:create, :show, :index] do
       resources :items, only: [:create, :show, :index, :destroy]

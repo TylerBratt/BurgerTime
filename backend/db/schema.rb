@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210610111639) do
+ActiveRecord::Schema.define(version: 20210611150008) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "burgerlikes", force: :cascade do |t|
+    t.integer  "burger_id"
+    t.integer  "likes"
+    t.integer  "dislikes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "burgers", force: :cascade do |t|
     t.integer  "burger_API_id"
@@ -23,17 +31,17 @@ ActiveRecord::Schema.define(version: 20210610111639) do
     t.datetime "updated_at",    null: false
   end
 
-  create_table "favourites", force: :cascade do |t|
-    t.integer  "user_id"
+  create_table "comments", force: :cascade do |t|
+    t.string   "full_name"
     t.integer  "burger_id"
+    t.string   "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "comments", force: :cascade do |t|
-    t.string  "full_name"
+  create_table "favourites", force: :cascade do |t|
+    t.integer  "user_id"
     t.integer  "burger_id"
-    t.string   "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
