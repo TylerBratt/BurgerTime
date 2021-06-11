@@ -41,7 +41,7 @@ export default function Restaurants(props) {
   <div>
     <BurgerNavbar />
       <h1> Restaurants Page</h1>
-      <ul>{extRestaurantList}</ul>
+      <ul className="restaurantContainer">{extRestaurantList}</ul>
     
   </div>
   )

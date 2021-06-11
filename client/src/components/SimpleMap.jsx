@@ -26,7 +26,7 @@ export default function SimpleMap (props) {
       23.045280, 
       -109.692219
     ],
-    zoom: 17
+    zoom: 18
   })
   // render() {
     const handleApiLoaded = (map, maps) => {

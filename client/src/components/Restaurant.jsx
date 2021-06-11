@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import BurgerNavbar from './Navbar'
 import SimpleMap from './SimpleMap'
+import AddressDropDown from './AddressDropDown'
 import useApplicationData from '../hooks/useApplicationData'
 import {
   useParams,
@@ -58,13 +59,23 @@ const convertToNumber = str => {
   return (
     <div>
       <BurgerNavbar />
-      <p>{logo}</p>
       <h1>{restaurant}</h1>
-      <p> {link}{description}</p>
+      <section>
+        <div>{logo}</div>
+        <div><AddressDropDown /></div>
+      </section>
+      
+        <div>{burgerList}</div>
+      <div> {link}</div>
+      <div>{description}</div>
     <span>{address}</span>
-    <p>{}</p>
-    {burgerList}
-    <SimpleMap center={[ convertToNumber(lat), convertToNumber(long) ]}/>
+    
+    <div>
+      <SimpleMap 
+      center={[ convertToNumber(lat), convertToNumber(long) ]}
+      />
+    </div>
+    
     </div>
 
   )

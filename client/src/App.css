@@ -40,6 +40,7 @@
 .social-container {
   background: #eee;
   padding: 25px 50px;
+  position: sticky;
 }
 a.social {
   margin: 0 1rem;
