@@ -23,17 +23,17 @@ ActiveRecord::Schema.define(version: 20210610111639) do
     t.datetime "updated_at",    null: false
   end
 
-  create_table "comments", force: :cascade do |t|
+  create_table "favourites", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "burger_id"
-    t.string   "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "favourites", force: :cascade do |t|
-    t.integer  "user_id"
+  create_table "comments", force: :cascade do |t|
+    t.string  "full_name"
     t.integer  "burger_id"
+    t.string   "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -11,7 +11,6 @@ puts "Re-creating Fake Users ..."
 
 User.destroy_all
 
-
 3.times do
   User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password_digest: Faker::Internet.password, address: Faker::Address.full_address)
 end
@@ -22,4 +21,4 @@ favourites = Favourite.create([{user_id: 2, burger_id: 10}, {user_id: 2, burger_
 
 puts "Adding Fake Comments"
 
-favourites = Comment.create([{user_id: 2, burger_id: 125, comment: "I paid how much???  For This??"}, {user_id: 1, burger_id: 125, comment: "Not a lot of bang for the money"}, {user_id: 1, burger_id: 126, comment: "Best burger ever"}])
+comments = Comment.create([{full_name: "Kent C Strait", burger_id: 125, comment: "I paid how much???  For This??"}, {full_name: "Willi Makeit", burger_id: 125, comment: "Not a lot of bang for the money"}, {full_name: "Dwight Shrutt", burger_id: 126, comment: "Best burger ever"}])
