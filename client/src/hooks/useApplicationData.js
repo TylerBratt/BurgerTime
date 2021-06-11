@@ -13,6 +13,7 @@ const useApplicationData = () => {
       extburgers: [],
       favourites: [],
       comments: [],
+      newBurgers: [],
       loading: true,
   });
   useEffect(() => {
@@ -21,12 +22,14 @@ const useApplicationData = () => {
     const favouritesUrL = '/api/favourites';
     const commentsUrl = '/api/comments';
     const likesUrl = '/api/burgerlikes'
+    const newBurgersURL ='/api/extburgers'
     Promise.all([
       axios.get(usersUrl),
       axios.get(extburgersUrl),
       axios.get(favouritesUrL),
       axios.get(commentsUrl),
-      axios.get(likesUrl)
+      axios.get(likesUrl),
+      axios.get(newBurgersURL)
     ]).then((all) => {
               dispatch({
                   type: SET_APPLICATION_DATA,
@@ -34,7 +37,8 @@ const useApplicationData = () => {
                   extburgers: all[1].data,
                   favourites: all[2].data,
                   comments: all[3].data,
-                  likes: all[4].data
+                  likes: all[4].data,
+                  newBurgers: all[5].data
               });
           })
           .catch((err) => console.log(err));

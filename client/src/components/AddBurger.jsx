@@ -41,19 +41,25 @@ export default function AddBurger(props) {
     const burgerPostalCode = document.getElementById('burgerPostalCode').value
     const burgerCountry = document.getElementById('burgerCountry').value
     const burgerVegetarian = document.getElementById('burgerVegetarian').value
+
+    const randomIntFromInterval = (min, max)=> {
+      return Math.floor(Math.random() * (max - min + 1) + min)
+    }
+    const largeRandInt = randomIntFromInterval(500, 10000)
+    const smallRandInt = randomIntFromInterval(50, 100)
     let newBurger ={
-      burgerID: "random number",//between 500 - 10000
+      // id: largeRandInt,//between 500 - 10000
       name:burgerName,
       restaurant:burgerRestaurant,
-      restaurantID:"random number", //between 500 - 10000
-      brand:"",
+      restaurantID: largeRandInt, //between 500 - 10000
+      brand:"adsf",
       web:burgerWebsite,
       image:burgerImage,
-      description:"",
+      description:"asdf",
       ingredients:burgerIngredients,
-      optionals:"",
+      optionals:"asdf",
       isVegetarian:burgerVegetarian,
-      addressID:"random number", //between 50-100
+      addressID: smallRandInt, //between 50-100
       number:burgerAddressNumber,
       line1:burgerStreetName,
       line2:burgerCity,
