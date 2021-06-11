@@ -2,7 +2,7 @@
 export const SET_APPLICATION_DATA = 'SET_APPLICATION_DATA'
 export const UPDATE_FAVOURITE_DATA = 'UPDATE_FAVOURITE_DATA'
 export const UPDATE_COMMENT_DATA = 'UPDATE_COMMENT_DATA'
-export const EVENT_RESET = 'EVENT_RESET'
+export const NEW_BURGER_DATA = 'NEW_BURGER_DATA'
 
 const dataReducer = (state, action) => {
     switch (action.type) {
@@ -25,6 +25,12 @@ const dataReducer = (state, action) => {
             return {
                 ...state,
                 comments: [...state.comments, action.comments],
+                loading: false,
+            };
+        case NEW_BURGER_DATA:
+            return {
+                ...state,
+                newBurgers: [...state.newBurgers, action.newBurgers],
                 loading: false,
             };
         default:

@@ -7,4 +7,7 @@ class Api::ExternalBurgersController < ApplicationController
     render json: response
   end
 
+  def create
+  end
+
 end
