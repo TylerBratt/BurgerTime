@@ -19,19 +19,22 @@ const useApplicationData = () => {
     const usersUrl = '/api/users';
     const extburgersUrl = '/api/extburgers';
     const favouritesUrL = '/api/favourites';
-    const commentsUrl = '/api/comments'
+    const commentsUrl = '/api/comments';
+    const likesUrl = '/api/burgerlikes'
     Promise.all([
       axios.get(usersUrl),
       axios.get(extburgersUrl),
       axios.get(favouritesUrL),
-      axios.get(commentsUrl)
+      axios.get(commentsUrl),
+      axios.get(likesUrl)
     ]).then((all) => {
               dispatch({
                   type: SET_APPLICATION_DATA,
                   users: all[0].data,
                   extburgers: all[1].data,
                   favourites: all[2].data,
-                  comments: all[3].data
+                  comments: all[3].data,
+                  likes: all[4].data
               });
           })
           .catch((err) => console.log(err));

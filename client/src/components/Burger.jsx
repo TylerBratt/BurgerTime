@@ -6,7 +6,7 @@ import {
   useParams,
 } from "react-router-dom";
 import {
-  SET_APPLICATION_DATA, UPDATE_FAVOURITE_DATA, UPDATE_COMMENT_DATA, EVENT_RESET
+  SET_APPLICATION_DATA, UPDATE_FAVOURITE_DATA, UPDATE_COMMENT_DATA
 } from '../reducer/data_reducer';
 
 
