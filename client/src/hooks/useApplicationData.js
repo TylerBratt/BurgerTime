@@ -38,7 +38,7 @@ const useApplicationData = () => {
         extburgers: all[1].data,
         favourites: all[2].data,
         comments: all[3].data,
-        burgerlikes: all[4].data
+        burgerlikes: all[4].data,
         newBurgers: all[5].data
       });
     })
