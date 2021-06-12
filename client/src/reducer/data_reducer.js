@@ -1,9 +1,10 @@
+import { faAcquisitionsIncorporated } from "@fortawesome/free-brands-svg-icons"
+
 //export const SET_USERS = 'SET_USERS';
 export const SET_APPLICATION_DATA = 'SET_APPLICATION_DATA'
 export const UPDATE_FAVOURITE_DATA = 'UPDATE_FAVOURITE_DATA'
 export const UPDATE_COMMENT_DATA = 'UPDATE_COMMENT_DATA'
-export const INCREMENT = 'INCREMENT'
-export const DECREMENT = 'DECREMENT'
+export const UPDATE_LIKES_DATA = 'UPDATE_LIKES_DATA'
 
 const dataReducer = (state, action) => {
     switch (action.type) {
@@ -14,6 +15,7 @@ const dataReducer = (state, action) => {
                 extburgers: action.extburgers,
                 favourites: action.favourites,
                 comments: action.comments,
+                burgerlikes: action.burgerlikes,
                 loading: false,
             };
         case UPDATE_FAVOURITE_DATA:
@@ -26,6 +28,12 @@ const dataReducer = (state, action) => {
             return {
                 ...state,
                 comments: [...state.comments, action.comments],
+                loading: false,
+            };
+        case UPDATE_LIKES_DATA:
+            return {
+                ...state,
+                burgerlikes: [...state.burgerlikes, action.burgerlikes],
                 loading: false,
             };
         default:

@@ -9,11 +9,12 @@ import axios from 'axios';
 
 const useApplicationData = () => {
   const [state, dispatch] = useReducer(dataReducer, {
-      users: [],
-      extburgers: [],
-      favourites: [],
-      comments: [],
-      loading: true,
+    users: [],
+    extburgers: [],
+    favourites: [],
+    comments: [],
+    burgerlikes: [],
+    loading: true,
   });
   useEffect(() => {
     const usersUrl = '/api/users';
@@ -28,21 +29,21 @@ const useApplicationData = () => {
       axios.get(commentsUrl),
       axios.get(likesUrl)
     ]).then((all) => {
-              dispatch({
-                  type: SET_APPLICATION_DATA,
-                  users: all[0].data,
-                  extburgers: all[1].data,
-                  favourites: all[2].data,
-                  comments: all[3].data,
-                  likes: all[4].data
-              });
-          })
-          .catch((err) => console.log(err));
-  }, []);
-
+      dispatch({
+        type: SET_APPLICATION_DATA,
+        users: all[0].data,
+        extburgers: all[1].data,
+        favourites: all[2].data,
+        comments: all[3].data,
+        burgerlikes: all[4].data
+      });
+    })
+      .catch((err) => console.log(err));
+  //},[]);
+  }, [state.burgerlikes]);
   return {
-      state,
-      dispatch,
+    state,
+    dispatch,
   };
 };
 

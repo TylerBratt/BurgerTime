@@ -29,3 +29,7 @@ comments = Comment.create([{full_name: "Kent C Strait", burger_id: 125, comment:
 puts "Adding Fake Likes/Dislikes"
 
 burgerlikes = Burgerlike.create([{burger_id: 125, likes: 32, dislikes: 1}, {burger_id: 126, likes: 3, dislikes: 120}, {burger_id: 127, likes: 234, dislikes: 3}])
+
+# 150.times do |n|
+#   Burgerlike.create!([{burger_id: Faker::125, likes: 32, dislikes: 1}, {burger_id: 126, likes: 3, dislikes: 120}, {burger_id: 127, likes: 234, dislikes: 3}])
+# end
