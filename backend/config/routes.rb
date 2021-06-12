@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
     resources :favourites, only: [:create, :show, :index]
     resources :comments, only: [:create, :show, :index]
-    resources :burgerlikes, only: [:create, :show, :index]
+    resources :burgerlikes, only: [:create, :show, :index, :update]
     
     
     resources :users, only: [:create, :show, :index] do
