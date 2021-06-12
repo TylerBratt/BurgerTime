@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       resources :items, only: [:create, :show, :index, :destroy]
     end
     get '/extburgers' => "external_burgers#get_external_burgers"
+    post '/extburgers'  => 'external_burgers#create'
   end
 
 

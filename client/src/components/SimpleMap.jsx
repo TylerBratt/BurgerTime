@@ -26,7 +26,7 @@ export default function SimpleMap (props) {
       23.045280, 
       -109.692219
     ],
-    zoom: 17
+    zoom: 18
   })
   // render() {
     const handleApiLoaded = (map, maps) => {
@@ -36,7 +36,7 @@ export default function SimpleMap (props) {
     
     return (
 
-      <div style={{ margin: '50px',height: '300px', width: '300px' }}>
+      <div style={{ height: '300px', width: '100%' }}>
         <GoogleMapReact
           bootstrapURLKeys={{ key: key }}
           defaultCenter={coords.center}
