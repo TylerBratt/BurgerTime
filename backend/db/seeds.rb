@@ -25,7 +25,11 @@ favourites = Favourite.create([{user_id: 2, burger_id: 10}, {user_id: 2, burger_
 
 puts "Adding Fake Comments"
 
-comments = Comment.create([{full_name: "Kent C Strait", burger_id: 125, comment: "I paid how much???  For This??"}, {full_name: "Willi Makeit", burger_id: 125, comment: "Not a lot of bang for the money"}, {full_name: "Dwight Shrutt", burger_id: 126, comment: "Best burger ever"}])
+#comments = Comment.create([{full_name: "Kent C Strait", burger_id: 125, comment: "I paid how much???  For This??"}, {full_name: "Willi Makeit", burger_id: 125, comment: "Not a lot of bang for the money"}, {full_name: "Dwight Shrutt", burger_id: 126, comment: "Best burger ever"}])
+
+400.times do
+  Comment.create!(full_name: Faker::Name.name, burger_id: Faker::Number.between(from: 1, to: 200), comment: Faker::Restaurant.review) 
+end
 
 puts "Adding Fake Likes/Dislikes"
 

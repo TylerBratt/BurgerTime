@@ -43,8 +43,8 @@ const useApplicationData = () => {
       });
     })
       .catch((err) => console.log(err));
-  //},[]);
-  }, [state.burgerlikes]);
+  },[]);
+  //}, [state.burgerlikes]);
   
   return {
     state,
