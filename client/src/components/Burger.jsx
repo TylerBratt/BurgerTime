@@ -132,8 +132,7 @@ export default function Burger(props) {
 
 
   const commentsForBurger = state.comments.filter(comment => comment.burger_id == burger_id)
-  const commentsForPage = commentsForBurger.map((comment) => (<li><a>{comment.full_name}: "{comment.comment}"</a></li>));
-
+  const commentsForPage = commentsForBurger.reverse().map((comment) => (<li><a>{comment.full_name}: "{comment.comment}"  "{ (comment.created_at instanceof Date) ? comment.created_at.toLocaleDateString() : new Date(comment.created_at).toLocaleDateString() }"</a></li>));
   const likesForBurger = state.burgerlikes.filter(likes => likes.burger_id == burger_id)
   const likesForPage = likesForBurger.map((likes) => <a>{likes.likes}</a>)
   const likeid = ((likesForBurger.map(likes => likes.id))[0])
