@@ -1,6 +1,7 @@
 import React, { useState, setState, useReducer, reset } from "react";
 import BurgerNavbar from './Navbar'
 import axios from 'axios'
+import OrderLinks from './OrderLinks'
 import useApplicationData from '../hooks/useApplicationData'
 import {
   useParams,
@@ -185,6 +186,7 @@ export default function Burger(props) {
               Post comment
               </button>
           </form>
+          <OrderLinks />
         </div>
       </div>
     </div>
