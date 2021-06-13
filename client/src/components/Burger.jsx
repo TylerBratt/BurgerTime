@@ -1,4 +1,4 @@
-import React, { useState, setState, useReducer, reset } from "react";
+import React, { useState, setState, useReducer, reset, useEffect } from "react";
 import BurgerNavbar from './Navbar'
 import axios from 'axios'
 import OrderLinks from './OrderLinks'
@@ -7,7 +7,7 @@ import {
   useParams,
 } from "react-router-dom";
 import {
-  SET_APPLICATION_DATA, UPDATE_FAVOURITE_DATA, UPDATE_COMMENT_DATA
+  UPDATE_FAVOURITE_DATA, UPDATE_COMMENT_DATA, UPDATE_LIKES_DATA
 } from '../reducer/data_reducer';
 
 
@@ -17,8 +17,6 @@ export default function Burger(props) {
   const burger_id = id;
   let favouritesButton
   let user = localStorage.getItem('userObject');
-  // const burger_id = id;
-  // const user_id = user.id;
   if (!user) {
     console.log("i'm null")
   } else {
@@ -59,15 +57,61 @@ export default function Burger(props) {
 
   }
 
+  const likeHandleClick = (event) => {
+    event.preventDefault()
+    let burgerlike = {
+      burger_id: id,
+      likes: like + 1,
+      dislikes: dislike
+    }
+    axios.put(`/api/burgerlikes/${likeid}`, { burgerlike })
+      .then(response => {
+        let burgerIndex = 0
+        for (let i = 0; i < state.burgerlikes.length; i++) {
+          if (state.burgerlikes[i].id == response.data.burgerlike.id) {
+            burgerIndex = i
+          }
+        }
+        dispatch({
+          type: UPDATE_LIKES_DATA,
+          burgerlikes: response.data.burgerlike,
+          burgerIndex
+        })
+      })
+      .catch(error => console.log('api errors:', error))
+  };
+
+
+  const dislikeHandleClick = (event) => {
+    event.preventDefault()
+    let burgerlike = {
+      burger_id: id,
+      likes: like,
+      dislikes: dislike + 1
+    }
+    axios.put(`/api/burgerlikes/${likeid}`, { burgerlike })
+    .then(response => {
+      let burgerIndex = 0
+      for (let i = 0; i < state.burgerlikes.length; i++) {
+        if (state.burgerlikes[i].id == response.data.burgerlike.id) {
+          burgerIndex = i
+        }
+      }
+      dispatch({
+        type: UPDATE_LIKES_DATA,
+        burgerlikes: response.data.burgerlike,
+        burgerIndex
+      })
+    })
+    .catch(error => console.log('api errors:', error))
+  };
+
 
   const handleSubmit = (event) => {
 
     const burgerForm = document.getElementById("burger-comments").value
     const nameForm = document.getElementById("name-comments").value
     event.preventDefault()
-    console.log("Evnt FIRED")
-    console.log(nameForm, burgerForm)
-    const burger_id = id;
     let comment = {
       full_name: nameForm,
       burger_id: parseInt(id),
@@ -89,9 +133,14 @@ export default function Burger(props) {
 
 
   const commentsForBurger = state.comments.filter(comment => comment.burger_id == burger_id)
-  console.log("commentsForBurger", commentsForBurger)
   const commentsForPage = commentsForBurger.map((comment) => (<li><a>{comment.full_name}: "{comment.comment}"</a></li>));
-  console.log("commentsForPage", commentsForPage)
+
+  const likesForBurger = state.burgerlikes.filter(likes => likes.burger_id == burger_id)
+  const likesForPage = likesForBurger.map((likes) => <a>{likes.likes}</a>)
+  const likeid = ((likesForBurger.map(likes => likes.id))[0])
+  const like = ((likesForBurger.map(likes => likes.likes))[0])
+  const dislikesForPage = likesForBurger.map((dislikes) => <a>{dislikes.dislikes}</a>)
+  const dislike = ((likesForBurger.map(dislikes => dislikes.dislikes))[0])
 
   const testburger = state.extburgers.find(d => d.id == id)
   if (!testburger) {
@@ -164,10 +213,12 @@ export default function Burger(props) {
             </span> */}
           </h4>
           <div>
-            <button type="like-button" class="btn btn-success btn-sm">Great!!</button>
+            <button onClick={likeHandleClick} type="like-button" class="btn btn-success btn-sm">Great!!</button>
+            {likesForPage}
           </div>
           <div>
-            <button type="dis-like-button" class="btn btn-danger btn-sm">Nasty!!</button>
+            <button onClick={dislikeHandleClick} type="dis-like-button" class="btn btn-danger btn-sm">Nasty!!</button>
+            {dislikesForPage}
           </div>
           <div>
             {favouritesButton}
@@ -179,7 +230,7 @@ export default function Burger(props) {
             </textarea>
             <p>Comment</p>
             <div class="form-name mb-4">
-              <input type="text" id="name-comments" form="commentform" cols="50"/>
+              <input type="text" id="name-comments" form="commentform" cols="50" />
               <p>Enter Your Name</p>
             </div>
             <button type="comment-button" class="btn btn-primary btn-sm">

@@ -4,4 +4,5 @@ class Burgerlike < ActiveRecord::Base
   validates :likes, presence: true
   validates :dislikes, presence: true
 
+
 end

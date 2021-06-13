@@ -62,7 +62,7 @@ export default function Burgers(props) {
   console.log("burgers on Burgers.jsx",burgers)
   const extRestaurantList = burgers.map(
     (burger, index) => (
-      <ul key={index}>
+      <ul key={index}> 
         {results.filter(res => res.restaurantID === burger.restaurantID).map(burger => ( 
           <li key={`${burger.id}`}>
           <img src={burger.image} height="100" width="100" alt="burger"></img>
