@@ -27,6 +27,7 @@ class Api::BurgerlikesController < ApplicationController
   def update
     puts burgerlike_params
       if @burgerlike.update(burger_id: params[:burgerlike][:burger_id], likes: params[:burgerlike][:likes], dislikes: params[:burgerlike][:dislikes])
+        puts @burgerlike
         render json: {
           status: 'updated',
           burgerlike: @burgerlike

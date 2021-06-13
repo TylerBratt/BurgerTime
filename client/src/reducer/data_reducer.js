@@ -32,9 +32,11 @@ const dataReducer = (state, action) => {
                 loading: false,
             };
         case UPDATE_LIKES_DATA:
+            const burgerlikes = [...state.burgerlikes]
+            burgerlikes[action.burgerIndex] = action.burgerlikes
             return {
                 ...state,
-                burgerlikes: [...state.burgerlikes, action.burgerlikes],
+                burgerlikes
             };
         case NEW_BURGER_DATA:
             return {

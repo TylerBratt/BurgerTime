@@ -33,10 +33,10 @@ end
 
 puts "Adding Fake Likes/Dislikes"
 
-burgerlikes = Burgerlike.create([{burger_id: 125, likes: 32, dislikes: 1}, {burger_id: 126, likes: 3, dislikes: 120}, {burger_id: 127, likes: 234, dislikes: 3}])
+#burgerlikes = Burgerlike.create([{burger_id: 125, likes: 32, dislikes: 1}, {burger_id: 126, likes: 3, dislikes: 120}, {burger_id: 127, likes: 234, dislikes: 3}])
 
-# 150.times do |n|
-#   Burgerlike.create!([{burger_id: Faker::125, likes: 32, dislikes: 1}, {burger_id: 126, likes: 3, dislikes: 120}, {burger_id: 127, likes: 234, dislikes: 3}])
-# end
+133.times do
+  Burgerlike.create!(burger_id: Faker::Number.unique.between(from: 1, to: 133), likes: Faker::Number.between(from: 1, to: 200), dislikes: Faker::Number.between(from: 1, to: 200))
+end
 
 new_burgers = NewBurger.create!([{name: "Cheeseburger", restaurant: "BOBBY's", restaurantID:505, brand:'', web: "www.google.com", image:"", description:"Home of the big bad beef & bison bacon bougie burger", ingredients:"beef, bison, bacon, brisket, bun", optionals:"", isVegetarian: false, addressID:0, number:"643", line1:"fake st", line2:"flavourtown", postalCode:"a1a1a1", country:"canada"}])

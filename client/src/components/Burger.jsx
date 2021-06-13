@@ -1,4 +1,4 @@
-import React, { useState, setState, useReducer, reset, useEffect} from "react";
+import React, { useState, setState, useReducer, reset, useEffect } from "react";
 import BurgerNavbar from './Navbar'
 import axios from 'axios'
 import useApplicationData from '../hooks/useApplicationData'
@@ -16,8 +16,6 @@ export default function Burger(props) {
   const burger_id = id;
   let favouritesButton
   let user = localStorage.getItem('userObject');
-  // const burger_id = id;
-  // const user_id = user.id;
   if (!user) {
     console.log("i'm null")
   } else {
@@ -61,16 +59,22 @@ export default function Burger(props) {
   const likeHandleClick = (event) => {
     event.preventDefault()
     let burgerlike = {
-       burger_id: id,
-       likes: like + 1,
-       dislikes: dislike
+      burger_id: id,
+      likes: like + 1,
+      dislikes: dislike
     }
-    console.log("OBJ", burgerlike)
     axios.put(`/api/burgerlikes/${likeid}`, { burgerlike })
       .then(response => {
+        let burgerIndex = 0
+        for (let i = 0; i < state.burgerlikes.length; i++) {
+          if (state.burgerlikes[i].id == response.data.burgerlike.id) {
+            burgerIndex = i
+          }
+        }
         dispatch({
           type: UPDATE_LIKES_DATA,
-          burgerlikes: response.data.burgerlike
+          burgerlikes: response.data.burgerlike,
+          burgerIndex
         })
       })
       .catch(error => console.log('api errors:', error))
@@ -80,18 +84,25 @@ export default function Burger(props) {
   const dislikeHandleClick = (event) => {
     event.preventDefault()
     let burgerlike = {
-       burger_id: id,
-       likes: like,
-       dislikes: dislike + 1
+      burger_id: id,
+      likes: like,
+      dislikes: dislike + 1
     }
     axios.put(`/api/burgerlikes/${likeid}`, { burgerlike })
-      .then(response => {
-        dispatch({
-          type: UPDATE_LIKES_DATA,
-          burgerlikes: response.data.burgerlike
-        })
+    .then(response => {
+      let burgerIndex = 0
+      for (let i = 0; i < state.burgerlikes.length; i++) {
+        if (state.burgerlikes[i].id == response.data.burgerlike.id) {
+          burgerIndex = i
+        }
+      }
+      dispatch({
+        type: UPDATE_LIKES_DATA,
+        burgerlikes: response.data.burgerlike,
+        burgerIndex
       })
-      .catch(error => console.log('api errors:', error))
+    })
+    .catch(error => console.log('api errors:', error))
   };
 
 
@@ -124,7 +135,7 @@ export default function Burger(props) {
   const commentsForPage = commentsForBurger.map((comment) => (<li><a>{comment.full_name}: "{comment.comment}"</a></li>));
 
   const likesForBurger = state.burgerlikes.filter(likes => likes.burger_id == burger_id)
-  const likesForPage = likesForBurger.map((likes) =><a>{likes.likes}</a>)
+  const likesForPage = likesForBurger.map((likes) => <a>{likes.likes}</a>)
   const likeid = ((likesForBurger.map(likes => likes.id))[0])
   const like = ((likesForBurger.map(likes => likes.likes))[0])
   const dislikesForPage = likesForBurger.map((dislikes) => <a>{dislikes.dislikes}</a>)

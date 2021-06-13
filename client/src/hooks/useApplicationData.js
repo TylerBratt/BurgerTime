@@ -22,8 +22,8 @@ const useApplicationData = () => {
     const extburgersUrl = '/api/extburgers';
     const favouritesUrL = '/api/favourites';
     const commentsUrl = '/api/comments';
-    const likesUrl = '/api/burgerlikes'
-    const newBurgersURL ='/api/extburgers'
+    const likesUrl = '/api/burgerlikes';
+    const newBurgersURL = '/api/extburgers'
     Promise.all([
       axios.get(usersUrl),
       axios.get(extburgersUrl),
@@ -43,9 +43,9 @@ const useApplicationData = () => {
       });
     })
       .catch((err) => console.log(err));
-  },[]);
-  //}, [state.burgerlikes]);
-  
+    //},[]);
+  }, []);
+
   return {
     state,
     dispatch,
