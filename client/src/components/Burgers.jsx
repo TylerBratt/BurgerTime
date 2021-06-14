@@ -19,7 +19,6 @@ export default function Burgers(props) {
   const [term, setTerm] = useState("");
   const [results, setResults] = useState([]);
   const [allResults, setAllResults] = useState([]);
-  console.log("ALLRESULTS",allResults)
   const [dropDownFilter, setDropDownFilter] = useState('All');
 
   useEffect(() => {

@@ -21,7 +21,6 @@ export default function Restaurant() {
     if (dropDownFilter === address) {
       const newCoords = addresses.map(res => [res.lat, res.long])
       setCoords(newCoords)
-      console.log("newCoords",newCoords)
     }
   },[dropDownFilter])
 
@@ -90,7 +89,7 @@ export default function Restaurant() {
       <h1>{restaurant}</h1>
       <section>
         <div>{logo}</div>
-        <div><AddressDropDown onClick={setCoords} onDropDownChange={setDropDownFilter}/></div>
+        <div><AddressDropDown onClick={coords => setCoords(coords)} onDropDownChange={setDropDownFilter}/></div>
       </section>
       <div>{burgerList}</div>
       <div> {link}</div>

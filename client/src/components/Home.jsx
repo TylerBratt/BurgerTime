@@ -7,6 +7,7 @@ import LoginControl from './LoginControl'
 export default function Home(props) {
   return(
   <div>
+  
     <BurgerNavbar />
     <div className='table'>
       <Link to='/Burgers'><div className='panel'><p>Burgers 🍔</p></div></Link>

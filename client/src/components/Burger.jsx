@@ -10,7 +10,6 @@ import {
   UPDATE_FAVOURITE_DATA, UPDATE_COMMENT_DATA, UPDATE_LIKES_DATA
 } from '../reducer/data_reducer';
 
-
 export default function Burger(props) {
   const { state, dispatch } = useApplicationData();
   const { id } = useParams();
@@ -81,7 +80,6 @@ export default function Burger(props) {
       .catch(error => console.log('api errors:', error))
   };
 
-
   const dislikeHandleClick = (event) => {
     event.preventDefault()
     let burgerlike = {
@@ -127,27 +125,21 @@ export default function Burger(props) {
         document.getElementById("burger-comments").value = ""
       })
       .catch(error => console.log('api errors:', error))
-
   };
-
-
 
   const commentsForBurger = state.comments.filter(comment => comment.burger_id == burger_id)
   const commentsForPage = commentsForBurger.map((comment) => (<li><a>{comment.full_name}: "{comment.comment}"</a></li>));
-
   const likesForBurger = state.burgerlikes.filter(likes => likes.burger_id == burger_id)
   const likesForPage = likesForBurger.map((likes) => <a>{likes.likes}</a>)
   const likeid = ((likesForBurger.map(likes => likes.id))[0])
   const like = ((likesForBurger.map(likes => likes.likes))[0])
   const dislikesForPage = likesForBurger.map((dislikes) => <a>{dislikes.dislikes}</a>)
   const dislike = ((likesForBurger.map(dislikes => dislikes.dislikes))[0])
-
   const testburger = state.extburgers.find(d => d.id == id)
   if (!testburger) {
     return null
     //Return GIF "LOADING"
   }
-
   const {
     name,
     restaurant,
