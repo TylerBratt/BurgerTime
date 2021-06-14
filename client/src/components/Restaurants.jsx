@@ -49,10 +49,10 @@ export default function Restaurants(props) {
   </div>
   </div>))
   return ( 
-    <div class="page-background">
+    <div class="restaurants-background">
     <BurgerNavbar />
-      <h1> Restaurants Page</h1>
-      <ul>{extRestaurantList}</ul>
+      <h1 class="restaurants-title"> Restaurants Page</h1>
+      <ul class="restaurant-list">{extRestaurantList}</ul>
     
   </div>
   )

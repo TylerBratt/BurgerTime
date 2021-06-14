@@ -60,7 +60,7 @@ const convertToNumber = str => {
 
 
   return (
-    <div class="page-background">
+    <div class="restaurant-background">
       <BurgerNavbar />
       <div class="main-restaurant">
 
@@ -87,7 +87,7 @@ const convertToNumber = str => {
       </section>
     
       </div>
-    <div>
+    <div class="restaurant-map">
       <SimpleMap 
       center={[ convertToNumber(lat), convertToNumber(long) ]}
       />

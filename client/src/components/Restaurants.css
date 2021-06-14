@@ -18,3 +18,32 @@ p ul {
 h1 {
   text-align:center;
 }
+.restaurants-background {
+  background-image: url("../Images/restaurant-page-background.jpg") ;
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-size: cover;
+
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.restaurant-list {
+  height: 789px;
+  overflow-x: hidden;
+  overflow-y:auto;
+  overflow:scroll;
+  margin-right: 53em;
+  opacity: 0.8;
+  
+}
+::-webkit-scrollbar {
+  background: transparent;  /* Optional: just make scrollbar invisible */
+}
+.restaurants-title {
+  color: black;
+  opacity: 0.8;
+  display: flex;
+}
