@@ -21,9 +21,11 @@ import Favourites from './components/Favourites'
 import Searchbar from './components/Searchbar'
 import About from './components/About'
 import AddBurger from './components/AddBurger'
-// import BurgerNavbar from './components/Navbar'
+//import BurgerNavbar from './components/Navbar'
 // import Burger from './components/Burger'
 // import Restaurant from './components/Restaurant'
+import { LoadingSpinner } from './components/LoadingSpinner'
+
 
 class App extends Component {
   constructor(props) {
@@ -33,13 +35,13 @@ class App extends Component {
       user: {}
     };
   }
-componentDidMount() {
-  this.loginStatus()
-}
-loginStatus = () => {
+  componentDidMount() {
+    this.loginStatus()
+  }
+  loginStatus = () => {
     axios.get('http://localhost:3001/api/logged_in', 
     {withCredentials: true})    
-.then(response => {
+    .then(response => {
       if (response.data.logged_in) {
         this.handleLogin(response)
       } else {
@@ -48,30 +50,29 @@ loginStatus = () => {
     })
     .catch(error => console.log('api errors:', error))
   }
-handleLogin = (data) => {
+  handleLogin = (data) => {
     this.setState({
       isLoggedIn: true,
       user: data.user
     })
   }
-handleLogout = () => {
+  handleLogout = () => {
     this.setState({
-    isLoggedIn: false,
-    user: {}
+      isLoggedIn: false,
+      user: {}
     })
   }
+  
+  // const { state, dispatch } = useApplicationData();
+  // const [currentView, setCurrentView] = useState('')
+  // const userList = state.users.map((user) => (<li key={user.id} > {user.first_name} {user.last_name} {user.email} </li>));
+  // const extburgerList = state.extburgers.map((extburger) =>(<li key={extburger.id}> {extburger.name} {extburger.restaurant}</li>));
+  
 
-    // const { state, dispatch } = useApplicationData();
-    // const [currentView, setCurrentView] = useState('')
-    // const userList = state.users.map((user) => (<li key={user.id} > {user.first_name} {user.last_name} {user.email} </li>));
-    // const extburgerList = state.extburgers.map((extburger) =>(<li key={extburger.id}> {extburger.name} {extburger.restaurant}</li>));
-  
   render() {
-  
     return (
       
       <div>
-
         <Router>
           <Switch>
             {/* <BurgerNavbar /> */}
@@ -91,6 +92,7 @@ handleLogout = () => {
 
           </Switch>
         </Router>
+        <LoadingSpinner />
         <SocialFollow />
       </div>
     );

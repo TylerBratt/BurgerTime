@@ -1,14 +1,16 @@
 import React, { useState, setState, useReducer, reset, useEffect } from "react";
 import BurgerNavbar from './Navbar'
 import axios from 'axios'
-import OrderLinks from './OrderLinks'
 import useApplicationData from '../hooks/useApplicationData'
+import OrderLinks from './OrderLinks'
 import {
   useParams,
 } from "react-router-dom";
 import {
   UPDATE_FAVOURITE_DATA, UPDATE_COMMENT_DATA, UPDATE_LIKES_DATA
 } from '../reducer/data_reducer';
+import "./Burger.css"
+
 
 export default function Burger(props) {
   const { state, dispatch } = useApplicationData();
@@ -50,7 +52,9 @@ export default function Burger(props) {
       }
     };
 
-    if (user) {
+    if (userfavs) {
+      favouritesButton = <button onClick={handleClick} type="favourites-button" class="btn btn-primary btn-sm">One of your Burgers!!</button>
+    } else if (user) {
       favouritesButton = <button onClick={handleClick} type="favourites-button" class="btn btn-primary btn-sm">Add to Favourites!!</button>
     } else favouritesButton = <div></div>
 
@@ -79,6 +83,7 @@ export default function Burger(props) {
       })
       .catch(error => console.log('api errors:', error))
   };
+
 
   const dislikeHandleClick = (event) => {
     event.preventDefault()
@@ -125,21 +130,37 @@ export default function Burger(props) {
         document.getElementById("burger-comments").value = ""
       })
       .catch(error => console.log('api errors:', error))
+
   };
 
+
+
   const commentsForBurger = state.comments.filter(comment => comment.burger_id == burger_id)
-  const commentsForPage = commentsForBurger.map((comment) => (<li><a>{comment.full_name}: "{comment.comment}"</a></li>));
+  const commentsForPage = commentsForBurger.map((comment) => 
+  (
+  <div class="card">
+  <div class="card-header">
+  {comment.full_name} 
+  </div>
+  <div class="card-body">
+  {comment.comment}
+  </div>
+  </div>
+  ));
+
   const likesForBurger = state.burgerlikes.filter(likes => likes.burger_id == burger_id)
   const likesForPage = likesForBurger.map((likes) => <a>{likes.likes}</a>)
   const likeid = ((likesForBurger.map(likes => likes.id))[0])
   const like = ((likesForBurger.map(likes => likes.likes))[0])
   const dislikesForPage = likesForBurger.map((dislikes) => <a>{dislikes.dislikes}</a>)
   const dislike = ((likesForBurger.map(dislikes => dislikes.dislikes))[0])
+
   const testburger = state.extburgers.find(d => d.id == id)
   if (!testburger) {
     return null
     //Return GIF "LOADING"
   }
+
   const {
     name,
     restaurant,
@@ -167,71 +188,76 @@ export default function Burger(props) {
   } else burgerType = (<a>Herbivore Approved!!!</a>)
 
   return (
-    <div>
-      <div id="fb-root"></div>
-      <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v10.0" nonce="NZACY53u"></script>
-      <BurgerNavbar />
-      <h1>{burgerName}</h1>
-      <table></table>
-      <th>
-        {burgerImage}
-      </th>
-      <h2>
-        {burgerDescription}
-      </h2>
-      <h3>
-        {burgerType}
-        {burgerIngredients}
-      </h3>
-      <div class="burgername">
-        <table class="table table-bordered">
-          <thead>
-          </thead>
-          <tbody>
-            <th>
-              {burgerRestaurantBrand}
-              {burgerRestaurant}
-              {burgerRestaurantWeb}
-              {burgerAddress}
-            </th>
-          </tbody>
-          <h4>
-            {commentsForPage}
-            {/* <span>
-            {commentsForPageName} 
-            </span>
-            <span>
-            {commentsForPageComment}
-            </span> */}
+    <div class="page-background">
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v10.0" nonce="NZACY53u"></script>
+    <BurgerNavbar />
+
+    <div class="card text-white bg-secondary mb-3">
+      <div class="card-header">
+        <h1>{burgerName}</h1>
+        {/* <table></table> */}
+      </div>
+      <div class="burger-card">
+        <th>
+          {burgerImage}
+        </th>
+        <div class="right-card">
+
+          <h4 class="card-text">
+            {burgerDescription}
           </h4>
-          <div>
-            <button onClick={likeHandleClick} type="like-button" class="btn btn-success btn-sm">Great!!</button>
-            {likesForPage}
-          </div>
-          <div>
-            <button onClick={dislikeHandleClick} type="dis-like-button" class="btn btn-danger btn-sm">Nasty!!</button>
-            {dislikesForPage}
-          </div>
-          <div>
-            {favouritesButton}
-          </div>
-        </table>
-        <div>
-          <form onSubmit={handleSubmit} action="submit" name="comment-form" id="comment-form">
-            <textarea id="burger-comments" form="commentform" name="burger-comments" rows="4" cols="50">
-            </textarea>
-            <p>Comment</p>
-            <div class="form-name mb-4">
-              <input type="text" id="name-comments" form="commentform" cols="50" />
-              <p>Enter Your Name</p>
-            </div>
-            <button type="comment-button" class="btn btn-primary btn-sm">
-              Post comment
-              </button>
-          </form>
-          <OrderLinks />
+          <h4>
+            {burgerType}
+          </h4>
+          <h5>
+            {burgerIngredients}
+          </h5>
         </div>
       </div>
     </div>
+    <div class="burgername">
+    </div>
+
+    <div class="main-content">
+      <div class="left-main">
+      <h4>
+        {commentsForPage}
+      </h4>
+      </div>
+      <div class="right-main">
+      <tbody class="website-info">
+          <th>
+            {burgerRestaurantBrand}
+            {burgerRestaurant}
+            {burgerRestaurantWeb}
+            {burgerAddress}
+          </th>
+          <span>
+          <button onClick={likeHandleClick} type="like-button" class="btn btn-success btn-sm">Great!!</button>
+          {likesForPage}
+          <button onClick={dislikeHandleClick} type="dis-like-button" class="btn btn-danger btn-sm">Nasty!!</button>
+          {dislikesForPage}
+          {favouritesButton}
+          </span>
+        </tbody>
+
+        <form class="comment-form" onSubmit={handleSubmit} action="submit" name="comment-form" id="comment-form">
+          <textarea id="burger-comments" form="commentform" name="burger-comments" rows="4" cols="50">
+          </textarea>
+
+          <p>Comment</p>
+          <div class="form-name mb-4">
+            <input type="text" id="name-comments" form="commentform" cols="50" />
+            <p>Enter Your Name</p>
+          </div>
+          <button type="comment-button" class="btn btn-primary btn-sm">
+            Post comment
+            </button>
+            <OrderLinks />
+        </form>
+      </div>
+    </div>
+  </div>
   )
 };

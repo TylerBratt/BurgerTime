@@ -1,0 +1,48 @@
+/* Individual Burger Card Styling */
+
+.burger-card {
+  display: flex;
+  margin: 2em;
+}
+.right-card {
+  margin:2em;
+}
+.mb-3 {
+  margin:2em;
+}
+
+/* Bottom Half Of Page Styling */
+
+.main-content {
+  display:flex;
+  justify-content: space-evenly;
+}
+.left-main {
+  height: 550px;
+  overflow-x: hidden;
+  overflow-y:auto;
+  width:30%;
+}
+.right-main {
+  display:flex;
+  flex-direction: column;
+  width: 65%;
+  margin-top:4em;
+}
+
+.website-info {
+  margin-bottom:4em;
+  align-self: center;
+}
+.comment-form {
+  align-self: center;
+  margin-right:8.5em;
+}
+.page-background {
+  background-color: lightgray;
+}
+
+/* Individual Comment Styling */
+.card {
+  margin-bottom: 1em;
+}
