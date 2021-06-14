@@ -2,6 +2,7 @@ import React, { useState, setState, useReducer, reset, useEffect } from "react";
 import BurgerNavbar from './Navbar'
 import axios from 'axios'
 import useApplicationData from '../hooks/useApplicationData'
+import OrderLinks from './OrderLinks'
 import {
   useParams,
 } from "react-router-dom";
@@ -266,6 +267,7 @@ export default function Burger(props) {
           <button type="comment-button" class="btn btn-primary btn-sm">
             Post comment
             </button>
+            <OrderLinks />
         </form>
       </div>
     </div>

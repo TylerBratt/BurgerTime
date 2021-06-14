@@ -51,8 +51,6 @@ export default function Burgers(props) {
     }
   },[term, dropDownFilter])
 
-
-
   const burgerObj = {}
     for(const burger of results) {
       const key = burger.restaurant
@@ -60,6 +58,7 @@ export default function Burgers(props) {
       burgerObj[key].count = burgerObj[key].count ? burgerObj[key].count + 1 : 1
   }
   const burgers = Object.values(burgerObj)
+  console.log("burgers on Burgers.jsx",burgers)
   const extRestaurantList = burgers.map(
     (burger, index) => (
       <ul key={index}> 
@@ -71,21 +70,7 @@ export default function Burgers(props) {
         </li>))}
 
       </ul>))
-    
-    
-  {/* // results.filter(res => res.restaurantID === state.extburgers.restaurant).map(burger => ( 
-  //   <li key={burger.id}> 
-  //   <img src={burger.image} height="100" width="100"></img>
-  //   <a href={`/restaurants/burger/${burger.id}`}>{burger.name}</a>
-  //   <a>{burger.restaurant}</a>
-  //   </li>)); */}
-
-
-    // ------------------------------------------ //
-
-  // const extburgerName = state.extburgers.map((extburger) => (<li key={extburger.id}> <a href='/restaurants/burgers/:<%=`${extburger.id}`%>'>{extburger.name}</a></li>));
-  // const extburgerImg = state.extburgers.map((extburger) => (<li key={extburger.id}> <img src={extburger.image} height="100" width="100"></img></li>));
-  // const extburgerRestaurant = state.extburgers.map((extburger) => (<li key={extburger.id}> <a>{extburger.restaurant}</a></li>));
+  
   return (
     <div>
       <BurgerNavbar />
