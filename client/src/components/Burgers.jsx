@@ -40,13 +40,13 @@ export default function Burgers(props) {
       const newResults = allResults
       setResults(newResults)
     } else if (dropDownFilter === 'Restaurant') {
-      const newResults = allResults.filter(res => res.restaurant.includes(term))
+      const newResults = allResults.filter(res => res.restaurant.toLowerCase().includes(term))
       setResults(newResults)
     } else if (dropDownFilter === 'Ingredients') {
-      const newResults = allResults.filter(res => res.ingredients.includes(term))
+      const newResults = allResults.filter(res => res.ingredients.toLowerCase().includes(term))
       setResults(newResults)
     } else if (dropDownFilter === 'Vegetarian') {
-      const newResults = allResults.filter(res => res.isVegetarian === true && res.ingredients.includes(term))
+      const newResults = allResults.filter(res => res.isVegetarian === true && res.ingredients.toLowerCase().includes(term))
       setResults(newResults)
     }
   },[term, dropDownFilter])

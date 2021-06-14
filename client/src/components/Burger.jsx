@@ -12,6 +12,7 @@ import {
 import "./Burger.css"
 
 const favouriteStamp = require('../favourite-stamp.png')
+const vegetarianStamp = require('../vegetarian.png')
 
 export default function Burger(props) {
   const { state, dispatch } = useApplicationData();
@@ -191,11 +192,16 @@ export default function Burger(props) {
   const burgerImage = (<div class="burger-image"><img src={image} class="burger-image1" height="250" width="250"></img></div>);
   const burgerAddress = addresses.map((a) => (<address key={a.addressID} > {a.number} {a.line1}, {a.line2}, {a.postalCode}</address>));
   
-
   let burgerType
-  if (!isVegetarian) {
-    burgerType = (<a>Carnivore Lovers!!</a>)
-  } else burgerType = (<a>Herbivore Approved!!!</a>)
+  if (isVegetarian) {
+    burgerType = (<a><img src={vegetarianStamp} class="favourite-image" height="50" width="50"></img></a>)
+  } else {
+    burgerType = <div></div>
+  }
+  // let burgerType
+  // if (!isVegetarian) {
+  //   burgerType = (<a>Carnivore Lovers!!</a>)
+  // } else burgerType = (<a>Herbivore Approved!!!</a>)
 
   return (
     <div class="page-background">
