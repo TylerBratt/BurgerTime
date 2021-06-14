@@ -26,14 +26,18 @@ export default function Restaurants(props) {
   const extRestaurantList = burgers.map(
     (burger) => (
       <div class="main-container">
-      <div class="card text-white bg-secondary mb-3">
+      <div class="temp_card">
+      {/* card text-white bg-secondary mb-3 */}
       <li key={burger.id}>
-      <div class="card-header">
+      <div class="temp_header">
+      {/* card-header */}
       <a class="restaurant-link" href={`http://localhost:3000/restaurants/restaurant/${burger.restaurantID}/${burger.addresses[0].lat}/${burger.addresses[0].long}`}>{burger.restaurant}</a>
       </div>
-      <div class="card-body">
-      <p class="card-text">
-      <ul>
+      <div class="temp_body">
+      {/* card-body */}
+      <p class="temp_text">
+      {/* card-text */}
+      <ul class='address_list'>
         {burger.addresses.map((address) => (
           <li key={`${burger.id}-${address.addressID}`}>
             <span>{address.number + " "}</span>
@@ -51,7 +55,7 @@ export default function Restaurants(props) {
   return ( 
     <div class="restaurants-background">
     <BurgerNavbar />
-      <h1 class="restaurants-title"> Restaurants Page</h1>
+      <h1 class="restaurants-title"> Restaurants</h1>
       <ul class="restaurant-list">{extRestaurantList}</ul>
     
   </div>

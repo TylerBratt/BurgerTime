@@ -94,7 +94,7 @@ export default function AddBurger(props) {
   return (
     <div>
       <BurgerNavbar />
-      <h1>AddBurger Page</h1>
+      <h1></h1>
 
       <form id='addBurgerForm' action="submit" onSubmit={handleSubmit}>
         <input 
