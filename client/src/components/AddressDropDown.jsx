@@ -11,6 +11,7 @@ import Searchbar from './Searchbar'
 export default function AddressDropDown (props) {
   const [results, setResults] = useState([]);
   const [dropSelect, setDropSelect] = useState('All')
+  const [dropDownFilter, setDropDownFilter] = useState('0');
   const { state, dispatch } = useApplicationData();
   const { id } = useParams();
 
@@ -36,13 +37,30 @@ export default function AddressDropDown (props) {
       singleRestaurant.value = [a.number, a.line1] 
       ))
 
+    // const setDrp = (val) => {
+    //   setDropSelect(val)
+    //   resetCor()
+    // }
+
+    // const resetCor = () => {
+    //     addresses.map(res => {
+    //       // console.log("res",res.addressID)
+    //       // console.log("dropdown filter", dropDownFilter)
+    //       console.log(" lat",  res.lat)
+    //       if (dropDownFilter == res.addressID) {
+    //       const newCoords = [res.lat, res.long]
+    //       props.setCoords(newCoords)
+    //       console.log("THIS IS NEW COORDS", newCoords)}
+    //     })
+    // }
+
   return (
     <div>
       <select id='selAddress'  
             value={dropSelect} 
             onChange={(evt) => {
-            props.onDropDownChange(evt.target.value)
-            setDropSelect(evt.target.value)
+              props.onDropDownChange(evt.target.value)
+              setDropSelect(evt.target.value)
             }}>
         <option value='All'>Select Location</option>
           {addressList.map((address, index) => {

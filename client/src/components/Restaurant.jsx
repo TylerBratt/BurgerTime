@@ -16,14 +16,21 @@ export default function Restaurant() {
 
   const { state, dispatch } = useApplicationData();
   const { id, lat, long } = useParams();
-  const [dropDownFilter, setDropDownFilter] = useState('All');
+  const [dropDownFilter, setDropDownFilter] = useState('0');
   const [coords, setCoords] = useState([lat, long]);
-  console.log("THESE ARE COORDS",coords)
+  // console.log("THESE ARE COORDS",coords)
 
   useEffect(() => {
-    if (dropDownFilter === address) {
-      const newCoords = addresses.map(res => [res.lat, res.long])
-      setCoords(newCoords)
+    if (address) {
+      addresses.map(res => {
+        // console.log("res",res.addressID)
+        // console.log("dropdown filter", dropDownFilter)
+        console.log(" lat",  res.lat)
+        if (dropDownFilter == res.addressID) {
+        const newCoords = [res.lat, res.long]
+        setCoords(prev => [res.lat,  res.long] /*newCoords */)
+        console.log("THIS IS NEW COORDS", newCoords)}
+      })
     }
   },[dropDownFilter])
 
@@ -63,9 +70,9 @@ export default function Restaurant() {
 
 // DO i need to make a function to alter the lat and long props?
 
-  console.log("dropDownFilter", dropDownFilter)
-  console.log("address", address)
-  console.log('addresses', addresses)
+  // console.log("dropDownFilter", dropDownFilter)
+  // console.log("address", address)
+  // console.log('addresses', addresses)
 
   // const stateChanger = () => {
   //   if (dropDownFilter === address) {
@@ -74,15 +81,20 @@ export default function Restaurant() {
   //   }
   // }
   // console.log(stateChanger())
-  console.log(addresses[0].lat, addresses[0].long)
+  // console.log(addresses[0].lat, addresses[0].long)
 
 
   const convertToNumber = str => {
-    if(str.charAt(0) == '-') {
-      let news = str.substring(1)
-      return 0 - Number(news) 
+    console.log("what passes through here?", str)
+    if(typeof str === "string") {
+      if(str.charAt(0) === "-") {
+        let news = str.substring(1)
+        return 0 - Number(news) 
+      } else {
+        return Number(str)
+      }
     } else {
-      return Number(str)
+      return str
     }
   }
 
@@ -95,15 +107,13 @@ export default function Restaurant() {
       <h1>{restaurant}</h1>
       <section>
         <div>{logo}</div>
-        <div><AddressDropDown onClick={coords => setCoords(coords)} onDropDownChange={setDropDownFilter}/></div>
+        <div><AddressDropDown onDropDownChange={setDropDownFilter}/></div>
       </section>
       <div>{burgerList}</div>
       <div> {link}</div>
       <div>{description}</div>
       <div>
-        <SimpleMap 
-        center={[ convertToNumber(lat), convertToNumber(long) ]}
-        />
+        
       </div>
 
       <div class="left-content">
@@ -114,7 +124,7 @@ export default function Restaurant() {
 
       <section class="right-restaurant">
         <div class="locations-drop">
-        <AddressDropDown />
+        
         </div>
         <div class="logo-restaurant">
         {logo}
@@ -128,7 +138,7 @@ export default function Restaurant() {
       </div>
     <div>
       <SimpleMap 
-      center={[ convertToNumber(lat), convertToNumber(long) ]}
+      center={[ convertToNumber(coords[0]), convertToNumber(coords[1]) ]}
       />
     </div>
     </div>

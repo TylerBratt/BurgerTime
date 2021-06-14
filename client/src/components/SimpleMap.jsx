@@ -4,6 +4,8 @@ import GoogleMapReact from 'google-map-react'
 const key = 'AIzaSyDHH8TkMkdBnTR0wI5lUaeuoLKpAQ_QkQU';
 
 export default function SimpleMap (props) {
+
+  console.log("INSIDE SIMPLE MAP", props)
   const getMapOptions = (maps) => {
     return {
       disableDefaultUI: true,
@@ -20,6 +22,14 @@ export default function SimpleMap (props) {
     ],
     zoom: 18
   })
+console.log("THIS IS COORDS FROM SIMPLE MAP",coords)
+  // const componentWillReceiveProps = (nextProps) => {
+  //   this.setState({
+  //     lat: nextProps.lat,
+  //     lng: nextProps.lng,
+  //   });
+  // };
+
     const handleApiLoaded = (map, maps) => {
     };
     
@@ -28,7 +38,7 @@ export default function SimpleMap (props) {
       <div style={{ height: '300px', width: '100%' }}>
         <GoogleMapReact
           bootstrapURLKeys={{ key: key }}
-          defaultCenter={coords.center}
+          center={props.center}
           defaultZoom={coords.zoom}
           yesIWantToUseGoogleMapApiInternals = {true}
           onGoogleApiLoaded={({ map, maps }) => handleApiLoaded(map, maps)}
