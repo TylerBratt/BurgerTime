@@ -1,3 +1,98 @@
+.main-content {
+  display:flex;
+  justify-content: space-evenly;
+}
+.left-main {
+  height: 550px;
+  overflow-x: hidden;
+  overflow-y:auto;
+  width:30%;
+}
+.right-main {
+  display:flex;
+  flex-direction: column;
+  width: 65%;
+  margin-top:4em;
+}
+.comment-list {
+  border: 4px solid #354034;
+  border-radius: 15px;
+  color:#354034;
+  background-color: white;
+  margin-bottom: 2em;
+  padding: 0.5em;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-weight:500;
+  opacity: 0.8;
+}
+.comment-name-date-container {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #354034;
+}
+th a img {
+  border-radius: 25px;
+}
+address {
+  margin-left: 2em;
+}
+.website-info {
+  margin-bottom:4em;
+  align-self: center;
+  border: 4px solid #354034;
+  border-radius: 25px;
+  background-color: white;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-weight:500;
+  opacity: 0.8;
+  padding: 0.5em;
+}
+.comment-form {
+  border: 4px solid #354034;
+  border-radius: 25px;
+  background-color: white;
+  align-self: center;
+  width: 50%;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-weight:500;
+  opacity: 0.8;
+  padding: 0.5em;
+}
+#burger-comments {
+  border-radius: 20px;
+  width:100%;
+  outline:none;
+}
+#name-comments {
+  border-radius: 25px;
+  width:100%;
+  outline:none;
+}
+
+.page-background {
+  background-image: url('../Images/individual-burger-page.jpeg');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+/* Individual Comment Styling */
+.card {
+  margin-bottom: 1em;
+}
+.temp-card-burger {
+  margin:auto;
+  margin-bottom: 2.5em;
+  margin-top: 2.5em;
+  align-self: center;
+  width: 75%;
+  background-color: white;
+  border: 4px solid #354034;
+  border-radius: 75px;
+  color:#354034;
+  opacity: 0.9;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-weight:500;
+}
 /* Individual Burger Card Styling */
 
 .burger-card {
@@ -7,10 +102,6 @@
 .right-card {
   margin:2em;
 }
-.mb-3 {
-  margin:2em;
-}
-
 
 .favourite-image {
   display: flex;
@@ -35,8 +126,6 @@
   right: 0;
   z-index: 0;
   border-radius: 25px;
-
-
 };
 
 
@@ -45,37 +134,7 @@
 
 /* Bottom Half Of Page Styling */
 
-.main-content {
-  display:flex;
-  justify-content: space-evenly;
-}
-.left-main {
-  height: 550px;
-  overflow-x: hidden;
-  overflow-y:auto;
-  width:30%;
-}
-.right-main {
-  display:flex;
-  flex-direction: column;
-  width: 65%;
-  margin-top:4em;
-}
 
-.website-info {
-  margin-bottom:4em;
-  align-self: center;
-}
-.comment-form {
-  align-self: center;
-  margin-right:8.5em;
-}
-.page-background {
-  background-color: lightgray;
-}
 
-/* Individual Comment Styling */
-.card {
-  margin-bottom: 1em;
-}
+
 

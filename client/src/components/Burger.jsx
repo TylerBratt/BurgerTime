@@ -57,11 +57,11 @@ export default function Burger(props) {
     if (userfavs) {
       favouritesButton = <div></div>
     } else if (user) {
-      favouritesButton = <button onClick={handleClick} type="favourites-button" class="btn btn-primary btn-sm">Add to Favourites!!</button>
+      favouritesButton = <button onClick={handleClick} type="favourites-button" className="btn btn-primary btn-sm">Add to Favourites!!</button>
     } else favouritesButton = <div></div>
 
     if (userfavs) {
-      favouriteImage = (<a href={`/favourites`}><img src={favouriteStamp} class="favourite-image" height="50" width="100"></img></a>)
+      favouriteImage = (<a href={`/favourites`}><img src={favouriteStamp} className="favourite-image" height="50" width="100"></img></a>)
     } else {
       favouriteImage = <div></div>
     }
@@ -146,12 +146,14 @@ export default function Burger(props) {
   const commentsForBurger = state.comments.filter(comment => comment.burger_id == burger_id)
   const commentsForPage = commentsForBurger.reverse().map((comment) => 
   (
-  <div class="card">
-  <div class="card-header">
-  {comment.full_name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  <div className="comment-list">
+  <div className="comment-name-date-container">
+  {comment.full_name}
+  <div className="date">
   { (comment.created_at instanceof Date) ? comment.created_at.toLocaleDateString() : new Date(comment.created_at).toLocaleDateString() }
   </div>
-  <div class="card-body">
+  </div>
+  <div>
   {comment.comment}
   </div>
   </div>
@@ -188,7 +190,7 @@ export default function Burger(props) {
   const burgerDescription = (<a>{description}</a>);
   const burgerRestaurantWeb = (<a href={`${web}`}>{web}</a>);
   const burgerRestaurantBrand = (<a href={`${web}`}><img src={brand} width="100"></img></a>);
-  const burgerImage = (<div class="burger-image"><img src={image} class="burger-image1" height="250" width="250"></img></div>);
+  const burgerImage = (<div className="burger-image"><img src={image} className="burger-image1" height="250" width="250"></img></div>);
   const burgerAddress = addresses.map((a) => (<address key={a.addressID} > {a.number} {a.line1}, {a.line2}, {a.postalCode}</address>));
   
 
@@ -198,77 +200,81 @@ export default function Burger(props) {
   } else burgerType = (<a>Herbivore Approved!!!</a>)
 
   return (
-    <div class="page-background">
+    <div className="page-background">
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v10.0" nonce="NZACY53u"></script>
     <BurgerNavbar />
 
-    <div class="card text-white bg-secondary mb-3">
-      <div class="card-header">
-        <h1>{burgerName}</h1>
+    <div className="temp-card-burger">
+      <div className="card-header">
+        <h1>{burgerName}
+        &nbsp;&nbsp;
+            ({burgerType})
+          </h1>
         {/* <table></table> */}
       </div>
-      <div class="burger-card">
+      <div className="burger-card">
         <th>
           {burgerImage}
         </th>
-        <div class="right-card">
+        
+        <div className="right-card">
 
-          <h4 class="card-text">
+          <h4 className="card-text">
             {burgerDescription}
-          </h4>
-          <h4>
-            {burgerType}
           </h4>
           <h5>
             {burgerIngredients}
           </h5>
+          
           <h5>
           {favouriteImage}
           </h5>
+          <span className="like-dislike">
+          <button onClick={likeHandleClick} type="like-button" className="btn btn-success btn-sm">Great!!</button>
+          {likesForPage}
+          <button onClick={dislikeHandleClick} type="dis-like-button" className="btn btn-danger btn-sm">Nasty!!</button>
+          {dislikesForPage}
+          {favouritesButton}
+          </span>
         </div>
       </div>
     </div>
-    <div class="burgername">
+    <div className="burgername">
     </div>
 
-    <div class="main-content">
-      <div class="left-main">
+    <div className="main-content">
+      <div className="left-main">
       <h4>
         {commentsForPage}
       </h4>
       </div>
-      <div class="right-main">
-      <tbody class="website-info">
-          <th>
+      <div className="right-main">
+      <tbody className="website-info">
+          <th className="website-info-styling">
+            <div>
             {burgerRestaurantBrand}
             {burgerRestaurant}
+            </div>
             {burgerRestaurantWeb}
             {burgerAddress}
           </th>
-          <span>
-          <button onClick={likeHandleClick} type="like-button" class="btn btn-success btn-sm">Great!!</button>
-          {likesForPage}
-          <button onClick={dislikeHandleClick} type="dis-like-button" class="btn btn-danger btn-sm">Nasty!!</button>
-          {dislikesForPage}
-          {favouritesButton}
-          </span>
         </tbody>
 
-        <form class="comment-form" onSubmit={handleSubmit} action="submit" name="comment-form" id="comment-form">
+        <form className="comment-form" onSubmit={handleSubmit} action="submit" name="comment-form" id="comment-form">
           <textarea id="burger-comments" form="commentform" name="burger-comments" rows="4" cols="50">
           </textarea>
 
           <p>Comment</p>
-          <div class="form-name mb-4">
+          <div className="form-name mb-4">
             <input type="text" id="name-comments" form="commentform" cols="50" />
             <p>Enter Your Name</p>
           </div>
-          <button type="comment-button" class="btn btn-primary btn-sm">
+          <button type="comment-button" className="btn btn-primary btn-sm">
             Post comment
             </button>
-            <OrderLinks />
         </form>
+            <OrderLinks />
       </div>
     </div>
   </div>

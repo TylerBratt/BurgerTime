@@ -41,3 +41,7 @@
   margin-top: 10em;
   opacity: 0.6;
 }
+.like-dislike {
+  display: flex;
+  justify-content: flex-end;
+}
