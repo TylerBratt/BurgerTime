@@ -1,12 +1,14 @@
 .main-restaurant {
   display: flex;
   align-items: center;
-  margin-top: 2.5em;
+  margin-top: 5em;
   margin-bottom: 2.5em;
-  background-color: lightgray;
+  background-color: black;
+  opacity: 0.6;
 }
 .left-restaurant {
   width:40%;
+  color:white;
 }
 .left-content {
   display: flex;
@@ -27,4 +29,15 @@
   justify-content: center;
   align-items: center;
   margin:2em;
+  color:white;
+}
+.restaurant-background {
+  background-image: url('../Images/individual-restaurant.jpeg');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.restaurant-map {
+  margin-top: 10em;
+  opacity: 0.6;
 }

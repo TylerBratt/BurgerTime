@@ -99,7 +99,7 @@ export default function Restaurant() {
   }
 
   return (
-    <div class="page-background">
+    <div class="restaurant-background">
       <BurgerNavbar />
       <div class="main-restaurant">
 
@@ -136,7 +136,7 @@ export default function Restaurant() {
       </section>
     
       </div>
-    <div>
+    <div class="restaurant-map">
       <SimpleMap 
       center={[ convertToNumber(coords[0]), convertToNumber(coords[1]) ]}
       />

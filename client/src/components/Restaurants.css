@@ -2,8 +2,12 @@
   width: 40em;
 }
 .restaurant-link {
-  color: white;
+  color: #354034;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-weight:500;
+  text-transform:uppercase;
   text-decoration: none;
+  margin-left: 1em;
   padding-right: 15px;
 }
 ul {
@@ -17,4 +21,60 @@ p ul {
 
 h1 {
   text-align:center;
+}
+.restaurants-background {
+  background-image: url("../Images/restaurant-page-background.jpg") ;
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-size: cover;
+
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.restaurant-list {
+  height: 789px;
+  align-items: flex-start;
+  overflow-x: hidden;
+  overflow-y:auto;
+  overflow:scroll;
+  /* margin-right: 53em; */
+  opacity: 0.9;
+  
+}
+::-webkit-scrollbar {
+  background: hidden;  /* Optional: just make scrollbar invisible */
+}
+.restaurants-title {
+  color: black;
+  opacity: 0.8;
+  display: flex;
+}
+
+.temp_card {
+  width: 30em;
+  background-color: white;
+  border: 4px solid #354034;
+  border-radius: 25px;
+  color:#354034;
+  margin: 0.5em 0;
+}
+
+.temp_text {
+  color: #354034;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-weight:400;
+  text-transform:uppercase;
+}
+
+.address_list {
+  border-top: 1px solid #354034;
+  width:28em;
+  list-style: none;
+}
+
+li{
+  list-style: none;
 }
