@@ -50,7 +50,9 @@ export default function Burger(props) {
       }
     };
 
-    if (user) {
+    if (userfavs) {
+      favouritesButton = <button onClick={handleClick} type="favourites-button" class="btn btn-primary btn-sm">One of your Burgers!!</button>
+    } else if (user) {
       favouritesButton = <button onClick={handleClick} type="favourites-button" class="btn btn-primary btn-sm">Add to Favourites!!</button>
     } else favouritesButton = <div></div>
 

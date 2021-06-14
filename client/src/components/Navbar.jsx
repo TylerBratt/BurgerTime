@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import Navbar from 'react-bootstrap/Navbar'
 import axios from 'axios'
 import './Navbar.css'
+const imageLogo = require('../b-time-logo.png')
 
 
 export default function BurgerNavbar(props) {
@@ -27,7 +28,8 @@ export default function BurgerNavbar(props) {
         height="30"
         className="d-inline-block align-top"
       />{' '} */}
-      <div className='logo'>BurgerTime</div> 
+      {/* <div className='logo'>BurgerTime</div> */}
+      <div className='logo'><img src={imageLogo} id='logopic' width="40%" height="40%"/></div>
     </Navbar.Brand>
     <div id="rightNav">
         <Link to='/login'>Log In</Link>
@@ -50,7 +52,8 @@ export default function BurgerNavbar(props) {
             height="30"
             className="d-inline-block align-top"
           />{' '} */}
-          <div className='logo'>BurgerTime</div> 
+          {/* <div className='logo'>BurgerTime</div> */}
+          <div className='logo'><img src={imageLogo} id='logopic' width="40%" height="40%"/></div>
         </Navbar.Brand>
         <div id="rightNav">
           <a>Hungry for some 🍔 's {user.full_name}?</a>

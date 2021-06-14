@@ -18,3 +18,7 @@
 nav.navbar.navbar-expand.navbar-dark.bg-dark {
   background-color: #354034;
 }
+
+#logopic {
+  border-radius: 100px;
+}

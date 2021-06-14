@@ -6,6 +6,7 @@ import dataReducer, {
   SET_APPLICATION_DATA
 } from '../reducer/data_reducer';
 import axios from 'axios';
+import { trackPromise } from 'react-promise-tracker';
 
 const useApplicationData = () => {
   const [state, dispatch] = useReducer(dataReducer, {
@@ -24,6 +25,7 @@ const useApplicationData = () => {
     const commentsUrl = '/api/comments';
     const likesUrl = '/api/burgerlikes';
     const newBurgersURL = '/api/extburgers'
+    trackPromise(
     Promise.all([
       axios.get(usersUrl),
       axios.get(extburgersUrl),
@@ -42,9 +44,12 @@ const useApplicationData = () => {
         newBurgers: all[5].data
       });
     })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err))
+    );
     //},[]);
+    
   }, []);
+  
 
   return {
     state,
