@@ -11,6 +11,38 @@
   margin:2em;
 }
 
+
+.favourite-image {
+  display: flex;
+  top: 0;
+  border-radius: 5px;
+};
+
+
+.burger-image {
+  display: flex;
+  position: relative;
+  top: 0;
+  right: 0;
+  width: 250;
+}
+
+.burger-image1 {
+  position: relative;
+  width: 250;
+  height: 250;
+  top: 0;
+  right: 0;
+  z-index: 0;
+  border-radius: 25px;
+
+
+};
+
+
+
+  
+
 /* Bottom Half Of Page Styling */
 
 .main-content {
@@ -46,3 +78,4 @@
 .card {
   margin-bottom: 1em;
 }
+

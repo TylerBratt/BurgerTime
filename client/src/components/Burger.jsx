@@ -10,12 +10,14 @@ import {
 } from '../reducer/data_reducer';
 import "./Burger.css"
 
+const favouriteStamp = require('../favourite-stamp.png')
 
 export default function Burger(props) {
   const { state, dispatch } = useApplicationData();
   const { id } = useParams();
   const burger_id = id;
   let favouritesButton
+  let favouriteImage
   let user = localStorage.getItem('userObject');
   if (!user) {
     console.log("i'm null")
@@ -52,10 +54,16 @@ export default function Burger(props) {
     };
 
     if (userfavs) {
-      favouritesButton = <button onClick={handleClick} type="favourites-button" class="btn btn-primary btn-sm">One of your Burgers!!</button>
+      favouritesButton = <div></div>
     } else if (user) {
       favouritesButton = <button onClick={handleClick} type="favourites-button" class="btn btn-primary btn-sm">Add to Favourites!!</button>
     } else favouritesButton = <div></div>
+
+    if (userfavs) {
+      favouriteImage = (<a href={`/favourites`}><img src={favouriteStamp} class="favourite-image" height="50" width="100"></img></a>)
+    } else {
+      favouriteImage = <div></div>
+    }
 
   }
 
@@ -135,11 +143,12 @@ export default function Burger(props) {
 
 
   const commentsForBurger = state.comments.filter(comment => comment.burger_id == burger_id)
-  const commentsForPage = commentsForBurger.map((comment) => 
+  const commentsForPage = commentsForBurger.reverse().map((comment) => 
   (
   <div class="card">
   <div class="card-header">
-  {comment.full_name} 
+  {comment.full_name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  { (comment.created_at instanceof Date) ? comment.created_at.toLocaleDateString() : new Date(comment.created_at).toLocaleDateString() }
   </div>
   <div class="card-body">
   {comment.comment}
@@ -178,8 +187,9 @@ export default function Burger(props) {
   const burgerDescription = (<a>{description}</a>);
   const burgerRestaurantWeb = (<a href={`${web}`}>{web}</a>);
   const burgerRestaurantBrand = (<a href={`${web}`}><img src={brand} width="100"></img></a>);
-  const burgerImage = (<img src={image} height="250" width="250"></img>);
+  const burgerImage = (<div class="burger-image"><img src={image} class="burger-image1" height="250" width="250"></img></div>);
   const burgerAddress = addresses.map((a) => (<address key={a.addressID} > {a.number} {a.line1}, {a.line2}, {a.postalCode}</address>));
+  
 
   let burgerType
   if (!isVegetarian) {
@@ -211,6 +221,9 @@ export default function Burger(props) {
           </h4>
           <h5>
             {burgerIngredients}
+          </h5>
+          <h5>
+          {favouriteImage}
           </h5>
         </div>
       </div>
