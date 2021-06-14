@@ -22,3 +22,7 @@ nav.navbar.navbar-expand.navbar-dark.bg-dark {
 #logopic {
   border-radius: 100px;
 }
+
+.logout-button {
+  cursor:pointer;
+}

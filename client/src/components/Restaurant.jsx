@@ -7,6 +7,9 @@ import {
   useParams,
 } from "react-router-dom";
 
+// Styling
+import "./Restaurant.css"
+
 
 
 export default function Restaurant() {
@@ -57,19 +60,33 @@ const convertToNumber = str => {
 
 
   return (
-    <div>
+    <div class="page-background">
       <BurgerNavbar />
+      <div class="main-restaurant">
+
+        <div class="left-restaurant">
       <h1>{restaurant}</h1>
-      <section>
-        <div>{logo}</div>
-        <div><AddressDropDown /></div>
+
+      <div class="left-content">
+        {burgerList}
+        {address}
+      </div>
+        </div>
+
+      <section class="right-restaurant">
+        <div class="locations-drop">
+        <AddressDropDown />
+        </div>
+        <div class="logo-restaurant">
+        {logo}
+        <div class="desc-restaurant">
+        {description}
+        {link}
+        </div>
+        </div>
       </section>
-      
-        <div>{burgerList}</div>
-      <div> {link}</div>
-      <div>{description}</div>
-    <span>{address}</span>
     
+      </div>
     <div>
       <SimpleMap 
       center={[ convertToNumber(lat), convertToNumber(long) ]}

@@ -1,0 +1,30 @@
+.main-restaurant {
+  display: flex;
+  align-items: center;
+  margin-top: 2.5em;
+  margin-bottom: 2.5em;
+  background-color: lightgray;
+}
+.left-restaurant {
+  width:40%;
+}
+.left-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1.5em;
+}
+.locations-drop {
+  display: flex;
+  justify-content: center;
+}
+.logo-restaurant {
+  display:flex;
+}
+.desc-restaurant {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin:2em;
+}
