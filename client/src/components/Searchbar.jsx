@@ -44,7 +44,7 @@ export default function Searchbar(props) {
         name="search"
         value={value}
         spellCheck="false"
-        onChange={event => setValue(event.target.value)}
+        onChange={event => setValue(event.target.value.toLowerCase())}
         />
     </form>
     
