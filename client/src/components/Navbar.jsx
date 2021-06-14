@@ -54,7 +54,7 @@ export default function BurgerNavbar(props) {
         </Navbar.Brand>
         <div id="rightNav">
           <a>Hungry for some 🍔 's {user.full_name}?</a>
-        <a onClick={userLogout}>Logout</a>
+        <a class="logout-button" onClick={userLogout}>Logout</a>
         </div>
 
 
