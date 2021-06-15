@@ -203,7 +203,7 @@ export default function AddBurger(props) {
             checked={state.isVegetarian}
             onChange={handleInputChange} />
         </label>
-        <button type="button" class="btn btn-outline-success">Submit</button>
+        <button type="submit" form="addBurgerForm" class="btn btn-outline-success">Submit</button>
       </form>
       </div>
     </div>
