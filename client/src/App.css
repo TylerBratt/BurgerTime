@@ -15,7 +15,6 @@
   }
 }
 
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -41,6 +40,9 @@
 }
 
 .social-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background: #eee;
   padding: 25px 50px;
   position: sticky;

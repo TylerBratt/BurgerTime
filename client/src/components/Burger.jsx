@@ -185,14 +185,14 @@ export default function Burger(props) {
     brand
   } = { ...testburger }
 
-  const burgerName = (<a>{name}</a>)
+  const burgerName = (<span>{name}</span>)
   const burgerRestaurant = (<a>{restaurant}</a>)
-  const burgerIngredients = (<li key={id}> <a>{ingredients}</a></li>);
-  const burgerDescription = (<a>{description}</a>);
+  const burgerIngredients = (<li key={id}> <p>{ingredients}</p></li>);
+  const burgerDescription = (<p>{description}</p>);
   const burgerRestaurantWeb = (<a href={`${web}`}>{web}</a>);
   const burgerRestaurantBrand = (<a href={`${web}`}><img src={brand} width="100"></img></a>);
   const burgerImage = (<div className="burger-image"><img src={image} className="burger-image1" height="250" width="250"></img></div>);
-  const burgerAddress = addresses.map((a) => (<address key={a.addressID} > {a.number} {a.line1}, {a.line2}, {a.postalCode}</address>));
+  const burgerAddress = addresses.map((a) => (<address key={a.addressID}>{a.number} {a.line1}, {a.line2}, {a.postalCode}</address>));
 
   let burgerType
   if (isVegetarian) {
@@ -219,12 +219,10 @@ export default function Burger(props) {
           {/* <table></table> */}
         </div>
         <div className="burger-card">
-          <th>
+          <span>
             {burgerImage}
-          </th>
-
+          </span>
           <div className="right-card">
-
             <h4 className="card-text">
               {burgerDescription}
             </h4>
@@ -236,6 +234,7 @@ export default function Burger(props) {
                 {favouritesButton}
                 {favouriteImage}
               </div>
+              <div className='likeDislike'>
               <div className='likes'>
                 <button onClick={likeHandleClick} type="like-button" className="btn btn-success btn-sm">Great!!</button>
                 {likesForPage}
@@ -244,6 +243,8 @@ export default function Burger(props) {
                 <button onClick={dislikeHandleClick} type="dis-like-button" className="btn btn-danger btn-sm">Nasty!!</button>
                 {dislikesForPage}
               </div>
+              </div>
+              
             </div>
           </div>
         </div>
@@ -253,21 +254,23 @@ export default function Burger(props) {
 
       <div className="main-content">
         <div className="left-main">
-          <h4>
+          <section>
             {commentsForPage}
-          </h4>
+          </section>
         </div>
         <div className="right-main">
-          <tbody className="website-info">
-            <th className="website-info-styling">
-              <div>
+          <section className="website-info">
+            <div className="website-info-styling">
+              <div className="address_head">
                 {burgerRestaurantBrand}
                 {burgerRestaurant}
               </div>
-              {burgerRestaurantWeb}
-              {burgerAddress}
-            </th>
-          </tbody>
+              <div className="address_body">
+                {burgerRestaurantWeb}
+                {burgerAddress}
+              </div>
+            </div>
+          </section>
 
           <form className="comment-form" onSubmit={handleSubmit} action="submit" name="comment-form" id="comment-form">
             <textarea id="burger-comments" form="commentform" name="burger-comments" rows="4" cols="50">
@@ -282,7 +285,6 @@ export default function Burger(props) {
               Post comment
             </button>
           </form>
-          <OrderLinks />
         </div>
       </div>
     </div>
