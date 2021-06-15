@@ -11,8 +11,8 @@ import {
 } from '../reducer/data_reducer';
 import "./Burger.css"
 
-const favouriteStamp = require('../favourite-stamp.png')
-const vegetarianStamp = require('../vegetarian.png')
+const favouriteStamp = require('../Images/favourite-stamp.png')
+const vegetarianStamp = require('../Images/vegetarian.png')
 
 export default function Burger(props) {
   const { state, dispatch } = useApplicationData();
