@@ -6,3 +6,15 @@
   justify-content: center;
   align-items: center;
 }
+.game-page-background {
+  background-image: url('../Images/burger-time-background.jpeg');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+}
+.controls {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-weight:500;
+  color:white;
+}

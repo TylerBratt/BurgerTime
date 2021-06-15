@@ -1,6 +1,7 @@
 import React from 'react'
 import BurgerNavbar from './Navbar'
 import useApplicationData from '../hooks/useApplicationData'
+import './Favourite.css'
 
 export default function Favourites(props) {
   let user = localStorage.getItem('userObject');
@@ -18,15 +19,25 @@ export default function Favourites(props) {
     //const a = state.extburgers.find(res => res.id === userBurgersId[i])
     userBurgersList.push(state.extburgers.find(res => res.id == userBurgersId[i]))
   } 
-  const userFavourites = userBurgersList.map((burger) =>(<li key={burger.id}> <img src={burger.image} height="100" width="100"></img><a href={`/restaurants/burger/${burger.id}`}>{burger.name}</a><a>{burger.restaurant}</a></li>));
+  const userFavourites = userBurgersList.map((burger) =>(
+    <div className='favourite-container'>
+  <div key={burger.id}> <img src={burger.image} height="100" width="100"></img>
+    </div>
+    <div>
+  <a href={`/restaurants/burger/${burger.id}`}>{burger.name}</a>
+    </div>
+    <div>
+  <a>{burger.restaurant}</a>
+    </div>
+  </div>));
 
   return (
     <div>
       <BurgerNavbar />
       <h1>{user.full_name}'s Favourite Burgers</h1>
-      <th>
+      <div>
         {userFavourites}
-      </th>
+      </div>
     </div>
   )
 
