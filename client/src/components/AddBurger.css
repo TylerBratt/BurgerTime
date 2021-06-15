@@ -1,35 +1,50 @@
-.addburger_container {
-  display: flex;
-  width:60%;
-}
-
 #addBurgerForm {
   display: flex;
   flex-direction:column;
-  width: 45%;
+  width: 48%;
   margin: 15px;
-  margin-left:35em;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  text-transform: uppercase;
+  font-weight:500;
+}
+
+input{
+  border-radius: 15px;
+  border: 3px solid #212529;
+  padding: 3px 0 3px 15px;
+  text-transform:uppercase;
 }
 
 .addBurgerField {
   margin: 7px 0;
 }
 
-.add-burger-background {
-  background: url("../Images/addburger.jpeg"), url("../Images/burger-gif.gif");
-  background-position: right, left ;
-  background-repeat:no-repeat ;
-
+.addBurger_background {
+  background: url("../Images/addburger.jpeg");
+  background-position: right;
+  background-repeat:no-repeat;
+  margin-right: 25px;
 }
-/* ::-webkit-scrollbar {
-  background: hidden;  /* Optional: just make scrollbar invisible */
 
-/* .addburger_background {
-  background-image: url("../Images/addburger.jpeg");
-  height:120vh;
-  width:45%;
-  position:relative;
-  right: -50px;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-} */
+.vegCheck {
+  display: flex;
+  flex-direction: row;
+}
+
+.veg {
+  padding: 0 7px;
+}
+
+#burgerVegetarian{
+  margin-top: 6px;
+}
+
+.addBurgerSubmit {
+  border-radius: 15px;
+  background-color:#212529;
+  text-transform: uppercase;
+  color:white;
+  font-weight:900;
+  font-size:1.2em;
+  margin-top:7px;
+}

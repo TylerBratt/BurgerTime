@@ -92,9 +92,10 @@ export default function AddBurger(props) {
   };
 
   return (
-    <div className='add-burger-background'>
+    <div>
       <BurgerNavbar />
-      <div class='addburger_container'>
+
+    <div className='addBurger_background'>
       <form id='addBurgerForm' action="submit" onSubmit={handleSubmit}>
         <input 
           className="addBurgerField"
@@ -194,8 +195,8 @@ export default function AddBurger(props) {
           onChange={handleInputChange}
           required
           />
-        <label>
-          Is Vegetarian?:
+        <label className='vegCheck'>
+          <div className="veg">Is Vegetarian?</div>
           <input
             name="isVegetarian"
             id="burgerVegetarian"
@@ -203,9 +204,10 @@ export default function AddBurger(props) {
             checked={state.isVegetarian}
             onChange={handleInputChange} />
         </label>
-        <button type="button" class="btn btn-outline-success">Submit</button>
+        <button className='addBurgerSubmit' type="submit" form='addBurgerForm'>Submit</button>
       </form>
       </div>
+    
     </div>
   )
 };
