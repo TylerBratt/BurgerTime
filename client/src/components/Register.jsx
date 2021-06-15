@@ -33,7 +33,7 @@ class Register extends Component {
       password: password,
       password_confirmation: password_confirmation
     }
-axios.post('/api/users', {user})
+    axios.post('/api/users', {user})
     .then(response => {
       const user = {
         id: response.data.user.id,
@@ -57,20 +57,21 @@ axios.post('/api/users', {user})
     })
     .catch(error => console.log('api errors:', error))
   };
-redirect = () => {
+  redirect = () => {
     this.props.history.push('/')
   }
-handleErrors = () => {
+  handleErrors = () => {
     return (
       <div>
         <ul>
-        {this.state.errors.map(error => {
-        return <li key={error}>{error}</li>
+          {this.state.errors.map(error => {
+          return <li key={error}>{error}</li>
           })}
         </ul>
       </div>
     )
   };
+  
   render(){
     const {first_name, last_name, email, password, password_confirmation} = this.state
     return (

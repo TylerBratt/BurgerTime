@@ -9,14 +9,7 @@ import useApplicationData from '../hooks/useApplicationData'
 
 export default function Burgers(props) {
   console.log("props", props)
-  //const [currentView, setCurrentView] = useState('')
   const { state, dispatch } = useApplicationData();
-  console.log("BBB", state)
-  console.log("CCC", state.users)
-  //const userList = state.users.map((user) => (<li key={user.id} > {user.first_name} {user.last_name} {user.email}</li>));
-
-
-
   const [term, setTerm] = useState("");
   const [results, setResults] = useState([]);
   const [allResults, setAllResults] = useState([]);
@@ -33,10 +26,6 @@ export default function Burgers(props) {
 
 
   useEffect(()=> {
-    //make this conditional with what is active on the drop down menu
-    //enable set to lowercase before search
-    //remove search button??
-
     if (dropDownFilter === 'All') {
       const newResults = allResults
       setResults(newResults)
@@ -59,21 +48,18 @@ export default function Burgers(props) {
       burgerObj[key].count = burgerObj[key].count ? burgerObj[key].count + 1 : 1
   }
   const burgers = Object.values(burgerObj)
-  console.log("burgers on Burgers.jsx",burgers)
   const extRestaurantList = burgers.map(
     (burger, index) => (
-      
-      
       <div className='burger-restaurant-container'>
       {results.filter(res => res.restaurantID === burger.restaurantID).map(burger => ( 
-        <a className='clickable-box' href={`/restaurants/burger/${burger.id}`}><li className='restaurant-burgers' href={`/restaurants/burger/${burger.id}`} key={`${burger.id}`}>
-          <img src={burger.image} height="100" width="100" alt="burger"></img>
-          <span>{burger.name}</span>
-          
-          <a>{burger.restaurant}</a>
-          </li></a>))}
-
-          </div>))
+        <a className='clickable-box' href={`/restaurants/burger/${burger.id}`}>
+          <li className='restaurant-burgers' href={`/restaurants/burger/${burger.id}`} key={`${burger.id}`}>
+            <img src={burger.image} height="100" width="100" alt="burger"></img>
+            <span>{burger.name}</span>
+            <a>{burger.restaurant}</a>
+          </li>
+        </a>))}
+      </div>))
   
   return (
     <div className='burgers-page-background'>
@@ -81,26 +67,12 @@ export default function Burgers(props) {
       <Searchbar onSearch={term => setTerm(term)} onDropDownChange={setDropDownFilter}/>
       <Results results={results} />
       <h1>Burgers Page</h1>
-      {/* <ul> {userList} </ul> */}
-      {/* <ul> {extburgerList} </ul> */}
       <div class="burgerlist">
-        <tbody>
+        <section>
           <div className='restaurant-burgers-list'>
           {extRestaurantList}
           </div>
-          {/* <th>
-          {extburgerImg}
-          </th>   
-          <th>
-          {extburgerName}
-          </th>
-          <th>
-          {extburgerRestaurant}
-          </th> */}
-
-        {/* <ul> {extburgerImg} {extburgerNames}</ul>
-        <ul> {extburgerNames} </ul> */}
-        </tbody>
+        </section>
       </div>
     </div>
   )

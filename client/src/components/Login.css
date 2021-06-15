@@ -21,7 +21,6 @@
 margin: 7px;
 }
 
-
 .addLoginSubmit {
   border-radius: 15px;
   background-color:#212529;
@@ -40,5 +39,5 @@ margin: 7px;
 }
 
 ::-webkit-scrollbar {
-  background: hidden;  /* Optional: just make scrollbar invisible */
+  background: hidden;
 }

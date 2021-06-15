@@ -19,49 +19,30 @@ export default function BurgerNavbar(props) {
   if (!user) {
   return (
     <div>
-  <Navbar bg="dark" variant="dark">
-    <Navbar.Brand href="/">
-      {/* <img
-        alt=""
-        src="/logo.svg"
-        width="30"
-        height="30"
-        className="d-inline-block align-top"
-      />{' '} */}
-      {/* <div className='logo'>BurgerTime</div> */}
-      <div className='logo'><img src={imageLogo} id='logopic' width="40%" height="40%"/></div>
-    </Navbar.Brand>
-    <div id="rightNav">
-        <Link to='/login'>Log In</Link>
-          <br></br>
-        <Link to='/register'>Sign Up</Link>
-    </div>
-  </Navbar>
-    </div>
-  )
-    }
-    else {
-      return (
-        <div>
       <Navbar bg="dark" variant="dark">
         <Navbar.Brand href="/">
-          {/* <img
-            alt=""
-            src="/logo.svg"
-            width="30"
-            height="30"
-            className="d-inline-block align-top"
-          />{' '} */}
-          {/* <div className='logo'>BurgerTime</div> */}
           <div className='logo'><img src={imageLogo} id='logopic' width="40%" height="40%"/></div>
         </Navbar.Brand>
         <div id="rightNav">
-          <a>Hungry for some 🍔 's {user.full_name}?</a>
-        <a class="logout-button" onClick={userLogout}>Logout</a>
+          <Link to='/login'>Log In</Link>
+          <br></br>
+          <Link to='/register'>Sign Up</Link>
         </div>
-
-
-        </Navbar>
+      </Navbar>
+    </div>
+  )}
+    else {
+      return (
+        <div>
+          <Navbar bg="dark" variant="dark">
+            <Navbar.Brand href="/">
+              <div className='logo'><img src={imageLogo} id='logopic' width="40%" height="40%"/></div>
+            </Navbar.Brand>
+              <div id="rightNav">
+                <a>Hungry for some 🍔 's {user.full_name}?</a>
+                <a class="logout-button" onClick={userLogout}>Logout</a>
+              </div>
+            </Navbar>
         </div>
       )
     }

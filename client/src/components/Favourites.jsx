@@ -15,8 +15,6 @@ export default function Favourites(props) {
 
   let userBurgersList = []
   for (let i = 0; i < userBurgersId.length; i++) {
-    // let a ={}
-    //const a = state.extburgers.find(res => res.id === userBurgersId[i])
     userBurgersList.push(state.extburgers.find(res => res.id == userBurgersId[i]))
   } 
   const userFavourites = userBurgersList.map((burger) =>(
@@ -40,5 +38,4 @@ export default function Favourites(props) {
       </div>
     </div>
   )
-
 };

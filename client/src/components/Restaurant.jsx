@@ -6,11 +6,7 @@ import useApplicationData from '../hooks/useApplicationData'
 import {
   useParams,
 } from "react-router-dom";
-
-// Styling
 import "./Restaurant.css"
-
-
 
 export default function Restaurant() {
 
@@ -74,11 +70,11 @@ export default function Restaurant() {
   return (
     <div className="restaurant-background">
       <BurgerNavbar />
-      <div className="main-restaurant">
-        <div className="logo-restaurant">
-          <div className="logo_background">
-          {logo}
-          </div>
+        <div className="main-restaurant">
+          <div className="logo-restaurant">
+            <div className="logo_background">
+              {logo}
+            </div>
           <div id='dropdown'>
             <AddressDropDown onDropDownChange={setDropDownFilter}/>
           </div>

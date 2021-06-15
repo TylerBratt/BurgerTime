@@ -14,14 +14,6 @@ class Login extends Component {
       errors: ''
     };
   }
-  // const userObject = {
-  //   user_id: 10,
-  //   name: "Austin",
-  //   token: 'd89has98dajkndhj3n'
-  // };
-  // localStorage.setItem('userObject', JSON.stringify(random));
-  // localStorage.setItem('user_id', 10);
-  // const user_id = localStorage.getItem('user_id');
 
   handleChange = (event) => {
     const {name, value} = event.target
@@ -36,8 +28,8 @@ class Login extends Component {
       email: email,
       password: password
     }
-    
-axios.post('/api/login', {user}, {withCredentials: true})
+
+    axios.post('/api/login', {user}, {withCredentials: true})
     .then(response => {
       const user = {
         id: response.data.user.id,
@@ -45,10 +37,10 @@ axios.post('/api/login', {user}, {withCredentials: true})
         email: response.data.user.email,
         token: response.data.token
       }
+      
       localStorage.setItem('userObject', JSON.stringify(user));
       window.location.href = '/';
 
-      // console.log('response from login:', response)
       if (response.data.logged_in) {
         this.props.handleLogin(response.data)
         this.redirect()
@@ -60,10 +52,10 @@ axios.post('/api/login', {user}, {withCredentials: true})
     })
     .catch(error => console.log('api errors:', error))
   };
-redirect = () => {
+  redirect = () => {
     this.props.history.push('/')
   }
-handleErrors = () => {
+  handleErrors = () => {
     return (
       <div>
         <ul>

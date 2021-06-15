@@ -9,16 +9,11 @@ export default function Searchbar(props) {
   const [dropSelect, setDropSelect] = useState('All')
   const onSearch = useCallback(props.onSearch, [term]);
 
-
   useEffect(() => {
     onSearch(term);
   }, [term, onSearch]);
-  // console.log(term);
-  
   const vegFilter = state.extburgers.filter(list => list.isVegetarian === true)
-  
   const ingredientFilter = state.extburgers.sort(list => list.ingredients)
-
 
   return (
   <div>
@@ -47,9 +42,7 @@ export default function Searchbar(props) {
         onChange={event => setValue(event.target.value.toLowerCase())}
         />
     </form>
-    
-    <br/>
-      <div id='result'></div>
+    <div id='result'></div>
   </div>
   )
 };
