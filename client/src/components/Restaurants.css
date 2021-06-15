@@ -1,6 +1,7 @@
 .main-container {  
-  width: 40em;
+  width: 30em;
 }
+
 .restaurant-link {
   color: #212529;
   font-family: 'M PLUS Rounded 1c', sans-serif;
@@ -40,26 +41,30 @@ h1 {
   overflow-x: hidden;
   overflow-y:auto;
   overflow:scroll;
-  /* margin-right: 53em; */
-  opacity: 0.9;
-  
 }
 ::-webkit-scrollbar {
   background: hidden;  /* Optional: just make scrollbar invisible */
 }
 .restaurants-title {
-  color: black;
-  opacity: 0.8;
+  color: white;
   display: flex;
+  padding-left: 15px;
 }
-
+.temp_header {
+  padding: 2px 12px 0 0;
+}
 .temp_card {
   width: 30em;
   background-color: white;
   border: 4px solid #212529;
   border-radius: 25px;
   color:#212529;
-  margin: 0.5em 0;
+  padding: 10px 0 0 10px;
+  opacity: 0.9;
+}
+
+.temp_card:hover{
+  opacity: 1;
 }
 
 .temp_text {
@@ -67,12 +72,12 @@ h1 {
   font-family: 'M PLUS Rounded 1c', sans-serif;
   font-weight:400;
   text-transform:uppercase;
+  padding-bottom: 10px;
 }
 
 .address_list {
   border-top: 1px solid #212529;
   width:28em;
-  list-style: none;
 }
 
 li{
