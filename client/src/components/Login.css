@@ -1,10 +1,4 @@
-.h1-register {
-  display: flex;
-  justify-content: center;
-  margin-top:1em;
-}
-
-#addRegisterForm {
+#addLoginForm {
   display: flex;
   flex-direction:column;
   justify-content: space-between;
@@ -13,23 +7,23 @@
   font-family: 'M PLUS Rounded 1c', sans-serif;
   text-transform: uppercase;
   font-weight:500;
-  padding-top: 100px;
+  padding-top: 175px;
 }
 
-.addRegister_background {
-  background: url("../Images/burgertime-register.jpeg");
+.addLogin_background {
+  background: url("../Images/bugertime-login.jpeg");
   background-position: right;
   background-repeat:no-repeat;
   margin-right: 25px;
   height: 789px;
 }
 
-.add-registerfield{
-  margin: 7px;
+.addloginfield{
+margin: 7px;
 }
 
 
-.addRegisterSubmit {
+.addLoginSubmit {
   border-radius: 15px;
   background-color:#212529;
   text-transform: uppercase;
@@ -39,4 +33,9 @@
   margin-top:7px;
   margin-left: 7px;
   width: 75%;
+}
+
+.redirect-register{
+  margin-top:7px;
+  margin-left: 15px;
 }

@@ -1,6 +1,7 @@
 import React, { Component }from 'react'
 import axios from 'axios'
 import BurgerNavbar from './Navbar';
+import './Register.css'
 
 class Register extends Component {
   constructor(props) {
@@ -73,11 +74,11 @@ handleErrors = () => {
   render(){
     const {first_name, last_name, email, password, password_confirmation} = this.state
     return (
-      <div>
+      <div className='addRegister_background'>
         <BurgerNavbar />
-        <h1>Register</h1>
-        <form onSubmit={this.handleSubmit}>
-          <input 
+        <form id='addRegisterForm' onSubmit={this.handleSubmit}>
+          <input
+          className = 'add-registerfield'
           placeholder="First Name"
           type="text"
           name="first_name"
@@ -85,6 +86,7 @@ handleErrors = () => {
           onChange={this.handleChange}
           />
           <input 
+          className = 'add-registerfield'
           placeholder="Last Name"
           type="text"
           name="last_name"
@@ -92,6 +94,7 @@ handleErrors = () => {
           onChange={this.handleChange}
           />
           <input 
+          className = 'add-registerfield'
           placeholder="Email"
           type="text"
           name="email"
@@ -99,6 +102,7 @@ handleErrors = () => {
           onChange={this.handleChange}
           />
           <input 
+          className = 'add-registerfield'
           placeholder="Password"
           type="password"
           name="password"
@@ -106,13 +110,14 @@ handleErrors = () => {
           onChange={this.handleChange}
           />
           <input 
+          className = 'add-registerfield'
           placeholder="Password Confirmation"
           type="password"
           name="password_confirmation"
           value={password_confirmation}
           onChange={this.handleChange}
           />
-          <button placeholder="submit" type="submit">Register</button>
+          <button className = 'addRegisterSubmit' placeholder="submit" type="submit">Register</button>
         </form>
       </div>
     );
