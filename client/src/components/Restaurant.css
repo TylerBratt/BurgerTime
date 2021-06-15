@@ -1,15 +1,24 @@
 .main-restaurant {
   display: flex;
+  /* justify-content: space-evenly; */
   align-items: center;
   margin-top: 5em;
   margin-bottom: 2.5em;
-  background-color: black;
-  opacity: 0.6;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-weight:500;
+  background-color: rgba(0,0,0,0.6);
 }
-.left-restaurant {
+
+.right-restaurant {
   width:40%;
   color:white;
 }
+
+.right-restaurant a{
+  text-decoration: none;
+  color: white;
+}
+
 .left-content {
   display: flex;
   flex-direction: column;
@@ -20,8 +29,30 @@
   display: flex;
   justify-content: center;
 }
+
 .logo-restaurant {
   display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* background-color:white; */
+  margin: 20px 0 0 20px;
+}
+
+.logo_background{
+  background-color:white;
+}
+
+#dropdown {
+  margin: 10px 0;
+  text-decoration: none;
+  color: white;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-weight:500;
+  background: none;
+  border: none;
+  outline: none;
+
 }
 .desc-restaurant {
   display: flex;
@@ -29,7 +60,17 @@
   justify-content: center;
   align-items: center;
   margin:2em;
-  color:white;
+  color:#212529;
+  border: 2px solid #212529;
+  border-radius: 15px;
+  background-color: white;
+  opacity:0.9;
+  padding:0 12px;
+}
+
+.desc-restaurant a {
+  text-decoration: none;
+  color: white;
 }
 .restaurant-background {
   background-image: url('../Images/individual-restaurant.jpeg');
@@ -39,9 +80,5 @@
 }
 .restaurant-map {
   margin-top: 10em;
-  opacity: 0.8;
-}
-.like-dislike {
-  display: flex;
-  justify-content: flex-end;
+  opacity: 0.9;
 }

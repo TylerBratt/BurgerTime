@@ -20,14 +20,13 @@
   background: url("../Images/burgertime-register.jpeg");
   background-position: right;
   background-repeat:no-repeat;
-  margin-right: 25px;
+
   height: 789px;
 }
 
 .add-registerfield{
   margin: 7px;
 }
-
 
 .addRegisterSubmit {
   border-radius: 15px;
@@ -39,4 +38,8 @@
   margin-top:7px;
   margin-left: 7px;
   width: 75%;
+}
+
+::-webkit-scrollbar {
+  background: hidden;  /* Optional: just make scrollbar invisible */
 }
