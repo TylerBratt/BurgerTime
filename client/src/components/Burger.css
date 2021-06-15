@@ -58,6 +58,10 @@ address {
   opacity: 0.8;
   padding: 0.5em;
 }
+.burger-name {
+  display: flex;
+  justify-content: center;
+}
 #burger-comments {
   border-radius: 20px;
   width:100%;
@@ -68,7 +72,16 @@ address {
   width:100%;
   outline:none;
 }
-
+.like-dislike-burger {
+  display:flex;
+  font-weight: bold;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top:3em;
+}
+.likes {
+  padding-left: 2em;
+}
 .page-background {
   background-image: url('../Images/individual-burger-page.jpeg');
   background-attachment: fixed;

@@ -102,20 +102,20 @@ export default function Burger(props) {
       dislikes: dislike + 1
     }
     axios.put(`/api/burgerlikes/${likeid}`, { burgerlike })
-    .then(response => {
-      let burgerIndex = 0
-      for (let i = 0; i < state.burgerlikes.length; i++) {
-        if (state.burgerlikes[i].id == response.data.burgerlike.id) {
-          burgerIndex = i
+      .then(response => {
+        let burgerIndex = 0
+        for (let i = 0; i < state.burgerlikes.length; i++) {
+          if (state.burgerlikes[i].id == response.data.burgerlike.id) {
+            burgerIndex = i
+          }
         }
-      }
-      dispatch({
-        type: UPDATE_LIKES_DATA,
-        burgerlikes: response.data.burgerlike,
-        burgerIndex
+        dispatch({
+          type: UPDATE_LIKES_DATA,
+          burgerlikes: response.data.burgerlike,
+          burgerIndex
+        })
       })
-    })
-    .catch(error => console.log('api errors:', error))
+      .catch(error => console.log('api errors:', error))
   };
 
 
@@ -145,19 +145,19 @@ export default function Burger(props) {
 
 
   const commentsForBurger = state.comments.filter(comment => comment.burger_id == burger_id)
-  const commentsForPage = commentsForBurger.reverse().map((comment) => 
+  const commentsForPage = commentsForBurger.reverse().map((comment) =>
   (
-  <div className="comment-list">
-  <div className="comment-name-date-container">
-  {comment.full_name}
-  <div className="date">
-  { (comment.created_at instanceof Date) ? comment.created_at.toLocaleDateString() : new Date(comment.created_at).toLocaleDateString() }
-  </div>
-  </div>
-  <div>
-  {comment.comment}
-  </div>
-  </div>
+    <div className="comment-list">
+      <div className="comment-name-date-container">
+        {comment.full_name}
+        <div className="date">
+          {(comment.created_at instanceof Date) ? comment.created_at.toLocaleDateString() : new Date(comment.created_at).toLocaleDateString()}
+        </div>
+      </div>
+      <div>
+        {comment.comment}
+      </div>
+    </div>
   ));
 
   const likesForBurger = state.burgerlikes.filter(likes => likes.burger_id == burger_id)
@@ -193,7 +193,7 @@ export default function Burger(props) {
   const burgerRestaurantBrand = (<a href={`${web}`}><img src={brand} width="100"></img></a>);
   const burgerImage = (<div className="burger-image"><img src={image} className="burger-image1" height="250" width="250"></img></div>);
   const burgerAddress = addresses.map((a) => (<address key={a.addressID} > {a.number} {a.line1}, {a.line2}, {a.postalCode}</address>));
-  
+
   let burgerType
   if (isVegetarian) {
     burgerType = (<a><img src={vegetarianStamp} class="favourite-image" height="50" width="50"></img></a>)
@@ -207,82 +207,84 @@ export default function Burger(props) {
 
   return (
     <div className="page-background">
-    <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v10.0" nonce="NZACY53u"></script>
-    <BurgerNavbar />
+      <div id="fb-root"></div>
+      <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v10.0" nonce="NZACY53u"></script>
+      <BurgerNavbar />
 
-    <div className="temp-card-burger">
-      <div className="card-header">
-        <h1>{burgerName}
-        &nbsp;&nbsp;
-            ({burgerType})
+      <div className="temp-card-burger">
+        <div className="card-header">
+          <h1 className="burger-name">{burgerName}
+            {burgerType}
           </h1>
-        {/* <table></table> */}
-      </div>
-      <div className="burger-card">
-        <th>
-          {burgerImage}
-        </th>
-        
-        <div className="right-card">
+          {/* <table></table> */}
+        </div>
+        <div className="burger-card">
+          <th>
+            {burgerImage}
+          </th>
 
-          <h4 className="card-text">
-            {burgerDescription}
+          <div className="right-card">
+
+            <h4 className="card-text">
+              {burgerDescription}
+            </h4>
+            <h5>
+              {burgerIngredients}
+            </h5>
+            <div className="like-dislike-burger">
+              <div className="fav-button">
+                {favouritesButton}
+                {favouriteImage}
+              </div>
+              <div className='likes'>
+                <button onClick={likeHandleClick} type="like-button" className="btn btn-success btn-sm">Great!!</button>
+                {likesForPage}
+              </div>
+              <div classNames='dislikes'>
+                <button onClick={dislikeHandleClick} type="dis-like-button" className="btn btn-danger btn-sm">Nasty!!</button>
+                {dislikesForPage}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="burgername">
+      </div>
+
+      <div className="main-content">
+        <div className="left-main">
+          <h4>
+            {commentsForPage}
           </h4>
-          <h5>
-            {burgerIngredients}
-          </h5>
-          
-          <h5>
-          {favouriteImage}
-          </h5>
-          <span className="like-dislike">
-          <button onClick={likeHandleClick} type="like-button" className="btn btn-success btn-sm">Great!!</button>
-          {likesForPage}
-          <button onClick={dislikeHandleClick} type="dis-like-button" className="btn btn-danger btn-sm">Nasty!!</button>
-          {dislikesForPage}
-          {favouritesButton}
-          </span>
+        </div>
+        <div className="right-main">
+          <tbody className="website-info">
+            <th className="website-info-styling">
+              <div>
+                {burgerRestaurantBrand}
+                {burgerRestaurant}
+              </div>
+              {burgerRestaurantWeb}
+              {burgerAddress}
+            </th>
+          </tbody>
+
+          <form className="comment-form" onSubmit={handleSubmit} action="submit" name="comment-form" id="comment-form">
+            <textarea id="burger-comments" form="commentform" name="burger-comments" rows="4" cols="50">
+            </textarea>
+
+            <p>Comment</p>
+            <div className="form-name mb-4">
+              <input type="text" id="name-comments" form="commentform" cols="50" />
+              <p>Enter Your Name</p>
+            </div>
+            <button type="comment-button" className="btn btn-primary btn-sm">
+              Post comment
+            </button>
+          </form>
+          <OrderLinks />
         </div>
       </div>
     </div>
-    <div className="burgername">
-    </div>
-
-    <div className="main-content">
-      <div className="left-main">
-      <h4>
-        {commentsForPage}
-      </h4>
-      </div>
-      <div className="right-main">
-      <tbody className="website-info">
-          <th className="website-info-styling">
-            <div>
-            {burgerRestaurantBrand}
-            {burgerRestaurant}
-            </div>
-            {burgerRestaurantWeb}
-            {burgerAddress}
-          </th>
-        </tbody>
-
-        <form className="comment-form" onSubmit={handleSubmit} action="submit" name="comment-form" id="comment-form">
-          <textarea id="burger-comments" form="commentform" name="burger-comments" rows="4" cols="50">
-          </textarea>
-
-          <p>Comment</p>
-          <div className="form-name mb-4">
-            <input type="text" id="name-comments" form="commentform" cols="50" />
-            <p>Enter Your Name</p>
-          </div>
-          <button type="comment-button" className="btn btn-primary btn-sm">
-            Post comment
-            </button>
-        </form>
-            <OrderLinks />
-      </div>
-    </div>
-  </div>
   )
 };

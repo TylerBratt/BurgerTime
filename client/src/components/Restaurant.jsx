@@ -106,19 +106,19 @@ export default function Restaurant() {
         <div class="left-restaurant">
       <h1>{restaurant}</h1>
       <section>
-        <div>{logo}</div>
         <div><AddressDropDown onDropDownChange={setDropDownFilter}/></div>
+        {/* <div>{logo}</div> */}
       </section>
-      <div>{burgerList}</div>
+      {/* <div>{burgerList}</div>
       <div> {link}</div>
-      <div>{description}</div>
+      <div>{description}</div> */}
       <div>
         
       </div>
 
       <div class="left-content">
         {burgerList}
-        {address}
+        {/* {address} */}
       </div>
         </div>
 
