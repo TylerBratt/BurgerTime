@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Component } from 'react'
 import {Link} from 'react-router-dom'
 import BurgerNavbar from './Navbar';
+import './Login.css'
 
 class Login extends Component {
   constructor(props) {
@@ -77,12 +78,14 @@ handleErrors = () => {
     const {email, password} = this.state
     
     return(
-      <div>
+      <div className='addLogin_background'>
         <BurgerNavbar />
-        <h1>Log In</h1>
-        <form onSubmit={this.handleSubmit}>
+        {/* <h1>Log In</h1> */}
+        <div>
+        <form id='addLoginForm' onSubmit={this.handleSubmit}>
           
           <input
+            className = 'addloginfield'
             placeholder='email'
             type="text"
             name='email'
@@ -90,15 +93,17 @@ handleErrors = () => {
             onChange={this.handleChange}
           />
           <input
+            className = 'addloginfield'
             placeholder='password'
             type="password"
             name='password'
             value={password}
             onChange={this.handleChange}
           />
-          <button placceholder='submit' type='submit'>Log In</button>
-          <div>or <Link to='/register'>Register</Link></div>
+          <button className = 'addLoginSubmit' placceholder='submit' type='submit'>Log In</button>
+          <div className = 'redirect-register'>or <Link to='/register'>Register</Link></div>
         </form>
+        </div>
       </div>
     );
   }
