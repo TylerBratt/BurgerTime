@@ -1,23 +1,46 @@
+.burgerlist {
+  display: flex;
+  justify-content: flex-end;
+}
+.burgers-page-background {
+  background-image: url("../Images/burger-list-page.jpeg") ;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 .restaurant-burgers-list {
   height: 789px;
   overflow-x: hidden;
   overflow-y:auto;
-  overflow:scroll;
-  font-family: 'M PLUS Rounded 1c', sans-serif;
-  font-weight:500;
+}
+::-webkit-scrollbar {
+  background: hidden;  /* Optional: just make scrollbar invisible */
 }
 
 .burger-restaurant-container {
-  border: 2px solid black;
-  margin:2em;
-  border-radius: 15px;
   padding:2em;
+}
+.restaurant-burgers:hover {
+  opacity: 1;
+}
+.clickable-box {
+  text-decoration: none;
+  color:black;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-weight:500;
 }
 .restaurant-burgers {
   display: flex;
   align-items: center;
   margin: 2em;
   justify-content: space-between;
+  border: 2px solid black;
+  border-radius: 15px;
+  padding:2em;
+  background-color: white;
+  opacity: 0.7;
 }
 .restaurant-name {
   display: flex;

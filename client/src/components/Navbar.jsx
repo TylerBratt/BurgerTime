@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import Navbar from 'react-bootstrap/Navbar'
 import axios from 'axios'
 import './Navbar.css'
-const imageLogo = require('../b-time-logo.png')
+const imageLogo = require('../Images/b-time-logo.png')
 
 
 export default function BurgerNavbar(props) {

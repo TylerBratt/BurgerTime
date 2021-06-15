@@ -62,23 +62,21 @@ export default function Burgers(props) {
   console.log("burgers on Burgers.jsx",burgers)
   const extRestaurantList = burgers.map(
     (burger, index) => (
+      
+      
       <div className='burger-restaurant-container'>
-
-        <h3 className='restaurant-name'>
-        {burger.restaurant}
-        </h3>
-        {results.filter(res => res.restaurantID === burger.restaurantID).map(burger => ( 
-          <li className='restaurant-burgers' key={`${burger.id}`}>
+      {results.filter(res => res.restaurantID === burger.restaurantID).map(burger => ( 
+        <a className='clickable-box' href={`/restaurants/burger/${burger.id}`}><li className='restaurant-burgers' href={`/restaurants/burger/${burger.id}`} key={`${burger.id}`}>
           <img src={burger.image} height="100" width="100" alt="burger"></img>
           <span>{burger.name}</span>
           
-          <a href={`/restaurants/burger/${burger.id}`}>{burger.restaurant}</a>
-        </li>))}
+          <a>{burger.restaurant}</a>
+          </li></a>))}
 
           </div>))
   
   return (
-    <div>
+    <div className='burgers-page-background'>
       <BurgerNavbar />
       <Searchbar onSearch={term => setTerm(term)} onDropDownChange={setDropDownFilter}/>
       <Results results={results} />
