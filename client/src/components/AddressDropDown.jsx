@@ -3,8 +3,7 @@ import useApplicationData from '../hooks/useApplicationData'
 import {
   useParams,
 } from "react-router-dom";
-import Results from './Results'
-import Searchbar from './Searchbar'
+import './AddressDropDown.css'
 
 
 

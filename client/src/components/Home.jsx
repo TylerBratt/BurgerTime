@@ -5,6 +5,7 @@ import BurgerNavbar from './Navbar'
 import SocialFollow from "./SocialFollow"
 
 
+
 export default function Home(props) {
   return (
     <div className='home-container'>

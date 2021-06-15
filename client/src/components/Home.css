@@ -1,5 +1,6 @@
-#root {
-  background-color: lightgray;
+.home-container {
+  background-image: url('../Images/burger_colour_background.jpg');
+  background-size: 53%;
 }
 .table {
   display: flex;
@@ -21,36 +22,42 @@
   height: 200px;
   width: 400px;
   margin: 1.5em;
-  border: 1px solid black;
   color:white;
   text-decoration: none;
   font-size: 40px;
+  text-shadow: 3px 3px 6px #212529;
   border-radius: 5px;
-  box-shadow: 2px 2px 2px lightgrey;
   font-family: 'M PLUS Rounded 1c', sans-serif;
   font-weight:500;
 }
 
-.panel:hover {
-  background-color:black;
-}
 #burger-link {
   background: url(../Images/burger-home-page.jpg);
-  background-position: center;
-  background-size: cover;
 }
 #restaurant-link {
   background: url(../Images/burger-home-page.jpeg);
-  background-position: center;
-  background-size: cover;
 }
 #add-burger-link {
   background: url(../Images/add-burger-link.jpeg);
-  background-position: center;
-  background-size: cover;
 }
 #burger-time-link {
   background: url(../Images/burger-time-home.jpeg);
+}
+
+#burger-link, 
+#restaurant-link, 
+#add-burger-link, 
+#burger-time-link {
   background-position: center;
   background-size: cover;
+  border: 4px solid #212529;
+  box-shadow: 3px 3px 6px #212529;
+}
+
+#burger-link:active, 
+#restaurant-link:active, 
+#add-burger-link:active, 
+#burger-time-link:active {
+  box-shadow: 7px 7px 6px #212529;
+
 }

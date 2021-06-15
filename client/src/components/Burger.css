@@ -1,61 +1,87 @@
 .main-content {
   display:flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  margin: 0 3em;
 }
 .left-main {
   height: 550px;
   overflow-x: hidden;
   overflow-y:auto;
-  width:30%;
+  width:50%;
+  margin-left:1.5em;
 }
 .right-main {
   display:flex;
   flex-direction: column;
-  width: 65%;
-  margin-top:4em;
+  width: 50%;
+  margin-top:0.1em;
 }
 .comment-list {
+  width: 450px;
   border: 4px solid #212529;
   border-radius: 15px;
   color:#212529;
   background-color: white;
-  margin-bottom: 2em;
+  margin-bottom: 0.5em;
+  margin-left: 3em;
   padding: 0.5em;
   font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-size: 16px;
   font-weight:500;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 .comment-name-date-container {
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid #212529;
+  font-size: 18px;
+  padding-bottom: 5px;
+}
+
+.date {
+  font-size: 14px;
+  color: grey
 }
 th a img {
   border-radius: 25px;
 }
-address {
-  margin-left: 2em;
-}
 .website-info {
-  margin-bottom:4em;
+  width: 450px;
+  margin-bottom:2em;
   align-self: center;
   border: 4px solid #212529;
   border-radius: 25px;
   background-color: white;
   font-family: 'M PLUS Rounded 1c', sans-serif;
   font-weight:500;
-  opacity: 0.8;
-  padding: 0.5em;
+  opacity: 0.9;
+  padding: 0 1.5em;
 }
+
+.address_head {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0.5em 0;
+}
+
+.address_body {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 1em;
+}
+
 .comment-form {
   border: 4px solid #212529;
   border-radius: 25px;
   background-color: white;
   align-self: center;
-  width: 50%;
+  width: 450px;
   font-family: 'M PLUS Rounded 1c', sans-serif;
   font-weight:500;
-  opacity: 0.8;
+  opacity: 0.9;
   padding: 0.5em;
 }
 .burger-name {
@@ -65,7 +91,6 @@ address {
 #burger-comments {
   border-radius: 20px;
   width:100%;
-  outline:none;
 }
 #name-comments {
   border-radius: 25px;
@@ -75,12 +100,16 @@ address {
 .like-dislike-burger {
   display:flex;
   font-weight: bold;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   margin-top:3em;
 }
+
+.likeDislike {
+  display: flex;
+}
 .likes {
-  padding-left: 2em;
+  padding-right: 2em;
 }
 .page-background {
   background-image: url('../Images/individual-burger-page.jpeg');
@@ -97,7 +126,7 @@ address {
   margin-bottom: 2.5em;
   margin-top: 2.5em;
   align-self: center;
-  width: 75%;
+  width: 1075px;
   background-color: white;
   border: 4px solid #212529;
   border-radius: 75px;
@@ -113,6 +142,8 @@ address {
   margin: 2em;
 }
 .right-card {
+  display: flex;
+  flex-direction: column;
   margin:2em;
 }
 
@@ -121,7 +152,6 @@ address {
   top: 0;
   border-radius: 5px;
 };
-
 
 .burger-image {
   display: flex;
@@ -148,6 +178,10 @@ address {
 /* Bottom Half Of Page Styling */
 
 
-
+@media screen and (max-width: 1000px) {
+  .main-content {
+    flex-direction: column;
+  }
+}
 
 

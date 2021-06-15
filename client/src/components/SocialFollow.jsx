@@ -6,10 +6,12 @@ import {
   faTwitter,
   faInstagram
 } from "@fortawesome/free-brands-svg-icons";
+import OrderLinks from './OrderLinks'
 
 export default function SocialFollow() {
   return (
     <div class="social-container">
+      <div>
       <a href="https://www.facebook.com"
          target="_blank"
         className="facebook social">
@@ -25,6 +27,12 @@ export default function SocialFollow() {
         className="instagram social">
         <FontAwesomeIcon icon={faInstagram} size="2x" />
       </a>
+      </div>
+      
+      <div>
+        <OrderLinks />
+      </div>
+      
     </div>
   );
 }

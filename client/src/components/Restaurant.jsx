@@ -20,17 +20,15 @@ export default function Restaurant() {
   const { id, lat, long } = useParams();
   const [dropDownFilter, setDropDownFilter] = useState('0');
   const [coords, setCoords] = useState([lat, long]);
-  // console.log("THESE ARE COORDS",coords)
 
   useEffect(() => {
     if (address) {
       addresses.map(res => {
-        // console.log("res",res.addressID)
-        // console.log("dropdown filter", dropDownFilter)
+
         console.log(" lat",  res.lat)
         if (dropDownFilter == res.addressID) {
         const newCoords = [res.lat, res.long]
-        setCoords(prev => [res.lat,  res.long] /*newCoords */)
+        setCoords(prev => [res.lat,  res.long] )
         console.log("THIS IS NEW COORDS", newCoords)}
       })
     }
@@ -47,7 +45,7 @@ export default function Restaurant() {
   const oneRestaurant = singleRest.find((restaurant) => restaurant.restaurantID == id)
   if (!oneRestaurant) {
     return null
-    // Return GIF "LOADING"
+
   }
   const {
     addresses,
@@ -60,31 +58,6 @@ export default function Restaurant() {
   const logo = (<img src={brand} height="250" width="250"></img>)
   const link = (<a href={web}>{web}</a>)
   const address = addresses.map((a) => a.addressID)
-
-
-// if (dropDownFilter === address) {
-//   const newResults = addresses.map(res => [res.lat, res.long])
-//   setAllResults(newResults)
-// }
-
-
-// TO make the dropdown work I need to have access to : state of dropddown menu, addressID and the SIMPLEMAP coordinates
-
-// DO i need to make a function to alter the lat and long props?
-
-  // console.log("dropDownFilter", dropDownFilter)
-  // console.log("address", address)
-  // console.log('addresses', addresses)
-
-  // const stateChanger = () => {
-  //   if (dropDownFilter === address) {
-  //     const newCoords = addresses.map(res => [res.lat, res.long])
-  //     setAllResults(newCoords)
-  //   }
-  // }
-  // console.log(stateChanger())
-  // console.log(addresses[0].lat, addresses[0].long)
-
 
   const convertToNumber = str => {
     console.log("what passes through here?", str)
@@ -101,42 +74,32 @@ export default function Restaurant() {
   }
 
   return (
-    <div class="restaurant-background">
+    <div className="restaurant-background">
       <BurgerNavbar />
-      <div class="main-restaurant">
-
-        <div class="left-restaurant">
-      <h1>{restaurant}</h1>
-      <section>
-        <div><AddressDropDown onDropDownChange={setDropDownFilter}/></div>
-        {/* <div>{logo}</div> */}
-      </section>
-      {/* <div>{burgerList}</div>
-      <div> {link}</div>
-      <div>{description}</div> */}
-      <div>
-        
-      </div>
-
-      <div class="left-content">
-        {burgerList}
-        {/* {address} */}
-      </div>
+      <div className="main-restaurant">
+        <div className="logo-restaurant">
+          <div className="logo_background">
+          {logo}
+          </div>
+          <div id='dropdown'>
+            <AddressDropDown onDropDownChange={setDropDownFilter}/>
+          </div>
         </div>
-
-      <section class="right-restaurant">
-        <div class="locations-drop">
-        
+        <div className="desc-restaurant">
+          <h1>{restaurant}</h1>
+            {description}
+            {link}
         </div>
-        <div class="logo-restaurant">
-        {logo}
-        <div class="desc-restaurant">
-        {description}
-        {link}
+        <div className="right-restaurant">
+          <div className="right-content">
+            {burgerList}
+          </div>
         </div>
         </div>
-      </section>
-    
+        <div className="restaurant-map">
+          <SimpleMap 
+          center={[ convertToNumber(coords[0]), convertToNumber(coords[1]) ]}
+          />
       </div>
     <div class="restaurant-map">
       <SimpleMap 
@@ -146,5 +109,5 @@ export default function Restaurant() {
     <SocialFollow />
     </div>
   )
-  }
+}
   

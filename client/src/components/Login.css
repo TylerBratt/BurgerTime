@@ -14,7 +14,6 @@
   background: url("../Images/bugertime-login.jpeg");
   background-position: right;
   background-repeat:no-repeat;
-  margin-right: 25px;
   height: 789px;
 }
 
@@ -38,4 +37,8 @@ margin: 7px;
 .redirect-register{
   margin-top:7px;
   margin-left: 15px;
+}
+
+::-webkit-scrollbar {
+  background: hidden;  /* Optional: just make scrollbar invisible */
 }
