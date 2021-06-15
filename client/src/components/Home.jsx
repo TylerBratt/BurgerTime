@@ -13,7 +13,7 @@ export default function Home(props) {
       <Link to='/Burgers'><div className='panel'><p>Burgers 🍔</p></div></Link>
       <Link to='/Restaurants'><div className='panel'>Restaurants 🗺️</div></Link>
       <Link to='/AddBurger'><div className='panel'>Add A Burger 🔍</div></Link>
-      <Link to='/About'><div className='panel burgertime'>BURGERTIME</div></Link>
+      <Link to='/About'><div className='panel'>About Us 🇨🇦</div></Link>
     </div>
   </div>
   )

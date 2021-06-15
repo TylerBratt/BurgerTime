@@ -204,7 +204,7 @@ export default function AddBurger(props) {
             onChange={handleInputChange} />
         </label>
 
-          <button class='burgerSubmit' type="submit" form="addBurgerForm">Submit</button>
+          <button type="submit" form="addBurgerForm">Submit</button>
       </form>
       <div class='addburger_background'>
       </div>
