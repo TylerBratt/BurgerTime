@@ -10,6 +10,7 @@ import {
   UPDATE_FAVOURITE_DATA, UPDATE_COMMENT_DATA, UPDATE_LIKES_DATA
 } from '../reducer/data_reducer';
 import "./Burger.css"
+import SocialFollow from "./SocialFollow"
 
 const favouriteStamp = require('../Images/favourite-stamp.png')
 const vegetarianStamp = require('../Images/vegetarian.png')
@@ -281,6 +282,7 @@ export default function Burger(props) {
           </form>
         </div>
       </div>
+      <SocialFollow />
     </div>
   )
 };

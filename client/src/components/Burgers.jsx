@@ -4,6 +4,8 @@ import Searchbar from './Searchbar'
 import Results from './Results'
 import axios from 'axios'
 import './Burgers.css'
+import SocialFollow from "./SocialFollow"
+
 
 import useApplicationData from '../hooks/useApplicationData'
 
@@ -64,9 +66,13 @@ export default function Burgers(props) {
   return (
     <div className='burgers-page-background'>
       <BurgerNavbar />
+      <div className='burger-top'>
       <Searchbar onSearch={term => setTerm(term)} onDropDownChange={setDropDownFilter}/>
       <Results results={results} />
-      <h1>Burgers Page</h1>
+      <h1 className = 'burgers-title'>Burgers Page</h1>
+      </div>
+      {/* <ul> {userList} </ul> */}
+      {/* <ul> {extburgerList} </ul> */}
       <div class="burgerlist">
         <section>
           <div className='restaurant-burgers-list'>
@@ -74,6 +80,7 @@ export default function Burgers(props) {
           </div>
         </section>
       </div>
+      <SocialFollow />
     </div>
   )
 };

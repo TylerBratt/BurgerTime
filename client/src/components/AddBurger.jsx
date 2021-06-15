@@ -4,6 +4,8 @@ import axios from 'axios'
 import { NEW_BURGER_DATA } from '../reducer/data_reducer'
 import useApplicationData from '../hooks/useApplicationData'
 import './AddBurger.css'
+import SocialFollow from "./SocialFollow"
+
 
 export default function AddBurger(props) {
   const [value, setValue] = useState("");
@@ -207,7 +209,7 @@ export default function AddBurger(props) {
         <button className='addBurgerSubmit' type="submit" form='addBurgerForm'>Submit</button>
       </form>
       </div>
-    
+      <SocialFollow />
     </div>
   )
 };

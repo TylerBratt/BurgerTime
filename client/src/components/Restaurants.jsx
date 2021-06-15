@@ -3,6 +3,8 @@ import BurgerNavbar from './Navbar'
 import axios from 'axios'
 import useApplicationData from '../hooks/useApplicationData'
 import "./Restaurants.css"
+import SocialFollow from "./SocialFollow"
+
 
 export default function Restaurants(props) {
   const { state, dispatch } = useApplicationData();
@@ -13,13 +15,13 @@ export default function Restaurants(props) {
     axios.get(burgerList).then(response => {
       setResults([...response.data])
     });
-  },[])
+  }, [])
 
   const burgerObj = {}
-    for(const burger of results) {
-      const key = burger.restaurant
-      burgerObj[key] = burger;
-      burgerObj[key].count = burgerObj[key].count ? burgerObj[key].count + 1 : 1
+  for (const burger of results) {
+    const key = burger.restaurant
+    burgerObj[key] = burger;
+    burgerObj[key].count = burgerObj[key].count ? burgerObj[key].count + 1 : 1
   }
   const burgers = Object.values(burgerObj)
   const extRestaurantList = burgers.map(
@@ -49,11 +51,16 @@ export default function Restaurants(props) {
           </div>
         </a>
       </div>))
-  return ( 
+  return (
     <div class="restaurants-background">
       <BurgerNavbar />
-        <h1 class="restaurants-title"> Restaurants</h1>
-        <ul class="restaurant-list">{extRestaurantList}</ul>
+      <h1 class="restaurants-title"> Restaurants</h1>
+      <ul class="restaurant-list">{extRestaurantList}</ul>
+      <div>
+        <SocialFollow />
+      </div>
     </div>
+
+
   )
 };

@@ -4,6 +4,8 @@ import { Component } from 'react'
 import {Link} from 'react-router-dom'
 import BurgerNavbar from './Navbar';
 import './Login.css'
+import SocialFollow from "./SocialFollow"
+
 
 class Login extends Component {
   constructor(props) {
@@ -96,6 +98,7 @@ class Login extends Component {
           <div className = 'redirect-register'>or <Link to='/register'>Register</Link></div>
         </form>
         </div>
+        <SocialFollow />
       </div>
     );
   }

@@ -7,6 +7,8 @@ import {
   useParams,
 } from "react-router-dom";
 import "./Restaurant.css"
+import SocialFollow from "./SocialFollow"
+
 
 export default function Restaurant() {
 
@@ -95,6 +97,12 @@ export default function Restaurant() {
           center={[ convertToNumber(coords[0]), convertToNumber(coords[1]) ]}
           />
       </div>
+    <div class="restaurant-map">
+      <SimpleMap 
+      center={[ convertToNumber(coords[0]), convertToNumber(coords[1]) ]}
+      />
+    </div>
+    <SocialFollow />
     </div>
   )
 }

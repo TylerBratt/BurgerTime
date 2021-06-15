@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './Home.css'
 import BurgerNavbar from './Navbar'
+import SocialFollow from "./SocialFollow"
+
 
 
 export default function Home() {
@@ -18,6 +20,7 @@ export default function Home() {
           <Link to='/About'><div className='panel' id='burger-time-link'>Burger Time</div></Link>
         </div>
       </div>
+      <SocialFollow />
     </div>
   )
 };

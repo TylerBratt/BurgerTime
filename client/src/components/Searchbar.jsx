@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback  } from 'react'
 import useDebounce from "../hooks/useDebounce";
 import useApplicationData from '../hooks/useApplicationData'
+import './Searchbar.css'
 
 export default function Searchbar(props) {
   const [value, setValue] = useState("");
@@ -17,6 +18,7 @@ export default function Searchbar(props) {
 
   return (
   <div>
+    <div id='burger-searchbar'>
     <select id='selUser'  
             value={dropSelect} 
             onChange={(evt) => {
@@ -34,7 +36,7 @@ export default function Searchbar(props) {
     <form onSubmit={event => event.preventDefault()}>
       <input 
         type='text' 
-        placeholder='Leave empty to view all options'
+        placeholder='Enter Your Choice!'
         id='input_field' 
         name="search"
         value={value}
@@ -43,6 +45,7 @@ export default function Searchbar(props) {
         />
     </form>
     <div id='result'></div>
+  </div>
   </div>
   )
 };

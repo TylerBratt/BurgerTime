@@ -6,7 +6,7 @@ import {
   faTwitter,
   faInstagram
 } from "@fortawesome/free-brands-svg-icons";
-import OrderLinks from '../src/components/OrderLinks'
+import OrderLinks from './OrderLinks'
 
 export default function SocialFollow() {
   return (

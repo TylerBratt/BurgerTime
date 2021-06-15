@@ -2,6 +2,8 @@ import React, { Component }from 'react'
 import axios from 'axios'
 import BurgerNavbar from './Navbar';
 import './Register.css'
+import SocialFollow from "./SocialFollow"
+
 
 class Register extends Component {
   constructor(props) {
@@ -120,6 +122,7 @@ class Register extends Component {
           />
           <button className = 'addRegisterSubmit' placeholder="submit" type="submit">Register</button>
         </form>
+        <SocialFollow />
       </div>
     );
   }

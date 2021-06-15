@@ -1,0 +1,16 @@
+#selUser {
+  text-decoration: none;
+  color: white;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-weight:500;
+  background: none;
+  border: none;
+  outline: none;
+  flex-direction: row-reverse;
+}
+
+#burger-searchbar{
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+}
