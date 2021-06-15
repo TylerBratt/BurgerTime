@@ -94,8 +94,7 @@ export default function AddBurger(props) {
   return (
     <div>
       <BurgerNavbar />
-      <h1></h1>
-
+      <div class='addburger_container'>
       <form id='addBurgerForm' action="submit" onSubmit={handleSubmit}>
         <input 
           className="addBurgerField"
@@ -207,6 +206,9 @@ export default function AddBurger(props) {
 
           <button type="submit" form="addBurgerForm">Submit</button>
       </form>
+      <div class='addburger_background'>
+      </div>
+      </div>
     </div>
   )
 };

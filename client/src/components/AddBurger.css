@@ -1,10 +1,34 @@
+.addburger_container {
+  display: flex;
+  justify-content: space-around;
+}
+
 #addBurgerForm {
   display: flex;
   flex-direction:column;
-  width: 33%;
+  width: 45%;
   margin: 15px;
 }
 
 .addBurgerField {
   margin: 7px 0;
+}
+
+::-webkit-scrollbar {
+  background: hidden;  /* Optional: just make scrollbar invisible */
+}
+
+.addburger_background {
+  background-image: url("../Images/addburger.jpeg");
+  height:120vh;
+  width:45%;
+  position:relative;
+  right: -50px;
+
+  /* Center and scale the image nicely */
+  background-position: right;
+  /* background-size: cover; */
+
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
