@@ -1,11 +1,13 @@
-
+#root {
+  background-color: lightgray;
+}
 .table {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   width: 80vw;
+  margin-top:2em;
   justify-content: center;
-  margin-top: 50px;
 }
 
 .table a {
@@ -18,15 +20,37 @@
   align-items: center;
   height: 200px;
   width: 400px;
-  margin: 15px;
+  margin: 1.5em;
   border: 1px solid black;
+  color:white;
   text-decoration: none;
-  font-size: 32px;
-  color: black;
+  font-size: 40px;
   border-radius: 5px;
   box-shadow: 2px 2px 2px lightgrey;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-weight:500;
 }
 
 .panel:hover {
-  background-color:lightgray;
+  background-color:black;
+}
+#burger-link {
+  background: url(../Images/burger-home-page.jpg);
+  background-position: center;
+  background-size: cover;
+}
+#restaurant-link {
+  background: url(../Images/burger-home-page.jpeg);
+  background-position: center;
+  background-size: cover;
+}
+#add-burger-link {
+  background: url(../Images/add-burger-link.jpeg);
+  background-position: center;
+  background-size: cover;
+}
+#burger-time-link {
+  background: url(../Images/burger-time-home.jpeg);
+  background-position: center;
+  background-size: cover;
 }

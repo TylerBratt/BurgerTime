@@ -1,0 +1,25 @@
+.restaurant-burgers-list {
+  height: 789px;
+  overflow-x: hidden;
+  overflow-y:auto;
+  overflow:scroll;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-weight:500;
+}
+
+.burger-restaurant-container {
+  border: 2px solid black;
+  margin:2em;
+  border-radius: 15px;
+  padding:2em;
+}
+.restaurant-burgers {
+  display: flex;
+  align-items: center;
+  margin: 2em;
+  justify-content: space-between;
+}
+.restaurant-name {
+  display: flex;
+  justify-content: center;
+}

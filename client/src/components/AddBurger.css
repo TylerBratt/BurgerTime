@@ -1,6 +1,6 @@
 .addburger_container {
   display: flex;
-  justify-content: space-around;
+  width:60%;
 }
 
 #addBurgerForm {
@@ -8,27 +8,28 @@
   flex-direction:column;
   width: 45%;
   margin: 15px;
+  margin-left:35em;
 }
 
 .addBurgerField {
   margin: 7px 0;
 }
 
-::-webkit-scrollbar {
-  background: hidden;  /* Optional: just make scrollbar invisible */
-}
+.add-burger-background {
+  background: url("../Images/addburger.jpeg"), url("../Images/burger-gif.gif");
+  background-position: right, left ;
+  background-repeat:no-repeat ;
 
-.addburger_background {
+}
+/* ::-webkit-scrollbar {
+  background: hidden;  /* Optional: just make scrollbar invisible */
+
+/* .addburger_background {
   background-image: url("../Images/addburger.jpeg");
   height:120vh;
   width:45%;
   position:relative;
   right: -50px;
-
-  /* Center and scale the image nicely */
-  background-position: right;
-  /* background-size: cover; */
-
   background-attachment: fixed;
   background-repeat: no-repeat;
-}
+} */

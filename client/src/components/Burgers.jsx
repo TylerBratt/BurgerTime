@@ -3,6 +3,7 @@ import BurgerNavbar from './Navbar'
 import Searchbar from './Searchbar'
 import Results from './Results'
 import axios from 'axios'
+import './Burgers.css'
 
 import useApplicationData from '../hooks/useApplicationData'
 
@@ -61,15 +62,20 @@ export default function Burgers(props) {
   console.log("burgers on Burgers.jsx",burgers)
   const extRestaurantList = burgers.map(
     (burger, index) => (
-      <ul key={index}> 
+      <div className='burger-restaurant-container'>
+
+        <h3 className='restaurant-name'>
+        {burger.restaurant}
+        </h3>
         {results.filter(res => res.restaurantID === burger.restaurantID).map(burger => ( 
-          <li key={`${burger.id}`}>
+          <li className='restaurant-burgers' key={`${burger.id}`}>
           <img src={burger.image} height="100" width="100" alt="burger"></img>
           <span>{burger.name}</span>
-            <a href={`/restaurants/burger/${burger.id}`}>{burger.restaurant}</a>
+          
+          <a href={`/restaurants/burger/${burger.id}`}>{burger.restaurant}</a>
         </li>))}
 
-      </ul>))
+          </div>))
   
   return (
     <div>
@@ -80,18 +86,10 @@ export default function Burgers(props) {
       {/* <ul> {userList} </ul> */}
       {/* <ul> {extburgerList} </ul> */}
       <div class="burgerlist">
-        <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th colspan="2">Yummy Burgers!</th>
-            <th>What it's called</th>
-            <th>Where to find this bad boy!!</th>
-          </tr>
-          </thead>
         <tbody>
-          <th>
+          <div className='restaurant-burgers-list'>
           {extRestaurantList}
-          </th>
+          </div>
           {/* <th>
           {extburgerImg}
           </th>   
@@ -105,7 +103,6 @@ export default function Burgers(props) {
         {/* <ul> {extburgerImg} {extburgerNames}</ul>
         <ul> {extburgerNames} </ul> */}
         </tbody>
-        </table>
       </div>
     </div>
   )
