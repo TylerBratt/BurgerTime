@@ -2,6 +2,8 @@ import React from 'react'
 import BurgerNavbar from './Navbar'
 import useApplicationData from '../hooks/useApplicationData'
 import './Favourite.css'
+import SocialFollow from "./SocialFollow"
+
 
 export default function Favourites(props) {
   let user = localStorage.getItem('userObject');
@@ -38,6 +40,10 @@ export default function Favourites(props) {
       <div>
         {userFavourites}
       </div>
+      <tbody>
+        
+      </tbody>
+      <SocialFollow />
     </div>
   )
 

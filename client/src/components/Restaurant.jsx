@@ -9,6 +9,8 @@ import {
 
 // Styling
 import "./Restaurant.css"
+import SocialFollow from "./SocialFollow"
+
 
 
 
@@ -141,6 +143,7 @@ export default function Restaurant() {
       center={[ convertToNumber(coords[0]), convertToNumber(coords[1]) ]}
       />
     </div>
+    <SocialFollow />
     </div>
   )
   }

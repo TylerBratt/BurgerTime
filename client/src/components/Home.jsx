@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './Home.css'
 import BurgerNavbar from './Navbar'
+import SocialFollow from "./SocialFollow"
+
 
 export default function Home(props) {
   return (
@@ -21,6 +23,7 @@ export default function Home(props) {
         </div>
 
       </div>
+      <SocialFollow />
     </div>
   )
 };
