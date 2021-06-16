@@ -92,8 +92,8 @@ class Login extends Component {
             value={password}
             onChange={this.handleChange}
           />
-          <button className = 'addLoginSubmit' placceholder='submit' type='submit'>Log In</button>
-          <div className = 'redirect-register'>or <Link to='/register'>Register</Link></div>
+          <button className= 'addLoginSubmit' placeholder='submit' type='submit'>Log In</button>
+          <div className= 'redirect-register'>or <Link to='/register'>Register</Link></div>
         </form>
         <div className='spacer'></div>
         </div>
