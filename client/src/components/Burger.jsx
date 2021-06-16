@@ -32,41 +32,41 @@ export default function Burger(props) {
       console.log("logged IN")
     }
 
-  const userfavs = state.favourites.find(d => d.user_id == user_id && d.burger_id == id)
+    const userfavs = state.favourites.find(d => d.user_id == user_id && d.burger_id == id)
 
-  const handleClick = (event) => {
-    console.log("I FIRED")
-    event.preventDefault()
-    if (userfavs) {
-      console.log("Favourite EXISTS")
-    } else {
-      let favourite = {
-        user_id: user_id,
-        burger_id: id
-      }
-      axios.post('/api/favourites', { favourite })
-        .then(response => {
-          dispatch({
-            type: UPDATE_FAVOURITE_DATA,
-            favourites: response.data.favourite
+    const handleClick = (event) => {
+      console.log("I FIRED")
+      event.preventDefault()
+      if (userfavs) {
+        console.log("Favourite EXISTS")
+      } else {
+        let favourite = {
+          user_id: user_id,
+          burger_id: id
+        }
+        axios.post('/api/favourites', { favourite })
+          .then(response => {
+            dispatch({
+              type: UPDATE_FAVOURITE_DATA,
+              favourites: response.data.favourite
+            })
+            window.location.href = '/favourites';
           })
-          window.location.href = '/favourites';
-        })
-        .catch(error => console.log('api errors:', error))
+          .catch(error => console.log('api errors:', error))
+      }
+    };
+
+    if (userfavs) {
+      favouritesButton = <div></div>
+    } else if (user) {
+      favouritesButton = <button onClick={handleClick} type="favourites-button" className="btn btn-primary btn-sm">Add to Favourites!!</button>
+    } else favouritesButton = <div></div>
+
+    if (userfavs) {
+      favouriteImage = (<a href={`/favourites`}><img src={favouriteStamp} className="favourite-image" height="50" width="100"></img></a>)
+    } else {
+      favouriteImage = <div></div>
     }
-  };
-
-  if (userfavs) {
-    favouritesButton = <div></div>
-  } else if (user) {
-    favouritesButton = <button onClick={handleClick} type="favourites-button" className="btn btn-primary btn-sm">Add to Favourites!!</button>
-  } else favouritesButton = <div></div>
-
-  if (userfavs) {
-    favouriteImage = (<a href={`/favourites`}><img src={favouriteStamp} className="favourite-image" height="50" width="100"></img></a>)
-  } else {
-    favouriteImage = <div></div>
-  }
 
   }
 
@@ -125,22 +125,26 @@ export default function Burger(props) {
     const burgerForm = document.getElementById("burger-comments").value
     const nameForm = document.getElementById("name-comments").value
     event.preventDefault()
-    let comment = {
-      full_name: nameForm,
-      burger_id: parseInt(id),
-      comment: burgerForm
-    }
-    axios.post('/api/comments', { comment })
-      .then(response => {
-        dispatch({
-          type: UPDATE_COMMENT_DATA,
-          comments: response.data.comment
+    if (!burgerForm || !nameForm) {
+      console.log("Form Incomplete")
+      alert("Please fill out both Name and Comment!");
+    } else {
+      let comment = {
+        full_name: nameForm,
+        burger_id: parseInt(id),
+        comment: burgerForm
+      }
+      axios.post('/api/comments', { comment })
+        .then(response => {
+          dispatch({
+            type: UPDATE_COMMENT_DATA,
+            comments: response.data.comment
+          })
+          document.getElementById("name-comments").value = ""
+          document.getElementById("burger-comments").value = ""
         })
-        document.getElementById("name-comments").value = ""
-        document.getElementById("burger-comments").value = ""
-      })
-      .catch(error => console.log('api errors:', error))
-
+        .catch(error => console.log('api errors:', error))
+    }
   };
 
 
@@ -231,16 +235,16 @@ export default function Burger(props) {
                 {favouriteImage}
               </div>
               <div className='likeDislike'>
-              <div className='likes'>
-                <button onClick={likeHandleClick} type="like-button" className="btn btn-success btn-sm">Great!!</button>
-                {likesForPage}
+                <div className='likes'>
+                  <button onClick={likeHandleClick} type="like-button" className="btn btn-success btn-sm">Great!!</button>
+                  {likesForPage}
+                </div>
+                <div classNames='dislikes'>
+                  <button onClick={dislikeHandleClick} type="dis-like-button" className="btn btn-danger btn-sm">Nasty!!</button>
+                  {dislikesForPage}
+                </div>
               </div>
-              <div classNames='dislikes'>
-                <button onClick={dislikeHandleClick} type="dis-like-button" className="btn btn-danger btn-sm">Nasty!!</button>
-                {dislikesForPage}
-              </div>
-              </div>
-              
+
             </div>
           </div>
         </div>
@@ -268,27 +272,27 @@ export default function Burger(props) {
             </div>
           </section>
 
-          <form className="comment-form" 
-                onSubmit={handleSubmit} 
-                action="submit" 
-                name="comment-form" 
-                id="comment-form">
-            <textarea 
-            id="burger-comments" 
-            form="commentform" 
-            name="burger-comments" 
-            rows="4" 
-            cols="50"
-            required>
+          <form className="comment-form"
+            onSubmit={handleSubmit}
+            action="submit"
+            name="comment-form"
+            id="comment-form">
+            <textarea
+              id="burger-comments"
+              form="commentform"
+              name="burger-comments"
+              rows="4"
+              cols="50"
+              required>
             </textarea>
             <p>Comment</p>
             <div className="form-name mb-4">
-              <input 
-              type="text" 
-              id="name-comments" 
-              form="commentform" 
-              cols="50"
-              required/>
+              <input
+                type="text"
+                id="name-comments"
+                form="commentform"
+                cols="50"
+                required/>
               <p>Enter Your Name</p>
             </div>
             <button type="comment-button" className="btn btn-primary btn-sm">
