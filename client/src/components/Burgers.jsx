@@ -69,7 +69,7 @@ export default function Burgers(props) {
         <div className='burger-top'>
           <Searchbar onSearch={term => setTerm(term)} onDropDownChange={setDropDownFilter}/>
           <Results results={results} />
-            <h1 className = 'burgers-title'>Burgers Page</h1>
+            <h1 className = 'burgers-title'>Burgers</h1>
         </div>
         <div class="burgerlist">
           <section>

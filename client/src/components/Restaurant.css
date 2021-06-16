@@ -70,7 +70,7 @@
 
 .desc-restaurant a {
   text-decoration: none;
-  color: white;
+  color: #212529;
 }
 .restaurant-background {
   background-image: url('../Images/individual-restaurant.jpeg');
