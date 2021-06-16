@@ -41,3 +41,14 @@ margin: 7px;
 ::-webkit-scrollbar {
   background: hidden;
 }
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left:0;
+  right:0;
+}
+
+.spacer {
+  height: 233px;
+}

@@ -55,7 +55,9 @@ export default function Restaurants(props) {
     <div class="restaurants-background">
       <BurgerNavbar />
       <h1 class="restaurants-title"> Restaurants</h1>
-      <ul class="restaurant-list">{extRestaurantList}</ul>
+      <ul class="restaurant-list">
+        {extRestaurantList}
+      </ul>
       <div>
         <SocialFollow />
       </div>

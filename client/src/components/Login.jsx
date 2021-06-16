@@ -74,10 +74,8 @@ class Login extends Component {
     return(
       <div className='addLogin_background'>
         <BurgerNavbar />
-        {/* <h1>Log In</h1> */}
         <div>
         <form id='addLoginForm' onSubmit={this.handleSubmit}>
-          
           <input
             className = 'addloginfield'
             placeholder='email'
@@ -97,8 +95,11 @@ class Login extends Component {
           <button className = 'addLoginSubmit' placceholder='submit' type='submit'>Log In</button>
           <div className = 'redirect-register'>or <Link to='/register'>Register</Link></div>
         </form>
+        <div className='spacer'></div>
         </div>
-        <SocialFollow />
+        <div className='footer'>
+          <SocialFollow />
+        </div>
       </div>
     );
   }

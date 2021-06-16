@@ -91,11 +91,6 @@ export default function Restaurant() {
             {burgerList}
           </div>
         </div>
-        </div>
-        <div className="restaurant-map">
-          <SimpleMap 
-          center={[ convertToNumber(coords[0]), convertToNumber(coords[1]) ]}
-          />
       </div>
     <div class="restaurant-map">
       <SimpleMap 

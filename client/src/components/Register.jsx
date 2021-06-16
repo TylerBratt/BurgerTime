@@ -122,7 +122,11 @@ class Register extends Component {
           />
           <button className = 'addRegisterSubmit' placeholder="submit" type="submit">Register</button>
         </form>
+        <div className='spacer'></div>
+        <div className='footer'>
         <SocialFollow />
+        </div>
+        
       </div>
     );
   }

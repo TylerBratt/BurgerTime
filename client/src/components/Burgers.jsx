@@ -66,20 +66,18 @@ export default function Burgers(props) {
   return (
     <div className='burgers-page-background'>
       <BurgerNavbar />
-      <div className='burger-top'>
-      <Searchbar onSearch={term => setTerm(term)} onDropDownChange={setDropDownFilter}/>
-      <Results results={results} />
-      <h1 className = 'burgers-title'>Burgers Page</h1>
-      </div>
-      {/* <ul> {userList} </ul> */}
-      {/* <ul> {extburgerList} </ul> */}
-      <div class="burgerlist">
-        <section>
-          <div className='restaurant-burgers-list'>
-          {extRestaurantList}
-          </div>
-        </section>
-      </div>
+        <div className='burger-top'>
+          <Searchbar onSearch={term => setTerm(term)} onDropDownChange={setDropDownFilter}/>
+          <Results results={results} />
+            <h1 className = 'burgers-title'>Burgers Page</h1>
+        </div>
+        <div class="burgerlist">
+          <section>
+            <div className='restaurant-burgers-list'>
+              {extRestaurantList}
+            </div>
+          </section>
+        </div>
       <SocialFollow />
     </div>
   )
