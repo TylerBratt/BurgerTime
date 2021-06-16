@@ -18,6 +18,7 @@
 
 .addloginfield{
 margin: 7px;
+text-transform:lowercase;
 }
 
 .addLoginSubmit {
