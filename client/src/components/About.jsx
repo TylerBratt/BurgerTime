@@ -1,6 +1,7 @@
 import React from 'react'
 import BurgerNavbar from './Navbar'
 import './About.css'
+import SocialFollow from "./SocialFollow"
 
 export default function About(props) {
   return (
@@ -13,6 +14,7 @@ export default function About(props) {
     </div>
 
     </div>
+    <SocialFollow />
   </div>
   )
 };

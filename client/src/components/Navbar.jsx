@@ -4,6 +4,7 @@ import Navbar from 'react-bootstrap/Navbar'
 import axios from 'axios'
 import './Navbar.css'
 const imageLogo = require('../Images/b-time-logo.png')
+const favouriteStamp = require('../Images/favourite-stamp.png')
 
 
 export default function BurgerNavbar(props) {
@@ -57,6 +58,7 @@ export default function BurgerNavbar(props) {
         </Navbar.Brand>
         <div id="rightNav">
           <a>Hungry for some 🍔 's {user.full_name}?</a>
+          <a href={`/favourites`}><img src={favouriteStamp} className="favourite-image" height="25" width="50"></img></a>
         <a class="logout-button" onClick={userLogout}>Logout</a>
         </div>
 

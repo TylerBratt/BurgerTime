@@ -20,31 +20,38 @@ export default function Favourites(props) {
     // let a ={}
     //const a = state.extburgers.find(res => res.id === userBurgersId[i])
     userBurgersList.push(state.extburgers.find(res => res.id == userBurgersId[i]))
-  } 
+  }
+
+  // let userFavourites
+  // if (userBurgersList.length < 1) {
+  // userFavourites = <h1>You have not Chosen any Favourites yet!!</h1>
+  // } else {
   const userFavourites = userBurgersList.map((burger) =>(
     <div className='favourite-container'>
-  <div key={burger.id}> <img src={burger.image} height="100" width="100"></img>
-    </div>
-    <div>
-  <a href={`/restaurants/burger/${burger.id}`}>{burger.name}</a>
-    </div>
-    <div>
-  <a>{burger.restaurant}</a>
-    </div>
-  </div>));
+
+        <div key={burger.id}> <img src={burger.image} height="100" width="100"></img>
+        </div>
+        <div>
+          <a href={`/restaurants/burger/${burger.id}`}>{burger.name}</a>
+        </div>
+        <div>
+          <a>{burger.restaurant}</a>
+        </div>
+      </div>));
+  // };
 
   return (
     <div>
-      <BurgerNavbar />
-      <h1>{user.full_name}'s Favourite Burgers</h1>
-      <div>
-        {userFavourites}
+        <BurgerNavbar />
+        <h1>{user.full_name}'s Favourite Burgers</h1>
+        <div>
+          {userFavourites}
+        </div>
+        <tbody>
+
+        </tbody>
+        <SocialFollow />
       </div>
-      <tbody>
-        
-      </tbody>
-      <SocialFollow />
-    </div>
   )
 
 };

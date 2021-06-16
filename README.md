@@ -12,6 +12,7 @@ Start the back-end: rails s -p 3001 -b 0.0.0.0
 Rails back-end is running on port 3001 (or any other)
  
 cd /BurgerTime/client
+
 npm install
 yarn start
 React front-end is running on port 3000
