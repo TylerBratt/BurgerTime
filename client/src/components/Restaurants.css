@@ -49,6 +49,7 @@ h1 {
   color: white;
   display: flex;
   padding-left: 15px;
+  text-shadow: 3px 3px 6px #212529;
 }
 .temp_header {
   padding: 2px 12px 0 0;
