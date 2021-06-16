@@ -91,6 +91,9 @@ th a img {
 #burger-comments {
   border-radius: 20px;
   width:100%;
+  outline:none;
+  padding-left: 15px;
+
 }
 #name-comments {
   border-radius: 25px;

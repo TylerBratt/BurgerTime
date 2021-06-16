@@ -268,12 +268,27 @@ export default function Burger(props) {
             </div>
           </section>
 
-          <form className="comment-form" onSubmit={handleSubmit} action="submit" name="comment-form" id="comment-form">
-            <textarea id="burger-comments" form="commentform" name="burger-comments" rows="4" cols="50">
+          <form className="comment-form" 
+                onSubmit={handleSubmit} 
+                action="submit" 
+                name="comment-form" 
+                id="comment-form">
+            <textarea 
+            id="burger-comments" 
+            form="commentform" 
+            name="burger-comments" 
+            rows="4" 
+            cols="50"
+            required>
             </textarea>
             <p>Comment</p>
             <div className="form-name mb-4">
-              <input type="text" id="name-comments" form="commentform" cols="50" />
+              <input 
+              type="text" 
+              id="name-comments" 
+              form="commentform" 
+              cols="50"
+              required/>
               <p>Enter Your Name</p>
             </div>
             <button type="comment-button" className="btn btn-primary btn-sm">
