@@ -10,7 +10,6 @@ export default function Restaurants(props) {
   const { state, dispatch } = useApplicationData();
   const [results, setResults] = useState([]);
 
-
   useEffect(() => {
     const burgerList = `http://localhost:3001/api/extburgers`
     axios.get(burgerList).then(response => {
@@ -35,18 +34,16 @@ export default function Restaurants(props) {
                 {burger.restaurant}
               </div>
               <div class="temp_body">
-                {/* card-body */}
                 <p class="temp_text">
-                  {/* card-text */}
                   <ul class='address_list'>
                     {burger.addresses.map((address) => (
-                      <li key={`${burger.id}-${address.addressID}`}>
-                        <span>{address.number + " "}</span>
-                        <span>{address.line1 + " "}</span>
-                        <span>{address.line2 + " "}</span>
-                        <span>{address.postalCode + " "}</span>
-                        <span>{address.country}</span>
-                      </li>))}
+                    <li key={`${burger.id}-${address.addressID}`}>
+                      <span>{address.number + " "}</span>
+                      <span>{address.line1 + " "}</span>
+                      <span>{address.line2 + " "}</span>
+                      <span>{address.postalCode + " "}</span>
+                      <span>{address.country}</span>
+                    </li>))}
                   </ul>
                 </p>
               </div>
@@ -58,7 +55,9 @@ export default function Restaurants(props) {
     <div class="restaurants-background">
       <BurgerNavbar />
       <h1 class="restaurants-title"> Restaurants</h1>
-      <ul class="restaurant-list">{extRestaurantList}</ul>
+      <ul class="restaurant-list">
+        {extRestaurantList}
+      </ul>
       <div>
         <SocialFollow />
       </div>

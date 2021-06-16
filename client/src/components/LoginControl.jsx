@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import LoginButton from './LoginButton'
 import LogoutButton from './LogoutButton'
 
-
-
 export default class LoginControl extends Component {
   constructor(props) {
     super(props);

@@ -30,28 +30,11 @@ export default function AddressDropDown (props) {
     addresses,
   } = {...oneRestaurant}
 
-    const singleRestaurant= {}
-    const addressList = addresses.map((a) => (
-      singleRestaurant.keys = a.addressID,
-      singleRestaurant.value = [a.number, a.line1] 
-      ))
-
-    // const setDrp = (val) => {
-    //   setDropSelect(val)
-    //   resetCor()
-    // }
-
-    // const resetCor = () => {
-    //     addresses.map(res => {
-    //       // console.log("res",res.addressID)
-    //       // console.log("dropdown filter", dropDownFilter)
-    //       console.log(" lat",  res.lat)
-    //       if (dropDownFilter == res.addressID) {
-    //       const newCoords = [res.lat, res.long]
-    //       props.setCoords(newCoords)
-    //       console.log("THIS IS NEW COORDS", newCoords)}
-    //     })
-    // }
+  const singleRestaurant= {}
+  const addressList = addresses.map((a) => (
+    singleRestaurant.keys = a.addressID,
+    singleRestaurant.value = [a.number, a.line1] 
+    ))
 
   return (
     <div>

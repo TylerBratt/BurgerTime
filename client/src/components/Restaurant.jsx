@@ -6,12 +6,8 @@ import useApplicationData from '../hooks/useApplicationData'
 import {
   useParams,
 } from "react-router-dom";
-
-// Styling
 import "./Restaurant.css"
 import SocialFollow from "./SocialFollow"
-
-
 
 
 export default function Restaurant() {
@@ -76,11 +72,11 @@ export default function Restaurant() {
   return (
     <div className="restaurant-background">
       <BurgerNavbar />
-      <div className="main-restaurant">
-        <div className="logo-restaurant">
-          <div className="logo_background">
-          {logo}
-          </div>
+        <div className="main-restaurant">
+          <div className="logo-restaurant">
+            <div className="logo_background">
+              {logo}
+            </div>
           <div id='dropdown'>
             <AddressDropDown onDropDownChange={setDropDownFilter}/>
           </div>
@@ -95,11 +91,6 @@ export default function Restaurant() {
             {burgerList}
           </div>
         </div>
-        </div>
-        <div className="restaurant-map">
-          <SimpleMap 
-          center={[ convertToNumber(coords[0]), convertToNumber(coords[1]) ]}
-          />
       </div>
     <div class="restaurant-map">
       <SimpleMap 

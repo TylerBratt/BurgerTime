@@ -1,7 +1,7 @@
 import React from 'react'
 import BurgerNavbar from './Navbar'
 import useApplicationData from '../hooks/useApplicationData'
-import './Favourite.css'
+import './Favourites.css'
 import SocialFollow from "./SocialFollow"
 
 
@@ -17,8 +17,6 @@ export default function Favourites(props) {
 
   let userBurgersList = []
   for (let i = 0; i < userBurgersId.length; i++) {
-    // let a ={}
-    //const a = state.extburgers.find(res => res.id === userBurgersId[i])
     userBurgersList.push(state.extburgers.find(res => res.id == userBurgersId[i]))
   }
 
@@ -28,30 +26,27 @@ export default function Favourites(props) {
   // } else {
   const userFavourites = userBurgersList.map((burger) =>(
     <div className='favourite-container'>
-
-        <div key={burger.id}> <img src={burger.image} height="100" width="100"></img>
-        </div>
-        <div>
-          <a href={`/restaurants/burger/${burger.id}`}>{burger.name}</a>
-        </div>
-        <div>
-          <a>{burger.restaurant}</a>
-        </div>
-      </div>));
-  // };
+      <div key={burger.id}> <img src={burger.image} height="100" width="100"></img>
+      </div>
+      <div>
+        <a href={`/restaurants/burger/${burger.id}`}>{burger.name}</a>
+      </div>
+      <div>
+        <a>{burger.restaurant}</a>
+      </div>
+    </div>));
 
   return (
-    <div>
-        <BurgerNavbar />
-        <h1>{user.full_name}'s Favourite Burgers</h1>
-        <div>
-          {userFavourites}
-        </div>
-        <tbody>
-
-        </tbody>
+    <div className='favourites-page-background'>
+      <BurgerNavbar />
+      <h1 className="user-favourites">{user.full_name}'s Favourites</h1>
+      <div className='favourite-list'>
+        {userFavourites}
+      </div>
+      <div className='footer'>
         <SocialFollow />
       </div>
+      
+    </div>
   )
-
 };

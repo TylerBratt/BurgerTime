@@ -1,0 +1,49 @@
+.favourites-page-background {
+  background-image: url("../Images/burger-list-page.jpeg") ;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.user-favourites {
+  text-align: left;
+  text-shadow: 3px 3px 6px #212529;
+  margin: 12px 0 0 12px;
+  color: white;
+}
+
+.favourite-list {
+  display: flex;
+  flex-direction: column;
+  height: 600px;
+  align-items:flex-end;
+  overflow-x: hidden;
+  overflow-y:auto;
+  overflow:scroll;
+}
+
+.favourite-container {
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1em;
+  width:50%;
+  border: 3px solid #212529;
+  border-radius: 15px;
+  padding:2em;
+  background-color: white;
+  opacity: 0.7;
+}
+
+.favourite-container:hover {
+  opacity:1
+}
+
+.footer {
+  position: relative;
+  bottom: 0;
+  left:0;
+  right:0;
+}

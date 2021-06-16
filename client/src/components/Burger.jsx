@@ -32,41 +32,41 @@ export default function Burger(props) {
       console.log("logged IN")
     }
 
-    const userfavs = state.favourites.find(d => d.user_id == user_id && d.burger_id == id)
+  const userfavs = state.favourites.find(d => d.user_id == user_id && d.burger_id == id)
 
-    const handleClick = (event) => {
-      console.log("I FIRED")
-      event.preventDefault()
-      if (userfavs) {
-        console.log("Favourite EXISTS")
-      } else {
-        let favourite = {
-          user_id: user_id,
-          burger_id: id
-        }
-        axios.post('/api/favourites', { favourite })
-          .then(response => {
-            dispatch({
-              type: UPDATE_FAVOURITE_DATA,
-              favourites: response.data.favourite
-            })
-            window.location.href = '/favourites';
-          })
-          .catch(error => console.log('api errors:', error))
-      }
-    };
-
+  const handleClick = (event) => {
+    console.log("I FIRED")
+    event.preventDefault()
     if (userfavs) {
-      favouritesButton = <div></div>
-    } else if (user) {
-      favouritesButton = <button onClick={handleClick} type="favourites-button" className="btn btn-primary btn-sm">Add to Favourites!!</button>
-    } else favouritesButton = <div></div>
-
-    if (userfavs) {
-      favouriteImage = (<a href={`/favourites`}><img src={favouriteStamp} className="favourite-image" height="50" width="100"></img></a>)
+      console.log("Favourite EXISTS")
     } else {
-      favouriteImage = <div></div>
+      let favourite = {
+        user_id: user_id,
+        burger_id: id
+      }
+      axios.post('/api/favourites', { favourite })
+        .then(response => {
+          dispatch({
+            type: UPDATE_FAVOURITE_DATA,
+            favourites: response.data.favourite
+          })
+          window.location.href = '/favourites';
+        })
+        .catch(error => console.log('api errors:', error))
     }
+  };
+
+  if (userfavs) {
+    favouritesButton = <div></div>
+  } else if (user) {
+    favouritesButton = <button onClick={handleClick} type="favourites-button" className="btn btn-primary btn-sm">Add to Favourites!!</button>
+  } else favouritesButton = <div></div>
+
+  if (userfavs) {
+    favouriteImage = (<a href={`/favourites`}><img src={favouriteStamp} className="favourite-image" height="50" width="100"></img></a>)
+  } else {
+    favouriteImage = <div></div>
+  }
 
   }
 
@@ -171,7 +171,6 @@ export default function Burger(props) {
   const testburger = state.extburgers.find(d => d.id == id)
   if (!testburger) {
     return null
-    //Return GIF "LOADING"
   }
 
   const {
@@ -201,10 +200,6 @@ export default function Burger(props) {
   } else {
     burgerType = <div></div>
   }
-  // let burgerType
-  // if (!isVegetarian) {
-  //   burgerType = (<a>Carnivore Lovers!!</a>)
-  // } else burgerType = (<a>Herbivore Approved!!!</a>)
 
   return (
     <div className="page-background">
@@ -276,7 +271,6 @@ export default function Burger(props) {
           <form className="comment-form" onSubmit={handleSubmit} action="submit" name="comment-form" id="comment-form">
             <textarea id="burger-comments" form="commentform" name="burger-comments" rows="4" cols="50">
             </textarea>
-
             <p>Comment</p>
             <div className="form-name mb-4">
               <input type="text" id="name-comments" form="commentform" cols="50" />
