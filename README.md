@@ -5,17 +5,17 @@ An easy to use application for Burger enthusiasts looking for speciality or exot
 
 ## Application Images
 View of Homepage
-!["Home Page"](https://github.com/TylerBratt/BurgerTime/tree/main/docs/Home-page.png)
+!["Home Page"](https://github.com/TylerBratt/BurgerTime/tree/blob/docs/Home-page.png)
 View of Burgers Page
-!["Burgers Page"](https://github.com/TylerBratt/BurgerTime/tree/main/docs/Burgers-Page.png)
+!["Burgers Page"](https://github.com/TylerBratt/BurgerTime/blob/main/docs/Burgers-Page.png)
 View of Restaurants Page
-!["Restaurants Page"](https://github.com/TylerBratt/BurgerTime/tree/main/docs/Restaurants-Page.png)
+!["Restaurants Page"](https://github.com/TylerBratt/BurgerTime/blob/main/docs/Restaurants-Page.png)
 View of Add a Burger Page
-!["Add a Burger Page"](https://github.com/TylerBratt/BurgerTime/tree/main/docs/Add-A-Burger.png)
+!["Add a Burger Page"](https://github.com/TylerBratt/BurgerTime/blob/main/docs/Add-A-Burger.png)
 View of Indiviual Burger Page
-!["Individual Burger Page"](https://github.com/TylerBratt/BurgerTime/tree/main/docs/Burger-page.png)
+!["Individual Burger Page"](https://github.com/TylerBratt/BurgerTime/blob/main/docs/Burger-page.png)
 View of Individual Reastaurant Page
-!["Individual Restaurant Page"](https://github.com/TylerBratt/BurgerTime/tree/main/docs/Restaurant-Page.png)
+!["Individual Restaurant Page"](https://github.com/TylerBratt/BurgerTime/blob/main/docs/Restaurant-Page.png)
 
 ## Setup
 
