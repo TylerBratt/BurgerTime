@@ -13,11 +13,9 @@
 .restaurant-burgers-list {
   height: 789px;
   overflow-x: hidden;
-  overflow-y:auto;
 }
-::-webkit-scrollbar {
-  background: hidden;  /* Optional: just make scrollbar invisible */
-}
+::-webkit-scrollbar {display:none;}
+
 
 .burgers-title {
   color: white;
